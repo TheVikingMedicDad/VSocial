@@ -1,0 +1,17 @@
+{% extends "./base/base_email.txt" %}
+{% load i18n %}
+
+{% block content %}
+Hello {{ invitee_email }}!
+
+User {{ inviter_user_name }} invited you to be part of {{ project.name }}.
+{% if message|length > 0 %}
+{{ inviter_user_name }} added the following message to this invitation:
+---
+{{ message }}
+---
+{% endif %}
+If you want to join {{ project.name }} open this url in a browser:
+
+{{ project.webapp.url }}/{{ user_check_page }}
+{% endblock %}

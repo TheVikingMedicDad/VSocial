@@ -1,0 +1,16 @@
+<div class="csd-table-top-nav">
+  <csd-filter-button
+    *ngIf="hasFilters"
+    [filterSetId]="filterSetId"
+    [buttonTranslationKey]="'USER_LIST.FILTER_BUTTON'"
+  ></csd-filter-button>
+</div>
+
+<ng-content></ng-content>
+
+<mat-paginator
+  [csdPaginatorDataSource]="dataSource"
+  [pageIndex]="0"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100, 250]"
+></mat-paginator>

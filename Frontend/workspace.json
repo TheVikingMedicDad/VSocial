@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "projects": {
+    "libs": {
+      "root": "libs",
+      "sourceRoot": "libs",
+      "projectType": "library",
+      "prefix": "frontend",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "testing/jest.libs.config.js",
+            "tsConfig": "testing/tsconfig.libs.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "testing/test-setup.ts"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["testing/tsconfig.libs.json", "testing/tsconfig.libs.spec.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "xplat": {
+      "root": "xplat",
+      "sourceRoot": "xplat",
+      "projectType": "library",
+      "prefix": "frontend",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "testing/jest.xplat.config.js",
+            "tsConfig": "testing/tsconfig.xplat.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "testing/test-setup.ts"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["testing/tsconfig.xplat.json", "testing/tsconfig.xplat.spec.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "web-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/web-app",
+      "sourceRoot": "apps/web-app/src",
+      "prefix": "frontend",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/web-app",
+            "index": "apps/web-app/src/index.html",
+            "main": "apps/web-app/src/main.ts",
+            "polyfills": "apps/web-app/src/polyfills.ts",
+            "tsConfig": "apps/web-app/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/web-app/src/favicon.ico", "apps/web-app/src/assets"],
+            "styles": ["xplat/web/scss/_index.scss", "apps/web-app/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/web-app/src/environments/environment.ts",
+                  "with": "apps/web-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "web-app:build",
+            "optimization": false,
+            "aot": false
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "web-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "web-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/web-app/tsconfig.app.json",
+              "apps/web-app/tsconfig.spec.json",
+              "apps/web-app/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/web-app/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/web-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-app-e2e": {
+      "root": "apps/web-app-e2e",
+      "sourceRoot": "apps/web-app-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/web-app-e2e/cypress.json",
+            "tsConfig": "apps/web-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": ""
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/web-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/web-app-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "nativescript-app": {
+      "root": "apps/nativescript-app/",
+      "sourceRoot": "apps/nativescript-app/src",
+      "projectType": "application",
+      "prefix": "frontend",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "default": {
+          "builder": "@nrwl/workspace:run-commands",
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "libs/core/environments/environment.ts",
+                  "with": "libs/core/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "ios": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "ns debug ios --no-hmr --env.configuration={args.configuration} --env.projectName=nativescript-app"
+            ],
+            "cwd": "apps/nativescript-app",
+            "parallel": false
+          }
+        },
+        "android": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "ns debug android --no-hmr --env.configuration={args.configuration} --env.projectName=nativescript-app"
+            ],
+            "cwd": "apps/nativescript-app",
+            "parallel": false
+          }
+        },
+        "clean": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": ["ns clean", "npm i", "npx rimraf package-lock.json"],
+            "cwd": "apps/nativescript-app",
+            "parallel": false
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nstudio/xplat"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "changeDetection": "OnPush",
+      "style": "scss"
+    }
+  }
+}

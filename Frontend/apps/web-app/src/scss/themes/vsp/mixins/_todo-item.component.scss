@@ -1,0 +1,35 @@
+@mixin dta-todo-item-component($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .dta-todo-item {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px 25px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: 1px mat-color($mat-grey, 300) solid;
+    background-color: mat-color($background, 'card');
+
+    .dta-todo-text {
+      @include mat-typography-level-to-styles($typo, 'body-2');
+      margin: 0 20px;
+      flex-grow: 1;
+    }
+
+    .dta-edit-todo {
+      width: 80%;
+    }
+
+    .dta-save-button {
+      font-size: 11px;
+      line-height: 0px;
+    }
+  }
+}

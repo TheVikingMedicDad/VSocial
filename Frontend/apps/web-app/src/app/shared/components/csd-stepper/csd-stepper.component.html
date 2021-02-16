@@ -1,0 +1,42 @@
+<div
+  class="csd-stepper"
+  [fxLayout]="CSD_STEPPER_FLEX_LAYOUT.STEPPER.LAYOUT"
+  [fxLayoutAlign]="CSD_STEPPER_FLEX_LAYOUT.STEPPER.LAYOUT_ALIGN"
+>
+  <div
+    class="csd-navigation"
+    [fxLayout]="CSD_STEPPER_FLEX_LAYOUT.STEPPER.NAVIGATION.LAYOUT"
+    [fxFlex]="CSD_STEPPER_FLEX_LAYOUT.STEPPER.NAVIGATION.FLEX"
+    [ngClass]="horizontal ? 'csd-horizontal' : ''"
+  >
+    <div
+      class="csd-steps"
+      [fxLayoutAlign]="CSD_STEPPER_FLEX_LAYOUT.STEPPER.NAVIGATION.STEPS.LAYOUT_ALIGN"
+      [ngClass]="addStyleClass(step, i)"
+      *ngFor="let step of _steps; let i = index"
+      (click)="onClick(step, i)"
+    >
+      <mat-icon class="completed-icon" *ngIf="step.completed" fxLayoutAlign="center center">{{
+        completedIcon
+      }}</mat-icon
+      >{{ step.label
+      }}<mat-icon class="error-icon">{{
+        step.hasError && selectedIndex !== i ? errorIcon : ''
+      }}</mat-icon>
+    </div>
+  </div>
+  <div
+    [fxLayoutAlign]="CSD_STEPPER_FLEX_LAYOUT.STEPPER.CONTENT.LAYOUT_ALIGN"
+    [fxLayout]="CSD_STEPPER_FLEX_LAYOUT.STEPPER.CONTENT.LAYOUT"
+    [fxFlex]="CSD_STEPPER_FLEX_LAYOUT.STEPPER.CONTENT.FLEX"
+    class="csd-content"
+  >
+    <div
+      [@stepTransition]="animate ? _getAnimationDirection(i) : ''"
+      *ngFor="let step of _steps; let i = index"
+      [fxLayout]="CSD_STEPPER_FLEX_LAYOUT.STEPPER.CONTENT.LAYOUT"
+    >
+      <div *ngIf="selectedIndex === i" [ngTemplateOutlet]="selected.content"></div>
+    </div>
+  </div>
+</div>

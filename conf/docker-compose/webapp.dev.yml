@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+  webapp-server-proxy:
+    build:
+      dockerfile: ./conf/docker/webapp/server/proxy/Dockerfile.dev
+
+  webapp-frontend-webapp:
+    build:
+      dockerfile: ./conf/docker/webapp/frontend/webapp/Dockerfile.dev
+      target: dev
+    volumes:
+      - ../../Frontend:/app:consistent
+
+  webapp-server-webapp:
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/webapp/server/webapp/Dockerfile.dev
+    volumes:
+      - ../../Server/webapp:/app
+
+  webapp-server-webapp-assets-builder:
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/webapp/server/webapp-assets-builder/Dockerfile.dev
+    volumes:
+      - ../../Server/webapp:/app
+
+  # 
+
+  webapp-docs:
+    container_name: $CSD_PROJECT_NAME-webapp-docs-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-docs:$CSD_DOCKER_LOCAL_TAG
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/webapp/docs/Dockerfile
+      target: dev
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+    volumes:
+      - ../../docs:/docs/sphinx/
+      - ../../Server/webapp:/docs/src/Server/webapp
+      - ../../Frontend:/docs/src/Frontend/
+      - docs-server-node_modules:/docs/src/Frontend/node_modules
+
+  infra-server-ingress-nginx:
+    build:
+      target: dev
+    volumes:
+      - ../../conf/dev-certs:/etc/ssl/:cached
+
+volumes:
+  docs-server-node_modules: {}
+  shared-statics: {}

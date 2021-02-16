@@ -1,0 +1,100 @@
+<script src="../csd-password-reset/csd-password-reset.component.ts"></script>
+<div class="csd-container">
+  <div class="csd-user-register csd-form-with-img">
+    <div class="csd-project-logo csd-project-register">
+      <div class="csd-project-container">
+        <img class="csd-image" src="assets/images/logo_rect_dark.svg" alt="Project logo" />
+        <csd-carousel [carouselItems]="carouselItems"></csd-carousel>
+      </div>
+      <div class="csd-project-footer">
+        <p class="csd-description">{{ 'PROJECT.CAPTION_COPYRIGHT' | i18next }}</p>
+      </div>
+    </div>
+    <div class="csd-form csd-register-form">
+      <div class="csd-form-inner">
+        <h1 class="csd-title">{{ 'USER_REGISTER.TITLE' | i18next: { name: appName } }}</h1>
+        <p class="csd-description">
+          {{ 'USER_REGISTER.SWITCH_TO_LOGIN.TEXT' | i18next }}
+          <a [routerLink]="loginUrl" [queryParams]="queryParams">{{
+            'USER_REGISTER.SWITCH_TO_LOGIN.LINK' | i18next
+          }}</a>
+        </p>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+          <mat-form-field [appearance]="formFieldAppearance">
+            <mat-label>{{ 'USER_REGISTER.FORM.EMAIL.LABEL' | i18next }}</mat-label>
+            <input
+              matInput
+              [placeholder]="'USER_REGISTER.FORM.EMAIL.PLACEHOLDER' | i18next"
+              formControlName="email"
+              autocomplete="email"
+            />
+            <mat-hint>{{ 'USER_REGISTER.FORM.EMAIL.HINT' | i18next }}</mat-hint>
+            <mat-error *ngIf="(emailForm.dirty || emailForm.touched) && emailForm.errors?.required">
+              {{ 'USER_REGISTER.FORM.EMAIL.ERROR.REQUIRED' | i18next }}
+            </mat-error>
+            <mat-error
+              *ngIf="
+                (emailForm.dirty || emailForm.touched) &&
+                emailForm.errors?.invalid &&
+                !emailForm.errors?.required
+              "
+            >
+              {{ 'USER_REGISTER.FORM.EMAIL.ERROR.INVALID' | i18next }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field [appearance]="formFieldAppearance">
+            <mat-label>{{ 'USER_REGISTER.FORM.PASSWORD.LABEL' | i18next }}</mat-label>
+            <input
+              matInput
+              [placeholder]="'USER_REGISTER.FORM.PASSWORD.PLACEHOLDER' | i18next"
+              [type]="passwordHidden ? 'password' : 'text'"
+              formControlName="password"
+              autocomplete="new-password"
+            />
+            <mat-icon
+              fontSet="material-icons-outlined"
+              matSuffix
+              (click)="passwordHidden = !passwordHidden"
+            >
+              {{ passwordHidden ? 'visibility_off' : 'visibility' }}</mat-icon
+            >
+            <mat-hint>{{ 'USER_REGISTER.FORM.PASSWORD.HINT' | i18next }}</mat-hint>
+            <mat-error
+              *ngIf="(passwordForm.dirty || passwordForm.touched) && passwordForm.errors?.required"
+            >
+              {{ 'USER_REGISTER.FORM.PASSWORD.ERROR.REQUIRED' | i18next }}
+            </mat-error>
+            <mat-error
+              *ngIf="(passwordForm.dirty || passwordForm.touched) && !passwordForm.errors?.required"
+            >
+              {{ 'USER_REGISTER.FORM.PASSWORD.ERROR.INVALID' | i18next }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-checkbox class="csd-terms-checkbox" formControlName="terms"
+            ><span [innerHtml]="'USER_REGISTER.FORM.TERMS.LABEL' | i18next"></span>
+          </mat-checkbox>
+          <mat-error
+            class="csd-terms-checkbox-error"
+            *ngIf="(termsForm.dirty || termsForm.touched) && !termsForm.value"
+          >
+            {{ 'USER_REGISTER.FORM.TERMS.ERROR.REQUIRED' | i18next }}
+          </mat-error>
+
+          <button
+            class="csd-register-button"
+            type="submit"
+            mat-flat-button
+            color="primary"
+            [disabled]="registerInProgress"
+          >
+            <mat-spinner *ngIf="registerInProgress" class="csd-button-spinner"></mat-spinner>
+            {{ 'USER_REGISTER.FORM.REGISTER_BUTTON' | i18next }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="csd-container">
+  <div class="csd-user-login csd-form-with-img">
+    <div class="csd-project-logo csd-project-login">
+      <div class="csd-project-container">
+        <img class="csd-image" src="assets/images/logo_rect_dark.svg" alt="Project logo" />
+        <csd-carousel [carouselItems]="carouselItems"></csd-carousel>
+      </div>
+      <div class="csd-project-footer">
+        <p class="csd-description">{{ 'PROJECT.CAPTION_COPYRIGHT' | i18next }}</p>
+      </div>
+    </div>
+    <div class="csd-form csd-login-form">
+      <div class="csd-form-inner">
+        <h1 class="csd-title">{{ 'USER_LOGIN.TITLE' | i18next: { name: appName } }}</h1>
+        <p class="csd-description">
+          {{ 'USER_LOGIN.SWITCH_TO_REGISTER.TEXT' | i18next }}
+          <a [routerLink]="registerUrl" [queryParams]="queryParams">{{
+            'USER_LOGIN.SWITCH_TO_REGISTER.LINK' | i18next
+          }}</a>
+        </p>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+          <mat-form-field [appearance]="formFieldAppearance">
+            <mat-label>{{ 'USER_LOGIN.FORM.EMAIL.LABEL' | i18next }}</mat-label>
+            <input
+              matInput
+              [placeholder]="'USER_LOGIN.FORM.EMAIL.PLACEHOLDER' | i18next"
+              formControlName="email"
+              autocomplete="email"
+            />
+            <mat-error *ngIf="(emailForm.dirty || emailForm.touched) && emailForm.errors?.required">
+              {{ 'USER_LOGIN.FORM.EMAIL.ERROR.REQUIRED' | i18next }}
+            </mat-error>
+            <mat-error
+              *ngIf="
+                (emailForm.dirty || emailForm.touched) &&
+                emailForm.errors?.invalid &&
+                !emailForm.errors?.required
+              "
+            >
+              {{ 'USER_LOGIN.FORM.EMAIL.ERROR.INVALID' | i18next }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field [appearance]="formFieldAppearance">
+            <mat-label>{{ 'USER_LOGIN.FORM.PASSWORD.LABEL' | i18next }}</mat-label>
+            <input
+              matInput
+              [placeholder]="'USER_LOGIN.FORM.PASSWORD.PLACEHOLDER' | i18next"
+              [type]="passwordHidden ? 'password' : 'text'"
+              formControlName="password"
+              autocomplete="new-password"
+            />
+            <mat-icon
+              fontSet="material-icons-outlined"
+              matSuffix
+              (click)="passwordHidden = !passwordHidden"
+            >
+              {{ passwordHidden ? 'visibility_off' : 'visibility' }}</mat-icon
+            >
+            <mat-hint>
+              <a class="csd-lost-password" (click)="forgotPassword()">
+                {{ 'USER_LOGIN.FORM.LOST_PASSWORD_BUTTON' | i18next }}
+              </a>
+            </mat-hint>
+            <mat-error
+              *ngIf="(passwordForm.dirty || passwordForm.touched) && passwordForm.errors?.required"
+            >
+              {{ 'USER_LOGIN.FORM.PASSWORD.ERROR.REQUIRED' | i18next }}
+            </mat-error>
+          </mat-form-field>
+
+          <button
+            class="csd-login-button"
+            type="submit"
+            mat-flat-button
+            color="primary"
+            [disabled]="loginInProgress"
+          >
+            <mat-spinner *ngIf="loginInProgress" class="csd-button-spinner"></mat-spinner>
+            {{ 'USER_LOGIN.FORM.LOGIN_BUTTON' | i18next }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

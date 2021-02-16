@@ -1,0 +1,78 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% image value.background_image original as bg_photo %}
+<div
+  class="csd-layout-4-col-section csd-section csd-bg-color-{{ value.background_color }} {{ value.css_classes }}"
+  style="background-image: url('{{ bg_photo.url }}')"
+>
+  <div class="csd-container csd-align-text-{{ value.align }}">
+    <h1 class="csd-title">{{ value.title }}</h1>
+    <div class="csd-column-content hidden-mobile">
+      {% for block in value.column_1 %}
+      <div
+        class="csd-cell csd-col-1"
+        style="grid-column: 1 / 1 ; grid-row: {{ forloop.counter }} / {{ forloop.counter }}"
+      >
+        {% include_block block %}
+      </div>
+      {% endfor %} {% for block in value.column_2 %}
+      <div
+        class="csd-cell csd-col-2"
+        style="grid-column: 2 / 2 ; grid-row: {{ forloop.counter }} / {{ forloop.counter }}"
+      >
+        {% include_block block %}
+      </div>
+      {% endfor %} {% for block in value.column_3 %}
+      <div
+        class="csd-cell csd-col-3"
+        style="grid-column: 3 / 3 ; grid-row: {{ forloop.counter }} / {{ forloop.counter }}"
+      >
+        {% include_block block %}
+      </div>
+      {% endfor %} {% for block in value.column_4 %}
+      <div
+        class="csd-cell csd-col-4"
+        style="grid-column: 4 / 4 ; grid-row: {{ forloop.counter }} / {{ forloop.counter }}"
+      >
+        {% include_block block %}
+      </div>
+      {% endfor %}
+    </div>
+
+
+    {% with value.column_1|length as number_items %}
+       <div class="csd-column-content hidden-desktop">
+      {% for block in value.column_1 %}
+      <div
+        class="csd-cell csd-col-1"
+        style="grid-column: 1 / 1 ; grid-row: {{ forloop.counter }} / {{ forloop.counter }}"
+      >
+        {% include_block block %}
+      </div>
+      {% endfor %} {% for block in value.column_2 %}
+      <div
+        class="csd-cell csd-col-2"
+        style="grid-column: 2 / 2 ; grid-row: {{ forloop.counter }} / {{ forloop.counter }}"
+      >
+        {% include_block block %}
+      </div>
+      {% endfor %} {% for block in value.column_3 %}
+      <div
+        class="csd-cell csd-col-3"
+        style="grid-column: 1 / 1 ; grid-row: {{ forloop.counter|add:number_items }} / {{ forloop.counter|add:number_items }}"
+      >
+        {% include_block block %}
+      </div>
+      {% endfor %} {% for block in value.column_4 %}
+      <div
+        class="csd-cell csd-col-4"
+        style="grid-column: 2 / 2 ; grid-row: {{ forloop.counter|add:number_items }} / {{ forloop.counter|add:number_items }}"
+      >
+        {% include_block block %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endwith %}
+
+  </div>
+</div>

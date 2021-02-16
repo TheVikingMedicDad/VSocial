@@ -1,0 +1,47 @@
+@import '~@angular/material/theming';
+@import 'themes/default/variables';
+@import 'themes/default/palettes';
+@import 'themes/default/typography';
+@import 'themes/default/components';
+@import 'themes/vsp/variables';
+@import 'themes/vsp/palettes';
+@import 'themes/vsp/typography';
+@import 'themes/vsp/components';
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+@include angular-material-typography($csd-typography);
+
+$theme-name: 'default' !default;
+
+$theme-css-selector-light: 'csd-theme-' + $theme-name + '-light';
+$theme-css-selector-dark: 'csd-theme-' + $theme-name + '-dark';
+
+// generate theme palettes based on palette variables
+$csd-primary-palette: mat-palette($csd-primary) !default;
+$csd-accent-palette: mat-palette($csd-accent) !default;
+$csd-warn-palette: mat-palette($csd-warn) !default;
+
+$csd-light-theme: mat-light-theme($csd-primary-palette, $csd-accent-palette, $csd-warn-palette);
+$csd-dark-theme: mat-dark-theme($csd-primary-palette, $csd-accent-palette, $csd-warn-palette);
+
+.#{$theme-css-selector-light} {
+  @include angular-material-theme($csd-light-theme);
+  @include csd-components($csd-light-theme, $csd-typography);
+  @if mixin-exists(csd-override-components) {
+    &.#{$csd-projekt-key}-theme {
+      @include csd-override-components($csd-light-theme, $csd-typography);
+    }
+  }
+}
+
+.#{$theme-css-selector-dark} {
+  @include angular-material-theme($csd-dark-theme);
+  @include csd-components($csd-dark-theme, $csd-typography);
+  @if mixin-exists(csd-override-components) {
+    &.#{$csd-projekt-key}-theme {
+      @include csd-override-components($csd-light-theme, $csd-typography);
+    }
+  }
+}

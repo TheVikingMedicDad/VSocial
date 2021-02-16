@@ -1,0 +1,9 @@
+@mixin csd-user-confirm-account-reminder($theme, $typo) {
+  $primary: map-get($theme, primary);
+
+  .csd-user-confirm-account-reminder {
+    text-align: center;
+    background-color: map-get($primary, 700);
+    color: map-get($primary, '800-contrast');
+  }
+}

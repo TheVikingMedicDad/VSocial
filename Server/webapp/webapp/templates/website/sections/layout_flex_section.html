@@ -1,0 +1,18 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% image value.background_image original as bg_photo %}
+
+<div class="csd-layout-flex-section csd-section csd-bg-color-{{ value.background_color }} {{ value.css_classes }}"
+     style="background-image: url('{{ bg_photo.url }}')" id="{{ value.id }}"
+>
+
+  <div class="csd-container">
+
+    {% for block in value.elements %}
+      <div class="csd-element csd-align-text-{{ value.align }}">
+        {% include_block block %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+

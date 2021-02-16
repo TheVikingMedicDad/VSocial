@@ -1,0 +1,13 @@
+<div class="csd-crud-model-page">
+  <csd-user-invitation-model
+    [mode]="mode"
+    *ngIf="this.mode == 'add'"
+    #csdModelComponent
+  ></csd-user-invitation-model>
+  <csd-user-invitation-model
+    #csdModelComponent
+    [modelId]="modelId"
+    [mode]="mode"
+    *ngIf="this.mode != 'add'"
+  ></csd-user-invitation-model>
+</div>

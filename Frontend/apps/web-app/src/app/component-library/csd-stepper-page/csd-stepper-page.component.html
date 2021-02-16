@@ -1,0 +1,79 @@
+<div class="csd-stepper-page">
+  <mat-checkbox (change)="toggleDirection()"> Horizontal</mat-checkbox>
+  <br />
+  <mat-checkbox (change)="toggleAnimation()"> Animation</mat-checkbox>
+  <br />
+  <br />
+  <form [formGroup]="testForm">
+    <csd-stepper
+      [horizontal]="horizontal"
+      (enterDisabled)="generalTestAction($event)"
+      [animate]="animate"
+    >
+      <csd-step
+        [label]="'Step 1'"
+        [id]="csdStepperStepIds.STEP_1"
+        [completed]="!testControlForm.errors && testControlForm.touched"
+        [hasError]="testControlForm.errors && testControlForm.touched"
+        #neededForSecondStep
+      >
+        <h2>Step 1</h2>
+        <mat-form-field [appearance]="formFieldAppearance">
+          <mat-label>First test name</mat-label>
+          <input matInput type="text" formControlName="testControl" name="text1" />
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button cdkStepperNext type="button">Next</button>
+        </div>
+      </csd-step>
+      <csd-step
+        [label]="'Step 2'"
+        [id]="csdStepperStepIds.STEP_2"
+        [completed]="!testControlForm2.errors && testControlForm2.touched"
+        [hasError]="testControlForm2.errors && testControlForm2.touched"
+        [disabled]="!neededStep.completed"
+      >
+        <h2>Step 2</h2>
+        <mat-form-field [appearance]="formFieldAppearance">
+          <mat-label>Second test name</mat-label>
+          <input matInput type="text" formControlName="testControl2" name="text1" />
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button cdkStepperPrevious>Previous</button>
+          <button mat-raised-button cdkStepperNext type="button">Next</button>
+        </div>
+      </csd-step>
+      <csd-step
+        [label]="'Step 3'"
+        [id]="csdStepperStepIds.STEP_3"
+        [completed]="!testControlForm3.errors && testControlForm3.touched"
+        [hasError]="testControlForm3.errors && testControlForm3.touched"
+        [disabled]="!neededStep.completed"
+      >
+        <h2>Step 3</h2>
+        <mat-form-field [appearance]="formFieldAppearance">
+          <mat-label>Third test name</mat-label>
+          <input matInput type="text" formControlName="testControl3" name="text1" />
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button cdkStepperPrevious>Previous</button>
+          <button mat-raised-button cdkStepperNext type="button">Next</button>
+        </div>
+      </csd-step>
+      <csd-step
+        [label]="'Step 4'"
+        [id]="csdStepperStepIds.STEP_4"
+        [completed]="secondCompleted"
+        [hasError]="secondError"
+      >
+        <csd-stepper-second-page
+          (secondFormInvalid)="secondError = true; secondCompleted = false"
+          (secondFormValid)="secondError = false; secondCompleted = true"
+        ></csd-stepper-second-page>
+      </csd-step>
+    </csd-stepper>
+  </form>
+</div>

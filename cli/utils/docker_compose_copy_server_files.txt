@@ -1,0 +1,11 @@
++ cli/
++ cli/*
++ conf/
++ conf/docker-compose/
++ conf/docker-compose/*
++ conf/envs/
++ conf/envs/*
++ conf/dev-certs/
++ conf/dev-certs/*
+- *
+

@@ -1,0 +1,20 @@
+@mixin csd-container($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-container {
+    max-width: $csd-container-width;
+    margin: 0 auto;
+    overflow-x: hidden;
+    @media #{$mat-lt-lg} {
+      padding: 24px 40px
+    }
+    @media #{$mat-lt-sm} {
+      padding: 40px 24px
+    }
+  }
+}

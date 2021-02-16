@@ -1,0 +1,12 @@
+<div class="csd-choice-filter csd-base-filter">
+  <csd-filter-widget [title]="getTitle()" (close)="destroy()">
+    <mat-form-field class="csd-filter-select">
+      <mat-label>{{ translateFieldId(this.fieldId) }}</mat-label>
+      <mat-select (selectionChange)="changeQuery($event.value)" [value]="selectedChoice">
+        <mat-option *ngFor="let choice of this.filterOptions.choices" [value]="choice">
+          {{ choice.choiceTranslationKey | i18next }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </csd-filter-widget>
+</div>

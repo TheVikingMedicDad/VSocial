@@ -1,0 +1,34 @@
+#########################
+# base stage
+#########################
+
+# docker based on a node docker (https://hub.docker.com/_/node/)
+FROM node:12.18 AS dev
+
+# install tools
+RUN apt-get update; \
+    apt-get install -y vim net-tools jq
+
+# set working directory
+WORKDIR /app
+
+# NOTE: the following execution order of copy and installing is importent in order to cache the node_modules
+# see: https://christianfei.com/posts/Cache-speed-up-docker-node-modules/
+# install and cache app dependencies
+COPY ./Frontend/package.json /app
+COPY ./Frontend/package-lock.json /app
+
+# we need to remove this, as it is just a symlink not needed in run env (only for IDE)
+#RUN npm uninstall @frontend/scss
+
+RUN npm install -g @nrwl/cli
+RUN mkdir -p /app/libs/scss
+COPY ./Frontend/libs/scss/package.json /app/libs/scss/package.json
+
+# install the node_modules
+RUN npm ci --no-audit
+
+# needed because the @import '~@frontend/scss/index' needs this location see https://github.com/nrwl/nx/issues/1542#issuecomment-509639913
+#RUN mkdir -p node_modules/@frontend; \
+#    ln -s libs/scss node_modules/@frontend/scss
+

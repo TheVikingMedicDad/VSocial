@@ -1,0 +1,25 @@
+@mixin csd-mat-buttons($theme, $typo) {
+  $primary: mat-color($theme, primary);
+  $accent: mat-color($theme, accent);
+  $warn: mat-color($theme, warn);
+  $background: mat-color($theme, background);
+  $foreground: mat-color($theme, foreground);
+  $is-dark-theme: mat-color($theme, is-dark);
+
+  .mat-button,
+  .mat-raised-button,
+  .mat-flat-button,
+  .mat-stroked-button {
+    min-height: 36px;
+    line-height: 36px;
+    padding: 16px 32px;
+    //text-transform: uppercase;
+    @include mat-typography-level-to-styles($typo, "button");
+    border-radius: 90px;
+    cursor: pointer;
+  }
+
+  .mat-flat-button {
+    border: none;
+  }
+}

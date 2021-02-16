@@ -1,0 +1,126 @@
+@mixin csd-component-library($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .csd-component-library {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+
+    .csd-navigation-wrapper {
+      .csd-navigation {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        align-self: stretch;
+        @include mat-typography-level-to-styles($typo, 'body-2');
+      }
+    }
+
+    .csd-content {
+      flex: 2 1 auto;
+      align-self: stretch;
+      padding: 0 10% 0 10%;
+    }
+
+    .csd-account-email-preview {
+      width: 100%;
+      height: 100vh;
+      box-sizing: border-box;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+
+      .csd-top-content {
+        padding-bottom: 10px;
+
+        button {
+          margin-right: 20px;
+        }
+      }
+
+      .csd-last-email-preview {
+        flex: 2;
+
+        iframe {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .csd-typography {
+      text-transform: capitalize;
+      display: flex;
+      justify-content: space-between;
+
+      div > div {
+        margin-bottom: 40px;
+      }
+
+      .csd-right {
+        text-align: center;
+        padding-right: 10px;
+      }
+    }
+
+    .csd-display-4 {
+      @include mat-typography-level-to-styles($typo, 'display-4');
+    }
+
+    .csd-display-3 {
+      @include mat-typography-level-to-styles($typo, 'display-3');
+    }
+
+    .csd-display-2 {
+      @include mat-typography-level-to-styles($typo, 'display-2');
+    }
+
+    .csd-display-1 {
+      @include mat-typography-level-to-styles($typo, 'display-1');
+    }
+
+    .csd-headline {
+      @include mat-typography-level-to-styles($typo, 'headline');
+    }
+
+    .csd-title {
+      @include mat-typography-level-to-styles($typo, 'title');
+    }
+
+    .csd-subheading-2 {
+      @include mat-typography-level-to-styles($typo, 'subheading-2');
+    }
+
+    .csd-subheading-1 {
+      @include mat-typography-level-to-styles($typo, 'subheading-1');
+    }
+
+    .csd-typo-body-2 {
+      @include mat-typography-level-to-styles($typo, 'body-2');
+    }
+
+    .csd-typo-body-1 {
+      @include mat-typography-level-to-styles($typo, 'body-1');
+    }
+
+    .csd-caption {
+      @include mat-typography-level-to-styles($typo, 'caption');
+    }
+
+    .csd-button {
+      @include mat-typography-level-to-styles($typo, 'button');
+      text-transform: uppercase;
+    }
+
+    .csd-overline {
+      @include mat-typography-level-to-styles($typo, 'overline');
+      text-transform: uppercase;
+    }
+  }
+}

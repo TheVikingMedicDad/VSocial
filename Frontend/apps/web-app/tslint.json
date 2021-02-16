@@ -1,0 +1,15 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      ["csd", "vsp"],
+      "camelCase"
+    ],
+    "component-selector": [true, "element", ["csd", "vsp"], "kebab-case"]
+  },
+  "linterOptions": {
+    "exclude": ["!**/*"]
+  }
+}

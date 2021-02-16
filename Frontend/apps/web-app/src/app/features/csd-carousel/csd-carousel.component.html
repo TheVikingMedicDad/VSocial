@@ -1,0 +1,18 @@
+<div class="csd-carousel">
+  <csd-carousel-item
+    *ngFor="let component of carouselItems; let i = index"
+    [title]="component.title"
+    [imageSrc]="component.imageSrc"
+    [description]="component.description"
+    [isActive]="i === currentActivePos"
+  ></csd-carousel-item>
+  <div class="csd-carousel-navigation" *ngIf="showIndicator">
+    <span
+      *ngFor="let component of carouselItems; let i = index"
+      [ngClass]="
+        i === currentActivePos ? 'csd-carousel-indicator active' : 'csd-carousel-indicator'
+      "
+      (click)="changeCurrentActive(i)"
+    ></span>
+  </div>
+</div>

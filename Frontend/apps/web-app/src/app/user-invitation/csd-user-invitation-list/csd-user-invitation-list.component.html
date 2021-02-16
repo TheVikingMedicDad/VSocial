@@ -1,0 +1,94 @@
+<div class="csd-crud-list csd-user-invitation-list">
+  <div class="csd-top-action-bar">
+    <button class="csd-add-button" mat-button (click)="addNewUserInvitation()">
+      <mat-icon>add</mat-icon>
+      {{ 'USER_INVITATION_LIST.ADD_NEW_BUTTON' | i18next }}
+    </button>
+  </div>
+  <csd-model-list-wrapper [dataSource]="dataSource">
+    <ng-container *ngTemplateOutlet="tableContainer"></ng-container>
+  </csd-model-list-wrapper>
+</div>
+
+<ng-template #tableContainer>
+  <div class="csd-table-container">
+    <table
+      mat-table
+      class="csd-full-width-table"
+      [dataSource]="dataSource"
+      matSort
+      csdMatSortDatasourceConnector
+      aria-label="Elements"
+    >
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+            (change)="$event ? masterToggle() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+          >
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)"
+          >
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+      </ng-container>
+
+      <!-- InviteeEmail Column -->
+      <ng-container matColumnDef="inviteeEmail">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'MODEL.INVITATION.CONSTANTS.INVITEE_EMAIL' | i18next }}
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.inviteeEmail }}</td>
+      </ng-container>
+
+      <!-- Invitation State -->
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'MODEL.INVITATION.CONSTANTS.STATE' | i18next }}
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.state }}</td>
+      </ng-container>
+
+      <!-- Expiration Date -->
+      <ng-container matColumnDef="expires">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'MODEL.INVITATION.CONSTANTS.EXPIRES' | i18next }}
+        </th>
+        <td mat-cell *matCellDef="let row">{{ getExpires(row.expires) }}</td>
+      </ng-container>
+
+      <!-- Actions -->
+      <ng-container matColumnDef="actions">
+        <th class="csd-actions-header" mat-header-cell *matHeaderCellDef>
+          <button class="csd-more-button" mat-icon-button>
+            <mat-icon aria-label="menu">more_horiz</mat-icon>
+          </button>
+        </th>
+        <td class="csd-actions" mat-cell *matCellDef="let row">
+          <button class="csd-view-button" mat-icon-button (click)="viewUserInvitation(row.id)">
+            <mat-icon aria-label="view">visibility</mat-icon>
+          </button>
+          <button class="csd-delete-button" mat-icon-button (click)="cancelUserInvitation(row.id)">
+            <mat-icon aria-label="delete">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</ng-template>

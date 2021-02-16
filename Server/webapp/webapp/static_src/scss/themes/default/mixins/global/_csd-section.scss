@@ -1,0 +1,12 @@
+@mixin csd-section($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-section {
+    padding: 80px 0;
+  }
+}

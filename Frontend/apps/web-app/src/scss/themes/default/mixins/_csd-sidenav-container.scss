@@ -1,0 +1,53 @@
+@mixin csd-sidenav-container($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-sidenav-container {
+    .csd-main-container {
+      // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+      // --vh is set in CsdMainLayoutComponent.setViewPortHeight
+      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
+    }
+
+    .mat-drawer-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+
+      &.csd-public-page {
+        height: 100vh;
+      }
+
+      &.csd-private-page {
+        top: $mat-toolbar-height-desktop;
+        @media ($mat-xsmall) {
+          top: $mat-toolbar-height-mobile;
+        }
+
+        &.csd-modal-notification {
+          top: $mat-toolbar-height-desktop + $mat-modal-notification-height;
+          @media ($mat-xsmall) {
+            top: $mat-toolbar-height-mobile + $mat-modal-notification-height;
+          }
+        }
+      }
+
+      mat-drawer {
+        //this controls the with of the drawer
+        // (don't use percentage see https://material.angular.io/components/sidenav/overview#setting-the-sidenav-39-s-size)
+        max-width: 600px;
+        @media ($mat-small) {
+          width: 100%;
+          max-width: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+<script src="../../auth/csd-password-reset/csd-password-reset.component.ts"></script>
+<div class="csd-auth-check-dialog">
+  <h1 mat-dialog-title>{{ 'AUTH_CHECK_DIALOG.TITLE' | i18next }}</h1>
+  <form [formGroup]="checkPasswordForm" novalidate>
+    <div mat-dialog-content>
+      <div fxLayout="column" fxLayoutAlign="space-around stretch">
+        <p
+          class="csd-description"
+          [innerHtml]="'AUTH_CHECK_DIALOG.DESCRIPTION' | i18next: { action: translatedAction }"
+        ></p>
+        <mat-form-field [appearance]="formFieldAppearance">
+          <mat-label>{{ 'AUTH_CHECK_DIALOG.FORM.USERNAME.LABEL' | i18next }}</mat-label>
+          <input
+            matInput
+            [placeholder]="'AUTH_CHECK_DIALOG.FORM.USERNAME.PLACEHOLDER' | i18next"
+            type="text"
+            formControlName="username"
+            autocomplete="username"
+          />
+        </mat-form-field>
+
+        <mat-form-field [appearance]="formFieldAppearance">
+          <mat-label>{{ 'AUTH_CHECK_DIALOG.FORM.CURRENT_PASSWORD.LABEL' | i18next }}</mat-label>
+          <input
+            cdkFocusInitial
+            matInput
+            [placeholder]="'AUTH_CHECK_DIALOG.FORM.CURRENT_PASSWORD.PLACEHOLDER' | i18next"
+            [type]="currentPasswordHidden ? 'password' : 'text'"
+            formControlName="currentPassword"
+            autocomplete="current-password"
+          />
+          <mat-icon matSuffix (click)="currentPasswordHidden = !currentPasswordHidden">
+            {{ currentPasswordHidden ? 'visibility_off' : 'visibility' }}</mat-icon
+          >
+          <mat-hint>{{ 'AUTH_CHECK_DIALOG.FORM.CURRENT_PASSWORD.HINT' | i18next }}</mat-hint>
+          <mat-error
+            *ngIf="
+              (currentPasswordForm.dirty || currentPasswordForm.touched) &&
+              currentPasswordForm.errors?.required
+            "
+          >
+            {{ 'AUTH_CHECK_DIALOG.FORM.CURRENT_PASSWORD.ERROR.REQUIRED' | i18next }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+      <button color="accent" mat-button [mat-dialog-close]="false">
+        {{ 'BUTTON.CANCEL' | i18next }}
+      </button>
+      <button
+        color="accent"
+        (click)="saveNewPassword()"
+        class="csd-auth-check-button"
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="inProgress"
+      >
+        <mat-spinner *ngIf="inProgress" class="csd-button-spinner"></mat-spinner>
+        {{ 'BUTTON.OK' | i18next }}
+      </button>
+    </div>
+  </form>
+</div>

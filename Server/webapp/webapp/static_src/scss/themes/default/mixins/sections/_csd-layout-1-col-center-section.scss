@@ -1,0 +1,27 @@
+@mixin csd-layout-1-col-center-section($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-layout-1-col-center-section {
+    padding: $csd-section-padding 0;
+    @media #{$mat-lt-sm} {
+      padding: $csd-section-padding-mobile 0;
+    }
+
+    & > .csd-container {
+      & > .csd-center-column {
+        margin: 0 auto;
+        max-width: 560px;
+        text-align: center;
+
+        h1 {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+}

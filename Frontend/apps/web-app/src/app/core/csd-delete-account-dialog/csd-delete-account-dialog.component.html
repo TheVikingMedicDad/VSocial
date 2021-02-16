@@ -1,0 +1,55 @@
+<div class="csd-delete-account-dialog">
+  <h1 mat-dialog-title>{{ 'DELETE_ACCOUNT_DIALOG.TITLE' | i18next }}</h1>
+
+  <form [formGroup]="deleteAccountForm" novalidate>
+    <div mat-dialog-content>
+      <div fxLayout="column" fxLayoutAlign="space-around stretch">
+        <p class="csd-description" [innerHtml]="'DELETE_ACCOUNT_DIALOG.DESCRIPTION' | i18next"></p>
+        <mat-form-field [appearance]="formFieldAppearance">
+          <mat-label>{{
+            'DELETE_ACCOUNT_DIALOG.FORM.CONFIRMATION_TEXT.LABEL' | i18next
+          }}</mat-label>
+          <input
+            cdkFocusInitial
+            matInput
+            [placeholder]="'DELETE_ACCOUNT_DIALOG.FORM.CONFIRMATION_TEXT.PLACEHOLDER' | i18next"
+            type="text"
+            formControlName="confirmationText"
+          />
+          <mat-error
+            *ngIf="
+              (confirmationTextForm.dirty || confirmationTextForm.touched) &&
+              confirmationTextForm.errors?.required
+            "
+          >
+            {{ 'DELETE_ACCOUNT_DIALOG.FORM.CONFIRMATION_TEXT.ERROR.REQUIRED' | i18next }}
+          </mat-error>
+          <mat-error
+            *ngIf="
+              (confirmationTextForm.dirty || confirmationTextForm.touched) &&
+              !confirmationTextForm.errors?.required &&
+              confirmationTextForm.errors?.unequal
+            "
+          >
+            {{ 'DELETE_ACCOUNT_DIALOG.FORM.CONFIRMATION_TEXT.ERROR.INVALID' | i18next }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+      <button color="accent" mat-button [mat-dialog-close]="false">
+        {{ 'BUTTON.CANCEL' | i18next }}
+      </button>
+      <button
+        color="accent"
+        mat-raised-button
+        (click)="deleteAccount()"
+        color="warn"
+        type="submit"
+        [disabled]="!deleteAccountForm.valid"
+      >
+        {{ 'DELETE_ACCOUNT_DIALOG.FORM.SUBMIT_BUTTON' | i18next }}
+      </button>
+    </div>
+  </form>
+</div>

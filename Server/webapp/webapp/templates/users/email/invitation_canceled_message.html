@@ -1,0 +1,12 @@
+{% extends "./base/base_email.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1>
+    Your Invitation has been canceled!
+  </h1>
+
+  <p>
+    We have to inform you about the cancelation of your invitation to {{ project.name }}.
+  </p>
+{% endblock %}

@@ -1,0 +1,940 @@
+{
+  "LANG": {
+    "DE": "German",
+    "EN": "English"
+  },
+  "PAGE_ERRORS": {
+    "NOT_FOUND": {
+      "TEXT": "Oooops. This site doesn’t exist.",
+      "LINK_TEXT": "Return to homepage"
+    }
+  },
+  "PROJECT": {
+    "SHORT_DESCRIPTION": "Short messaging regarding the benefits of using the Product or about new features goes here.",
+    "BUTTON_TEXT": "CTA BUTTON",
+    "CAPTION_COPYRIGHT": "Powered by Carrot & Company",
+    "SHORT_QUOTE": "A short quote from one our our happy customers goes right here. This can be a slider too featuring two to three testimonials. Each one can highlight one or two benefits in their quote.",
+    "QUOTE_AUTHOR": "- John Doe, Google Inc."
+  },
+  "LOGIN_CAROUSEL": {
+    "ITEM_1": {
+      "TITLE": "Item 1 title placeholder",
+      "DESCRIPTION": "Item 1 description text placeholder."
+    },
+    "ITEM_2": {
+      "TITLE": "Item 2 title placeholder",
+      "DESCRIPTION": "Item 2 description text placeholder."
+    },
+    "ITEM_3": {
+      "TITLE": "Item 3 title placeholder",
+      "DESCRIPTION": "Item 3 description text placeholder."
+    }
+  },
+  "BUTTON": {
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "CLOSE": "Close",
+    "OK": "OK",
+    "RESET": "Reset",
+    "YES": "Yes",
+    "NO": "No",
+    "CONTINUE": "Continue",
+    "NEXT": "Next",
+    "BACK": "Back",
+    "ADD": "Save",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "MORE_INFO": "More Info",
+    "LESS_INFO": "Less Info",
+    "FILTER": "Filter"
+  },
+  "PAGINATOR": {
+    "ITEMS_PER_PAGE": "Items per page",
+    "NEXT_PAGE": "Next page",
+    "PREV_PAGE": "Previous page",
+    "OF": "of"
+  },
+  "CRUD": {
+    "TITLE": {
+      "EDIT": "Edit {{readableId}}",
+      "VIEW": "{{readableId}}",
+      "ADD": "Add {{readableModelName}}"
+    },
+    "DELETE_CONFIRMATION": "Do you want to delete {{readableModelName}} {{readableModelId}}?"
+  },
+  "DEFAULT_CONFIRM_DIALOG": {
+    "TITLE": "Confirmation Dialog",
+    "MESSAGE": "Are you sure?"
+  },
+  "MODEL": {
+    "ADDRESS": {
+      "CONSTANTS": {
+        "COUNTRY": "Country",
+        "ADDRESS_LINE_1": "Address Line 1",
+        "ADDRESS_LINE_2": "Address Line 2",
+        "CITY": "City",
+        "ZIP_CODE": "Zip"
+      },
+      "FORM": {
+        "ADDRESS_LINE_1": {
+          "LABEL": "Address Line 1",
+          "PLACEHOLDER": "e.g. Rue de Rivoli",
+          "HINT": " ",
+          "ERROR": {
+            "REQUIRED": "This field is required",
+            "INVALID": "The given value is invalid"
+          }
+        },
+        "ADDRESS_LINE_2": {
+          "LABEL": "Address Line 2",
+          "PLACEHOLDER": "e.g. Appartment, suite, unit, floor",
+          "HINT": " ",
+          "ERROR": {
+            "REQUIRED": "This field is required",
+            "INVALID": "The given value is invalid"
+          }
+        },
+        "REGION": {
+          "LABEL": "State / Province / Region",
+          "PLACEHOLDER": "e.g. Île-de-France",
+          "HINT": " ",
+          "ERROR": {
+            "REQUIRED": "This field is required",
+            "INVALID": "The given value is invalid"
+          }
+        },
+        "CITY": {
+          "LABEL": "City",
+          "PLACEHOLDER": "e.g. Paris",
+          "HINT": " ",
+          "ERROR": {
+            "REQUIRED": "This field is required",
+            "INVALID": "The given value is invalid"
+          }
+        },
+        "ZIP_CODE": {
+          "LABEL": "Zip",
+          "PLACEHOLDER": "e.g. 75001",
+          "HINT": " ",
+          "ERROR": {
+            "REQUIRED": "This field is required",
+            "INVALID": "The given value is invalid"
+          }
+        },
+        "COUNTRY": {
+          "LABEL": "Country",
+          "PLACEHOLDER": "e.g. France",
+          "HINT": " ",
+          "ERROR": {
+            "REQUIRED": "This field is required",
+            "INVALID": "The given value is invalid"
+          }
+        }
+      }
+    },
+    "USER": {
+      "CLS": "User",
+      "FORM": {
+        "SAVED": "User settings saved.",
+        "ERROR": {
+          "INVALID_FORM_DATA": "Input invalid. Please check the your inputs.",
+          "DUPLICATE_EMAIL": "Email already exists"
+        },
+        "SECTION_PERSONAL_INFORMATION": "User Information",
+        "SALUTATION": {
+          "LABEL": "Title",
+          "OPTIONS": {
+            "MR": "Mr",
+            "MS": "Ms",
+            "MRS": "Mrs",
+            "MX": "Mx"
+          }
+        },
+        "FIRST_NAME": {
+          "LABEL": "First name",
+          "PLACEHOLDER": "your first name",
+          "ERROR": {
+            "REQUIRED": "Your first name is required."
+          }
+        },
+        "LAST_NAME": {
+          "LABEL": "Last name",
+          "PLACEHOLDER": "your last/family name",
+          "ERROR": {
+            "REQUIRED": "Your last name is required."
+          }
+        },
+        "EMAIL": {
+          "LABEL": "e-mail address",
+          "HINT": "enter e-mail address",
+          "PLACEHOLDER": "e-mail address",
+          "ERROR": {
+            "REQUIRED": "e-mail address is required",
+            "INVALID": "this is not a valid e-mail address"
+          }
+        },
+        "LANGUAGE": {
+          "LABEL": "Language"
+        },
+        "LAST_EVENT": {
+          "LABEL": "Last Event"
+        },
+        "DATE_JOINED": {
+          "LABEL": "Date Joined"
+        },
+        "LAST_LOGIN": {
+          "LABEL": "Last Login"
+        },
+        "TAGS": {
+          "LABEL": "Tags",
+          "CHOOSE_TAG": "Tags",
+          "NO_ENTRIES_FOUND": "Nothing found. Hit Enter to create a new tag."
+        },
+        "NEW_TAGS": {
+          "LABEL": "New Tags",
+          "PLACEHOLDER": "e.g. tag1,tag2"
+        }
+      },
+      "TAGS": {
+        "TITLE": "Tags"
+      },
+      "INTERESTS": {
+        "TITLE": "Interests",
+        "OPTIONS": {
+          "NOT_SURE_YET": "I am not sure yet",
+          "FOR_BUSINESS": "I need such a system for business"
+        }
+      }
+    },
+    "INVITATION": {
+      "CLS": "Invitation",
+      "CONSTANTS": {
+        "INVITEE_EMAIL": "Invitee E-Mail",
+        "STATE": "State",
+        "EXPIRES": "Expire date"
+      },
+      "CHECK": {
+        "INVALID": {
+          "HEADER": "Invitation not valid",
+          "EXPIRED": "This invitation is already expired.",
+          "WRONG_EMAIL": "This invitation was sent out to a different E-Mail address than you have.",
+          "ACCEPTED": "This invitation has already been accepted.",
+          "CANCELED": "This invitation has been canceled.",
+          "REJECTED": "You already rejected this invitation.",
+          "TOKEN": "The given token is no valid invitation token."
+        }
+      },
+      "FORM": {
+        "ERROR": {
+          "INVALID_FORM_DATA": "Please fix your input."
+        }
+      }
+    },
+    "USER_INVITATION": {
+      "FORM": {
+        "HEADINGS": {
+          "TITLE": "Invite a User"
+        },
+        "INVITEE_EMAIL": {
+          "PLACEHOLDER": " ",
+          "HINT": "e.g. user@example.com",
+          "ERROR": {
+            "REQUIRED": "This field is required",
+            "INVALID": "Please enter a valid E-Mail address"
+          }
+        },
+        "MESSAGE": {
+          "LABEL": "Message",
+          "PLACEHOLDER": " ",
+          "HINT": " ",
+          "ERROR": {
+            "REQUIRED": "This field is required",
+            "INVALID": "Please enter a valid E-Mail address"
+          }
+        },
+        "SUBMIT_BUTTON": {
+          "ADD": "Send",
+          "SAVE": "Save"
+        }
+      }
+    }
+  },
+  "USER_REGISTER": {
+    "TITLE": "Create your free account",
+    "SWITCH_TO_LOGIN": {
+      "TEXT": "Already have an account?",
+      "LINK": "Log in"
+    },
+    "FORM": {
+      "EMAIL": {
+        "LABEL": "e-mail address",
+        "PLACEHOLDER": "enter your e-mail address",
+        "HINT": "eg. myemail@example.com",
+        "ERROR": {
+          "REQUIRED": "e-mail address required",
+          "INVALID": "e-mail address invalid"
+        }
+      },
+      "PASSWORD": {
+        "LABEL": "password",
+        "PLACEHOLDER": "choose password",
+        "HINT": "at least 6 characters",
+        "ERROR": {
+          "REQUIRED": "password required",
+          "INVALID": "needs at least 6 characters"
+        }
+      },
+      "TERMS": {
+        "LABEL": "I agree to the <a href>Terms of Service</a> and <a href>Privacy Policy</a>",
+        "ERROR": {
+          "REQUIRED": "You need to accept the terms to continue."
+        }
+      },
+      "REGISTER_BUTTON": "Sign up",
+      "ERROR": {
+        "INVALID_FORM_DATA": "Please fix your input.",
+        "DUPLICATE_EMAIL": "A user with this e-mail address is already registered."
+      }
+    }
+  },
+  "USER_LOGIN": {
+    "TITLE": "Login in to {{name}}",
+    "SWITCH_TO_REGISTER": {
+      "TEXT": "Don't have an account yet?",
+      "LINK": "Sign up"
+    },
+    "NO_ACCOUNT_YET": "Don't have an account yet?",
+    "FORM": {
+      "EMAIL": {
+        "LABEL": "e-mail",
+        "PLACEHOLDER": "enter your e-mail address",
+        "ERROR": {
+          "REQUIRED": "e-mail address required",
+          "INVALID": "e-mail address invalid"
+        }
+      },
+      "PASSWORD": {
+        "LABEL": "password",
+        "PLACEHOLDER": "your password",
+        "ERROR": {
+          "REQUIRED": "password required"
+        }
+      },
+      "LOGIN_BUTTON": "Login",
+      "LOST_PASSWORD_BUTTON": "Lost password?",
+      "ERROR": {
+        "INVALID_FORM_DATA": "Please fix your input.",
+        "INVALID_CREDENTIALS": "E-mail address or password is wrong."
+      }
+    }
+  },
+  "USER_CONFIRM_ACCOUNT_REMINDER": {
+    "INFO": "Please check your e-mails to activate your account.",
+    "RESEND": {
+      "TEXT": "Resend e-mail",
+      "SUCCESS": "The e-mail was resent",
+      "ERROR": {
+        "AUTHENTICATION_ERROR_MESSAGE": "You are not authenticated, please log in"
+      }
+    }
+  },
+  "USER_MENU": {
+    "ACCOUNT_SETTINGS": "User settings",
+    "ADMIN": "Admin",
+    "LOGOUT": "Log out"
+  },
+  "USER_INVITATION_LIST": {
+    "ADD_NEW_BUTTON": "New Invitation",
+    "FILTER_BUTTON": "Filter"
+  },
+  "ACCOUNT_PAGE": {
+    "DELETE_ACCOUNT": {
+      "BUTTON": "Delete Account"
+    }
+  },
+  "PAGE_TITLE": {
+    "ACCOUNT": "User settings",
+    "DASHBOARD": "Dashboard",
+    "USER_MANAGEMENT": "User management",
+    "ADMIN_DASHBOARD": "Admin",
+    "ORGANISATION_MANAGEMENT": "Organisation Management",
+    "USER_INVITATION_LIST": "Invited User",
+    "INVITATION_CHECK": "Invitation verification",
+    "ANALYTICS": "Analytics"
+  },
+  "ERROR": {
+    "DEFAULT": "Sorry, an unexpected error occurred. The team is informed"
+  },
+  "ACCOUNT_SETTINGS": {
+    "PERSONAL_INFORMATION": {
+      "TITLE": "User information",
+      "FORM": {
+        "SAVED": "User settings saved.",
+        "ERROR": {
+          "INVALID_FORM_DATA": "Input invalid. Please check your inputs."
+        },
+        "PROFILE_IMAGE": {
+          "CHANGE": "Change profile image",
+          "DELETE": "Delete profile image",
+          "PROCESSING": "Uploading",
+          "COMPLETE": "Upload complete",
+          "CANCEL": "Tap to cancel",
+          "UNDO": "Tap to undo"
+        },
+        "SALUTATION": {
+          "LABEL": "Title",
+          "PLACEHOLDER": "Your title",
+          "OPTIONS": {
+            "MR": "Mr",
+            "MS": "Ms"
+          }
+        },
+        "FIRST_NAME": {
+          "LABEL": "First name",
+          "PLACEHOLDER": "your first name",
+          "ERROR": {
+            "REQUIRED": "Your first name is required."
+          }
+        },
+        "LAST_NAME": {
+          "LABEL": "Last name",
+          "PLACEHOLDER": "your last/family name",
+          "ERROR": {
+            "REQUIRED": "Your last name is required."
+          }
+        },
+        "LANGUAGE": {
+          "LABEL": "Language",
+          "PLACEHOLDER": "Select your language"
+        }
+      }
+    },
+    "INTERESTS": {
+      "TITLE": "Interests"
+    },
+    "CHANGE_PASSWORD": {
+      "TITLE": "Change password",
+      "DESCRIPTION": "Here you can change your account password.",
+      "SUCCESS": "Password successfully changed.",
+      "BUTTON": "set new password"
+    },
+    "CHANGE_EMAIL": {
+      "TITLE": "E-mail address",
+      "DESCRIPTION": "Here you can change your e-mail address.",
+      "BUTTON": "Change e-mail address"
+    },
+    "DELETE_ACCOUNT": {
+      "TITLE": "Close account ",
+      "DESCRIPTION": "Warning: Deleting your account is irreversible. All your data will be deleted!",
+      "BUTTON": "Delete account"
+    }
+  },
+  "AUTH_CHECK_DIALOG": {
+    "TITLE": "Authentication",
+    "DESCRIPTION": "The action <b>'{{action}}'</b> requires your authentication.",
+    "FORM": {
+      "USERNAME": {
+        "LABEL": "e-mail"
+      },
+      "CURRENT_PASSWORD": {
+        "LABEL": "your password",
+        "HINT": "Please enter your current password.",
+        "PLACEHOLDER": "password",
+        "ERROR": {
+          "REQUIRED": "Please enter your current password.",
+          "INVALID": "Wrong password"
+        }
+      }
+    },
+    "ACTIONS": {
+      "CHANGE_PASSWORD_ACTION": "change password",
+      "DELETE_ACCOUNT": "delete account",
+      "CHANGE_EMAIL": "change e-mail address"
+    }
+  },
+  "CHANGE_PASSWORD_DIALOG": {
+    "TITLE": "Set new password",
+    "DESCRIPTION": "Enter a new password for your account.",
+    "FORM": {
+      "CURRENT_PASSWORD": {
+        "ERROR": {
+          "INVALID": "Authorization expired, please try again.",
+          "PERMISSION": "You do not have the permissions for this action"
+        }
+      },
+      "NEW_PASSWORD": {
+        "LABEL": "new password",
+        "HINT": "at least 6 characters",
+        "PLACEHOLDER": "new password",
+        "ERROR": {
+          "REQUIRED": "please enter your new password.",
+          "INVALID": "needs at least 6 characters"
+        }
+      }
+    }
+  },
+  "DELETE_ACCOUNT_DIALOG": {
+    "TITLE": "Delete your account",
+    "DESCRIPTION": "Deleting your account is irreversible. It deletes all your data! <br> Enter \"<b>$t(DELETE_ACCOUNT_DIALOG.FORM.CONFIRMATION_TEXT.VALUE)</b>\" to confirm the deletion of your account.",
+    "FORM": {
+      "CONFIRMATION_TEXT": {
+        "VALUE": "I am sure!",
+        "LABEL": "Enter confirmation text",
+        "PLACEHOLDER": "enter '$t(DELETE_ACCOUNT_DIALOG.FORM.CONFIRMATION_TEXT.VALUE)'",
+        "ERROR": {
+          "REQUIRED": "Confirmation text is required.",
+          "INVALID": "Confirmation text does not match '$t(DELETE_ACCOUNT_DIALOG.FORM.CONFIRMATION_TEXT.VALUE)'"
+        }
+      },
+      "SUBMIT_BUTTON": "Delete Account Irreversible"
+    }
+  },
+  "CHANGE_EMAIL_DIALOG": {
+    "TITLE": "Change e-mail address",
+    "DESCRIPTION": "Enter a new e-mail address for your account.",
+    "FORM": {
+      "EMAIL": {
+        "LABEL": "new e-mail address",
+        "HINT": "enter your new e-mail address",
+        "PLACEHOLDER": "your new e-mail address",
+        "ERROR": {
+          "REQUIRED": "please enter your new e-mail address",
+          "INVALID": "this is not a valid e-mail address",
+          "AUTH_EXPIRED": "Authorization expired, please log in.",
+          "DUPLICATE": "this is your current e-mail address",
+          "PERMISSION": "you do not have the permissions for this action",
+          "NETWORK_ERROR_TYPE": "NETWORK_ERROR"
+        }
+      }
+    },
+    "CONFIRM_EMAIL_SENT_INFO": "We just sent an e-mail to <b>{{newEmail}}</b> which you need to confirm by clicking on confirm button in the e-mail. <br><br> Note: the new e-mail address is activated after you confirm the e-mail address in the e-mail. In the mean time your old e-mail address stays associated with your account. <br><br> If you don’t receive an e-mail within the next few minutes, plaese check your spam folder."
+  },
+  "DOWNLOAD_PREPARE_DIALOG": {
+    "TITLE": {
+      "WAIT": "Download is being prepared",
+      "READY": "Download is ready"
+    },
+    "CONTENT": {
+      "WAIT": "Please wait until the requested file is ready for download. Depending on server and amount of data this can take a while.",
+      "READY_HTML": "The download of file <span class=\"csd-download-filename\">{{name}}</span> starts automatically. Click <a href=\" {{- url}} \" download>this link</a> if it does not."
+    },
+    "BUTTON": {
+      "ABORT": "Abort Download",
+      "CLOSE": "Close"
+    }
+  },
+  "CONFIRM_EMAIL_PAGE": {
+    "IN_PROGRESS_TITLE": "In progress",
+    "IN_PROGRESS_INFO": "Confirmation of your new e-mail address in progress...",
+    "EMAIL_CONFIRMED_SUCCESSFULLY_TITLE": "E-mail address updated",
+    "EMAIL_CONFIRMED_SUCCESSFULLY_INFO": "Your e-mail address has been updated successfully.",
+    "GO_TO_ACCOUNT_BUTTON": "Go to account",
+    "ERROR": {
+      "TOKEN_INVALID_TITLE": "Confirmation failed",
+      "TOKEN_INVALID_INFO": "Token is invalid or expired.",
+      "EMAIL_AREADY_EXISTS_TITLE": "Confirmation failed",
+      "EMAIL_AREADY_EXISTS_INFO": "This e-mail already exists.",
+      "OTHER_ERROR_TITLE": "Confirmation failed",
+      "OTHER_ERROR_INFO": "An unexpected error occured. Please try again later. The team is already informed."
+    }
+  },
+  "USER_CONFIRM_ACCOUNT_PAGE": {
+    "TITLE": "Complete your registration",
+    "INFO": "Please enter some infos about you so that we can provide you with the best experience.",
+    "ACCOUNT_CONFIRMED_SUCCESSFULLY": "Registration confirmed.",
+    "IN_PROGRESS": "Confirmation in progress...",
+    "ACCOUNT_CONFIRMATION_TOKEN_INVALID": "Confirmation failed. Token invalid or expired.",
+    "CONFIRM_ACCOUNT_BUTTON": "Complete Registration",
+    "START_USING_THE_APP_BUTTON": "Start using the app",
+    "SUCCESS_TITLE": "You are all set!",
+    "SUCCESS_INFO": "Thanks for completing your account. You can always add or update your information in your profile settings",
+    "TOKEN_INVALID_TITLE": "Token invalid!",
+    "TOKEN_INVALID_DESCRIPTION": "Your token is expired or invalid."
+  },
+  "USER_REQUEST_PASSWORD_RESET": {
+    "TITLE": "Need a new password?",
+    "DESCRIPTION": "Please provide us your e-mail address so we can sent you instructions on how to set a new password",
+    "FORM": {
+      "EMAIL": {
+        "LABEL": "e-mail address",
+        "HINT": "enter your e-mail address",
+        "PLACEHOLDER": "your e-mail address",
+        "ERROR": {
+          "REQUIRED": "please enter your e-mail address",
+          "INVALID": "this is not a valid e-mail address"
+        }
+      },
+      "ERROR": {
+        "INVALID_FORM_DATA": "Please fix your input.",
+        "INVALID_EMAIL": "This e-mail address does not exist."
+      },
+      "REQUEST_RESET_BUTTON": "Get a new password"
+    },
+    "CONFIRM_EMAIL_SENT_TITLE": "Set a new password",
+    "CONFIRM_EMAIL_SENT_INFO": "We just sent an e-mail to <b>{{email}}</b> with password reset instructions. <br><br> If you don’t receive an e-mail within the next few minutes, plaese check your spam folder.",
+    "BACK_TO_LOGIN_BUTTON": "Back to login"
+  },
+  "USER_PASSWORD_RESET": {
+    "TITLE": "Set your new password",
+    "DESCRIPTION": "Enter your new password and you are all set.",
+    "FORM": {
+      "PASSWORD": {
+        "LABEL": "new password",
+        "PLACEHOLDER": "choose a new password",
+        "HINT": "at least 6 characters",
+        "ERROR": {
+          "REQUIRED": "new password required",
+          "INVALID": "needs at least 6 characters"
+        }
+      },
+      "CONFIRM_PASSWORD": {
+        "LABEL": "repeat password",
+        "PLACEHOLDER": "Repeat password",
+        "ERROR": {
+          "REQUIRED": "repeat new password required",
+          "MUST_MATCH": "Passwords must match"
+        }
+      },
+      "ERROR": {
+        "INVALID_FORM_DATA": "Please fix your input.",
+        "INVALID_TOKEN": "Passwort reset failed. Token invalid or expired"
+      },
+      "PASSWORD_RESET_BUTTON": "Set new password"
+    },
+    "SUCCESS_TITLE": "Success!",
+    "SUCCESS_INFO": "Your new password has been saved. You can now login with your new password.",
+    "BACK_TO_LOGIN_BUTTON": "Back to login"
+  },
+  "USER_LIST": {
+    "ADD_NEW_BUTTON": "Add new user",
+    "FILTER_BUTTON": "Filter",
+    "EXPORT_CSV": "Export all User"
+  },
+  "ORGANISATION_LIST": {
+    "ADD_NEW_BUTTON": "Add new organisation",
+    "FILTER_BUTTON": "Filter"
+  },
+  "ADMIN_APPS": {
+    "SYSTEM": {
+      "NAME": "System"
+    },
+    "USER_MANAGEMENT": {
+      "NAME": "User Management"
+    },
+    "ANALYTICS": {
+      "NAME": "Analytics"
+    }
+  },
+  "FILE_UPLOAD": {
+    "TITLE": "Drag and drop to upload",
+    "DESCRIPTION": "or click here to choose a file",
+    "SIZE": "(up to 10MB)"
+  },
+  "DIRTY_PAGE_GUARD": {
+    "DIALOG_TITLE": "Are you sure?",
+    "DIALOG_MESSAGE": "You have unsaved changes. These changes will get lost if you continue. Are you sure?",
+    "DIALOG_CONTINUE": "Discard changes",
+    "DIALOG_STAY": "Stay on page"
+  },
+  "CSD_SELECT": {
+    "SEARCH_LABEL": "Search.."
+  },
+  "GROUPED_BI_EVENTS_LIST": {
+    "FILTER_BUTTON": "Filter",
+    "TABLE_COLUMNS": {
+      "EVENT": "Event",
+      "COUNT": "Count"
+    }
+  },
+  "FILTER_CONFIGURATOR": {
+    "TITLE": "Filter",
+    "DESCRIPTION": "Here you can filter the data based on your requirements. ",
+    "ADD_FILTER_BUTTON": "add filter",
+    "REMOVE_ALL_FILTER_BUTTON": "remove all filters",
+    "FILTER_CONTAINER": {
+      "ADD_FILTER_BUTTON": "add filter",
+      "CLOSE_CONTAINER_BUTTON": "remove",
+      "OPERATOR_AND": "and",
+      "OPERATOR_OR": "or",
+      "CONTAINER_FIELD_NAME": "and/or"
+    },
+    "FILTER_VARIANTS": {
+      "EXACT": "is (case-sensitve)",
+      "IEXACT": "is",
+      "STARTS_WITH": "starts with (case-sensitive)",
+      "ISTARTS_WITH": "starts with",
+      "ENDS_WITH": "ends with (case-sensitive)",
+      "IENDS_WITH": "ends with",
+      "CONTAINS": "contains (case-sensitive)",
+      "ICONTAINS": "contains"
+    },
+    "FILTERS": {
+      "BASE_FILTER": {
+        "PLACEHOLDER_FILTER_TERM": "filter term"
+      },
+      "CHOICE_FILTER": {
+        "IS": "is"
+      }
+    }
+  },
+  "COUNTRY_SELECTOR": {
+    "LABEL": "Country",
+    "PLACEHOLDER": "Select your country",
+    "OPTIONS": {
+      "AT": "Austria",
+      "DE": "Germany",
+      "CH": "Switzerland",
+      "AF": "Afghanistan",
+      "AX": "\u00c5land Islands",
+      "AL": "Albania",
+      "DZ": "Algeria",
+      "AS": "American Samoa",
+      "AD": "Andorra",
+      "AO": "Angola",
+      "AI": "Anguilla",
+      "AQ": "Antarctica",
+      "AG": "Antigua & Barbuda",
+      "AR": "Argentina",
+      "AM": "Armenia",
+      "AW": "Aruba",
+      "AC": "Ascension Island",
+      "AU": "Australia",
+      "AZ": "Azerbaijan",
+      "BS": "Bahamas",
+      "BH": "Bahrain",
+      "BD": "Bangladesh",
+      "BB": "Barbados",
+      "BY": "Belarus",
+      "BE": "Belgium",
+      "BZ": "Belize",
+      "BJ": "Benin",
+      "BM": "Bermuda",
+      "BT": "Bhutan",
+      "BO": "Bolivia",
+      "BA": "Bosnia & Herzegovina",
+      "BW": "Botswana",
+      "BR": "Brazil",
+      "IO": "British Indian Ocean Territory",
+      "VG": "British Virgin Islands",
+      "BN": "Brunei",
+      "BG": "Bulgaria",
+      "BF": "Burkina Faso",
+      "BI": "Burundi",
+      "KH": "Cambodia",
+      "CM": "Cameroon",
+      "CA": "Canada",
+      "IC": "Canary Islands",
+      "CV": "Cape Verde",
+      "BQ": "Caribbean Netherlands",
+      "KY": "Cayman Islands",
+      "CF": "Central African Republic",
+      "EA": "Ceuta & Melilla",
+      "TD": "Chad",
+      "CL": "Chile",
+      "CN": "China",
+      "CX": "Christmas Island",
+      "CC": "Cocos (Keeling) Islands",
+      "CO": "Colombia",
+      "KM": "Comoros",
+      "CG": "Congo - Brazzaville",
+      "CD": "Congo - Kinshasa",
+      "CK": "Cook Islands",
+      "CR": "Costa Rica",
+      "CI": "C\u00f4te d\u2019Ivoire",
+      "HR": "Croatia",
+      "CU": "Cuba",
+      "CW": "Cura\u00e7ao",
+      "CY": "Cyprus",
+      "CZ": "Czechia",
+      "DK": "Denmark",
+      "DG": "Diego Garcia",
+      "DJ": "Djibouti",
+      "DM": "Dominica",
+      "DO": "Dominican Republic",
+      "EC": "Ecuador",
+      "EG": "Egypt",
+      "SV": "El Salvador",
+      "GQ": "Equatorial Guinea",
+      "ER": "Eritrea",
+      "EE": "Estonia",
+      "ET": "Ethiopia",
+      "FK": "Falkland Islands",
+      "FO": "Faroe Islands",
+      "FJ": "Fiji",
+      "FI": "Finland",
+      "FR": "France",
+      "GF": "French Guiana",
+      "PF": "French Polynesia",
+      "TF": "French Southern Territories",
+      "GA": "Gabon",
+      "GM": "Gambia",
+      "GE": "Georgia",
+      "GH": "Ghana",
+      "GI": "Gibraltar",
+      "GR": "Greece",
+      "GL": "Greenland",
+      "GD": "Grenada",
+      "GP": "Guadeloupe",
+      "GU": "Guam",
+      "GT": "Guatemala",
+      "GG": "Guernsey",
+      "GN": "Guinea",
+      "GW": "Guinea-Bissau",
+      "GY": "Guyana",
+      "HT": "Haiti",
+      "HN": "Honduras",
+      "HK": "Hong Kong SAR China",
+      "HU": "Hungary",
+      "IS": "Iceland",
+      "IN": "India",
+      "ID": "Indonesia",
+      "IR": "Iran",
+      "IQ": "Iraq",
+      "IE": "Ireland",
+      "IM": "Isle of Man",
+      "IL": "Israel",
+      "IT": "Italy",
+      "JM": "Jamaica",
+      "JP": "Japan",
+      "JE": "Jersey",
+      "JO": "Jordan",
+      "KZ": "Kazakhstan",
+      "KE": "Kenya",
+      "KI": "Kiribati",
+      "XK": "Kosovo",
+      "KW": "Kuwait",
+      "KG": "Kyrgyzstan",
+      "LA": "Laos",
+      "LV": "Latvia",
+      "LB": "Lebanon",
+      "LS": "Lesotho",
+      "LR": "Liberia",
+      "LY": "Libya",
+      "LI": "Liechtenstein",
+      "LT": "Lithuania",
+      "LU": "Luxembourg",
+      "MO": "Macau SAR China",
+      "MK": "North Macedonia",
+      "MG": "Madagascar",
+      "MW": "Malawi",
+      "MY": "Malaysia",
+      "MV": "Maldives",
+      "ML": "Mali",
+      "MT": "Malta",
+      "MH": "Marshall Islands",
+      "MQ": "Martinique",
+      "MR": "Mauritania",
+      "MU": "Mauritius",
+      "YT": "Mayotte",
+      "MX": "Mexico",
+      "FM": "Micronesia",
+      "MD": "Moldova",
+      "MC": "Monaco",
+      "MN": "Mongolia",
+      "ME": "Montenegro",
+      "MS": "Montserrat",
+      "MA": "Morocco",
+      "MZ": "Mozambique",
+      "MM": "Myanmar (Burma)",
+      "NA": "Namibia",
+      "NR": "Nauru",
+      "NP": "Nepal",
+      "NL": "Netherlands",
+      "NC": "New Caledonia",
+      "NZ": "New Zealand",
+      "NI": "Nicaragua",
+      "NE": "Niger",
+      "NG": "Nigeria",
+      "NU": "Niue",
+      "NF": "Norfolk Island",
+      "KP": "North Korea",
+      "MP": "Northern Mariana Islands",
+      "NO": "Norway",
+      "OM": "Oman",
+      "PK": "Pakistan",
+      "PW": "Palau",
+      "PS": "Palestinian Territories",
+      "PA": "Panama",
+      "PG": "Papua New Guinea",
+      "PY": "Paraguay",
+      "PE": "Peru",
+      "PH": "Philippines",
+      "PN": "Pitcairn Islands",
+      "PL": "Poland",
+      "PT": "Portugal",
+      "PR": "Puerto Rico",
+      "QA": "Qatar",
+      "RE": "R\u00e9union",
+      "RO": "Romania",
+      "RU": "Russia",
+      "RW": "Rwanda",
+      "WS": "Samoa",
+      "SM": "San Marino",
+      "ST": "S\u00e3o Tom\u00e9 & Pr\u00edncipe",
+      "SA": "Saudi Arabia",
+      "SN": "Senegal",
+      "RS": "Serbia",
+      "SC": "Seychelles",
+      "SL": "Sierra Leone",
+      "SG": "Singapore",
+      "SX": "Sint Maarten",
+      "SK": "Slovakia",
+      "SI": "Slovenia",
+      "SB": "Solomon Islands",
+      "SO": "Somalia",
+      "ZA": "South Africa",
+      "GS": "South Georgia & South Sandwich Islands",
+      "KR": "South Korea",
+      "SS": "South Sudan",
+      "ES": "Spain",
+      "LK": "Sri Lanka",
+      "BL": "St. Barth\u00e9lemy",
+      "SH": "St. Helena",
+      "KN": "St. Kitts & Nevis",
+      "LC": "St. Lucia",
+      "MF": "St. Martin",
+      "PM": "St. Pierre & Miquelon",
+      "VC": "St. Vincent & Grenadines",
+      "SD": "Sudan",
+      "SR": "Suriname",
+      "SJ": "Svalbard & Jan Mayen",
+      "SZ": "Swaziland",
+      "SE": "Sweden",
+      "SY": "Syria",
+      "TW": "Taiwan",
+      "TJ": "Tajikistan",
+      "TZ": "Tanzania",
+      "TH": "Thailand",
+      "TL": "Timor-Leste",
+      "TG": "Togo",
+      "TK": "Tokelau",
+      "TO": "Tonga",
+      "TT": "Trinidad & Tobago",
+      "TA": "Tristan da Cunha",
+      "TN": "Tunisia",
+      "TR": "Turkey",
+      "TM": "Turkmenistan",
+      "TC": "Turks & Caicos Islands",
+      "TV": "Tuvalu",
+      "UM": "U.S. Outlying Islands",
+      "VI": "U.S. Virgin Islands",
+      "UG": "Uganda",
+      "UA": "Ukraine",
+      "AE": "United Arab Emirates",
+      "GB": "United Kingdom",
+      "UN": "United Nations",
+      "US": "United States",
+      "UY": "Uruguay",
+      "UZ": "Uzbekistan",
+      "VU": "Vanuatu",
+      "VA": "Vatican City",
+      "VE": "Venezuela",
+      "VN": "Vietnam",
+      "WF": "Wallis & Futuna",
+      "EH": "Western Sahara",
+      "YE": "Yemen",
+      "ZM": "Zambia",
+      "ZW": "Zimbabwe"
+    }
+  }
+}

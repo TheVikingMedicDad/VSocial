@@ -1,0 +1,34 @@
+<div class="csd-card-stepper">
+  <mat-accordion displayMode="flat">
+    <mat-expansion-panel
+      *ngFor="let step of steps; let i = index"
+      [expanded]="selectedIndex == i"
+      [disabled]="((!step.interacted && selectedIndex != i) || !step.editable) && linear"
+      (afterExpand)="selectedIndex = i"
+      hideToggle
+    >
+      <mat-expansion-panel-header collapsedHeight="80px" expandedHeight="80px">
+        <mat-progress-bar
+          *ngIf="i === 0"
+          class="csd-progress-bar"
+          mode="determinate"
+          [value]="(100 / steps.length) * stepsCompleted()"
+        ></mat-progress-bar>
+        <mat-panel-title>
+          <img
+            *ngIf="step.completed"
+            class="csd-icon"
+            src="assets/images/icons/accordion-check.svg"
+          />
+          <img
+            *ngIf="!step.completed"
+            class="csd-icon"
+            src="assets/images/icons/accordion-not-checked.svg"
+          />
+          <ng-container [ngTemplateOutlet]="step.stepLabel?.template"> </ng-container>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ng-container [ngTemplateOutlet]="step.content"></ng-container>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

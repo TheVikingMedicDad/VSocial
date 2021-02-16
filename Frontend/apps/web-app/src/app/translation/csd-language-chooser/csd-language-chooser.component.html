@@ -1,0 +1,13 @@
+<div class="csd-language-chooser">
+  <button class="csd-language-chooser-button" mat-button [matMenuTriggerFor]="menu">
+    {{ 'LANG.' + language | i18next }}
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu class="csd-language-chooser-dropdown" #menu="matMenu">
+    <ng-container *ngFor="let language of languages">
+      <button class="csd-language-entry" mat-menu-item (click)="setLanguage(language)">
+        {{ 'LANG.' + language | i18next }}
+      </button>
+    </ng-container>
+  </mat-menu>
+</div>

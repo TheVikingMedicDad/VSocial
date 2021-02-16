@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+$csd-primary-font-family: 'Inter, "Roboto", sans-serif';
+$csd-secondary-font-family: '"Fira Code", monospace';
+
+/* prettier-ignore */
+$csd-typography: map-merge(mat-typography-config(
+  $font-family: $csd-primary-font-family,
+   //font-size, line-height, font-weight, font-family, letter-spacing
+   $display-4: mat-typography-level(72px, 72px, 700, $csd-primary-font-family,  -2px),       // h2
+   $display-3: mat-typography-level(72px, 80px, normal, $csd-primary-font-family, -2.5px),   // h2
+   $display-2: mat-typography-level(32px, 42px, normal),                                     // h3
+   $display-1: mat-typography-level(24px, 32px, 600, $csd-primary-font-family, -0.5px),                                       // h4
+   $headline: mat-typography-level(20px, 30px, 600, $csd-primary-font-family, 0.5px),        // h5
+   $title: mat-typography-level(20px, 30px, normal, $csd-primary-font-family),               // h6
+   $subheading-2: mat-typography-level(16px, 24px, 300, $csd-primary-font-family, .15px),    // subtitle
+   $subheading-1: mat-typography-level(14px, 24px, 300, $csd-primary-font-family, .1px),     // subtitle-2
+   $body-2: mat-typography-level(18px, 30px, normal, $csd-primary-font-family, .5px),        // body-1
+   $body-1: mat-typography-level(16px, 26px, normal, $csd-primary-font-family),        // body-2
+   $button: mat-typography-level(14px, 17px, 600, $csd-primary-font-family, 1.35px),         // button
+   $caption: mat-typography-level(12px, 16px, 400, $csd-secondary-font-family),               // caption
+   // Line-height must be unit-less fraction of the font-size.
+   $input: mat-typography-level(14px, 1, 300, $csd-primary-font-family) // is not related to styleguide because it must fit in inputs
+), (
+  overline: mat-typography-level(10px, 16px, 600, $csd-primary-font-family, 1.5px)
+));

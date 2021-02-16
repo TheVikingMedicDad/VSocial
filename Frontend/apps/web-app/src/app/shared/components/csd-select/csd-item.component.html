@@ -1,0 +1,9 @@
+<mat-option
+  [ngClass]="getClassIfActive()"
+  (onSelectionChange)="selectionChange($event)"
+  (click)="deselectOthersOnClick()"
+  class="csd-item-content"
+  [value]="value"
+  #option
+  ><ng-content></ng-content
+></mat-option>

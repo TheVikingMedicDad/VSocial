@@ -1,0 +1,60 @@
+{% load static i18n %}
+{% load render_bundle from webpack_loader %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}webapp{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+    {% render_bundle 'index' 'css' %}
+    {% block css %}
+
+    <!-- Your stuff: Third-party CSS libraries go here -->
+
+    {% endblock %}
+
+  </head>
+
+  <body class="csd-theme-default-light mat-typography {{ page.slug }} {% include './project_theme_name.html' %}">
+    <div class="csd-page-container">
+      {% if messages %}
+          {% for message in messages %}
+              <div class="csd-alert {% if message.tags %}csd-alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+          {% endfor %}
+      {% endif %}
+      {% block header %}
+      {% endblock header %}
+      <div class="csd-content-container">
+        {% block content %}
+          <p>Use this document as a way to quick start any new project.</p>
+        {% endblock content %}
+      </div>
+    </div> <!-- /container -->
+
+    {% block modal %}{% endblock modal %}
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    {% render_bundle 'index' 'js' %}
+    {% block javascript %}
+
+      <!-- Your stuff: Third-party javascript libraries go here -->
+
+
+
+    {% endblock javascript %}
+  </body>
+</html>

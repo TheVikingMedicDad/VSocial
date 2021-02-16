@@ -1,0 +1,109 @@
+@mixin csd-footer-section($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-footer-section {
+    padding: $csd-section-padding 0 0 0;
+    background-color: mat-color($primary, A200);
+    color: mat-color($primary, A100-contrast);
+
+    @media #{$mat-lt-sm} {
+      padding: $csd-section-padding-mobile 0;
+    }
+
+    a {
+      color: map_get($mat-grey, 600);
+      text-decoration: none;
+    }
+
+    & > .csd-footer-row-1 {
+      display: flex;
+      flex-wrap: wrap;
+
+      & > .csd-col-1 {
+        flex: 1 0 calc(50% - 40px);
+        max-width: calc(50% - 40px);
+      }
+
+      & > .csd-col-2,
+      & > .csd-col-3 {
+        flex: 1 0 calc(25% - 40px);
+        max-width: calc(25% - 40px);
+      }
+
+      & > .csd-col-1,
+      & > .csd-col-2,
+      & > .csd-col-3 {
+        margin: 20px;
+        @media #{$mat-lt-sm} {
+          flex: 1 0 calc(100% - 40px);
+          max-width: calc(100% - 40px);
+        }
+      }
+    }
+
+    & > .csd-footer-row-2 {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      color: map_get($mat-grey, 600);
+
+      & > .csd-col-1,
+      & > .csd-col-2 {
+        margin: 20px;
+        flex: 1 0 calc(50% - 40px);
+        max-width: calc(50% - 40px);
+
+        @media #{$mat-lt-sm} {
+          flex: 1 0 calc(100% - 40px);
+        }
+
+        .flat-menu {
+          & > ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            @media #{$mat-lt-sm} {
+              flex-flow: row wrap;
+            }
+
+            & > li {
+              padding-right: 40px;
+              @media #{$mat-lt-sm} {
+                padding: 20px 0 0 0;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      & > .csd-col-1,
+      & > .csd-col-2,
+      & > .csd-col-3 {
+        @media #{$mat-lt-sm} {
+          max-width: calc(100% - 40px);
+        }
+      }
+    }
+
+    & > .csd-footer-row-3 {
+      background-color: mat-color($primary, A700);
+      color: map-get($mat-grey, 600);
+      font-size: 10px;
+
+      .csd-powered-by {
+        margin: 0 auto;
+        text-align: center;
+         a {
+          color: map-get($mat-grey, 600);
+        }
+      }
+    }
+  }
+}

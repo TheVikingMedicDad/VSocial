@@ -1,0 +1,32 @@
+ARG CSD_DOCKER_REGISTRY
+ARG CSD_PROJECT_NAME
+ARG CSD_DOCKER_LOCAL_TAG
+
+
+#########################
+# dev stage
+#########################
+# 
+FROM ${CSD_DOCKER_REGISTRY}/${CSD_PROJECT_NAME}-webapp-server-webapp:${CSD_DOCKER_LOCAL_TAG}-base
+# 
+
+COPY ./conf/docker/webapp/server/webapp/start_dev.sh /start.sh
+RUN sed -i 's/\r//' /start.sh
+RUN chmod +x /start.sh
+
+# Translations dependencies
+RUN apk add gettext \
+  # https://docs.djangoproject.com/en/dev/ref/django-admin/#dbshell
+  && apk add postgresql-client
+
+# Requirements are installed here to ensure they will be cached.
+COPY ./Server/webapp/requirements /requirements
+
+# because of a pip bug with --no-cache-dir we need this workaround
+# (https://github.com/pypa/pip/issues/6158#issuecomment-456619072)
+RUN pip install --cache-dir=/pipcache -r /requirements/local.txt \
+    && rm -rf /pipcache \
+    && rm -rf /requirements
+
+WORKDIR /app
+CMD ["/start.sh"]

@@ -1,0 +1,54 @@
+@mixin csd-card-stepper-component($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $toolbar-background-color: white;
+  $toolbar-color: mat-color($foreground, text);
+
+  csd-card-stepper {
+    .csd-card-stepper {
+      .mat-accordion {
+        .mat-expansion-panel-header {
+          position: relative;
+
+          .csd-progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            .mat-progress-bar-fill::after {
+              background-color: #68da88; //TODO: move this to palette
+            }
+            .mat-progress-bar-buffer {
+              background-color: map-get($mat-grey, 200);
+            }
+          }
+
+          .mat-expansion-panel-header-title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            @include mat-typography-level-to-styles($typo, 'subheading-2');
+            .csd-icon {
+              margin-right: 20px;
+            }
+          }
+        }
+
+        .mat-expansion-panel-body {
+          padding: 64px 84px;
+          background-color: mat-color($background, app-bar);
+          @include mat-typography-level-to-styles($typo, 'body-2');
+
+          a {
+            color: mat-color($primary, 500);
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

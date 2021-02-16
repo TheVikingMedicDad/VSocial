@@ -1,0 +1,23 @@
+@mixin vsp-contact-page($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  &.contact {
+    .csd-hero-section {
+      .csd-secondary-content{
+        text-align: center;
+        img {
+          width: 350px;
+          height: auto;
+          @media (max-width: map-get($csd-breakpoints, tablet)) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

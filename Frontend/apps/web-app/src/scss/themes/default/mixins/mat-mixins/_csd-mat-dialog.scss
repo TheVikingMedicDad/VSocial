@@ -1,0 +1,28 @@
+@mixin csd-mat-dialog($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .mat-dialog-container {
+    @include mat-typography-level-to-styles($typo, 'body-2');
+
+    padding: 32px;
+
+    .mat-dialog-title {
+      @include mat-typography-level-to-styles($typo, 'headline');
+    }
+
+    .csd-description {
+      color: mat-color($foreground, text, 0.4);
+    }
+
+    .mat-dialog-actions {
+      padding: 32px 0;
+
+      justify-content: space-between;
+    }
+  }
+}

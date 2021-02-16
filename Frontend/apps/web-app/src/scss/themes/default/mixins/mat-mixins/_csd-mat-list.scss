@@ -1,0 +1,28 @@
+@mixin csd-mat-list($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .mat-selection-list {
+    .mat-list-item {
+      &:hover,
+      &:focus {
+        background-color: mat-color($warn, '800-contrast');
+        color: mat-color($primary, 500);
+      }
+      &[aria-selected='true'] {
+        background-color: mat-color($warn, '500-contrast');
+        color: mat-color($primary, 500);
+      }
+    }
+  }
+
+  .csd-default-selection-list {
+    .mat-pseudo-checkbox {
+      display: none;
+    }
+  }
+}

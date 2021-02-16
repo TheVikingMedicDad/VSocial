@@ -1,0 +1,40 @@
+<div class="csd-crud-header" [ngClass]="'csd-crud-mode-' + crudModes.VIEW">
+  <div class="csd-menu-container" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="csd-start-actions">
+      <ng-container *ngIf="mode === crudModes.VIEW">
+        <button mat-icon-button class="csd-cancel-button" (click)="cancel.emit()">
+          <mat-icon [attr.aria-label]="'BUTTON.CLOSE' | i18next">close</mat-icon>
+        </button>
+        <button mat-icon-button class="csd-back-button" (click)="back()">
+          <mat-icon [attr.aria-label]="'BUTTON.BACK' | i18next">arrow_back</mat-icon>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="mode !== crudModes.VIEW">
+        <button mat-button class="csd-cancel-button" (click)="cancel.emit()">
+          {{ 'BUTTON.CANCEL' | i18next }}
+        </button>
+      </ng-container>
+    </div>
+    <div class="csd-title" [innerHTML]="title"></div>
+    <div class="csd-end-actions">
+      <ng-container *ngIf="mode === crudModes.EDIT">
+        <button mat-button class="csd-save-button" (click)="save.emit()">
+          {{ 'BUTTON.SAVE' | i18next }}
+        </button>
+      </ng-container>
+      <ng-container *ngIf="mode === crudModes.ADD">
+        <button mat-button class="csd-add-button" (click)="save.emit()">
+          {{ 'BUTTON.ADD' | i18next }}
+        </button>
+      </ng-container>
+      <ng-container *ngIf="mode === crudModes.VIEW">
+        <button mat-icon-button class="csd-edit-button" (click)="edit.emit()">
+          <mat-icon [attr.aria-label]="'BUTTON.EDIT' | i18next">edit</mat-icon>
+        </button>
+        <button mat-icon-button class="csd-delete-button" (click)="destroy.emit()">
+          <mat-icon [attr.aria-label]="'BUTTON.DELETE' | i18next">delete</mat-icon>
+        </button>
+      </ng-container>
+    </div>
+  </div>
+</div>

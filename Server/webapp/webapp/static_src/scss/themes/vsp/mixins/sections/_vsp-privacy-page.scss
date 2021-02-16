@@ -1,0 +1,14 @@
+@mixin vsp-privacy-page($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  &.privacy {
+    h4 {
+      margin-top:40px;
+    }
+  }
+}

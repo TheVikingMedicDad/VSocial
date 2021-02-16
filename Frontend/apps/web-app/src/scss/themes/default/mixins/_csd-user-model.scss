@@ -1,0 +1,28 @@
+@mixin csd-user-model($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .csd-user-model {
+    .csd-profile-image {
+      margin: 0 auto;
+    }
+
+    .csd-profile-image img {
+      height: 200px;
+      width: 200px;
+    }
+
+    .csd-centered-and-cropped {
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .csd-filepond-upload {
+      width: 200px;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{% extends "./base/base_email.txt" %}
+{% load i18n %}
+
+{% block content %}
+{% blocktrans with project_name=project.name %}Confirm Email Address
+
+We got a request to change your {{ project_name }} email address. Please click the button below to confirm
+this address and complete the update. If you don’t want to update your email address, just ignore this email.
+
+
+If this wasn’t you, you don’t have to worry and can ignore this email, your account is safe.
+
+To confirm please open this url in a browser:{% endblocktrans %}
+
+{{ project.webapp.url }}/{{ confirm_path_name }}/{{ key }}
+{% endblock %}

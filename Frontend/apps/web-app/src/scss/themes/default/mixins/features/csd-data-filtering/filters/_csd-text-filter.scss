@@ -1,0 +1,28 @@
+@mixin csd-text-filter($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-text-filter {
+    .csd-filter-variants {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .csd-filter-variant {
+      display: flex;
+      flex-direction: column;
+      margin: 14px 0 0;
+      .csd-radio-button {
+        @include _mat-radio-color($primary);
+
+        .mat-radio-outer-circle {
+          border-color: mat-color($primary);
+        }
+      }
+    }
+  }
+}

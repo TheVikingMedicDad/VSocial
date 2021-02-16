@@ -1,0 +1,18 @@
+ARG CSD_DOCKER_REGISTRY
+ARG CSD_PROJECT_NAME
+ARG CSD_DOCKER_LOCAL_TAG
+
+
+#########################
+# dev stage
+#########################
+# 
+FROM ${CSD_DOCKER_REGISTRY}/${CSD_PROJECT_NAME}-webapp-server-webapp-assets-builder:${CSD_DOCKER_LOCAL_TAG}-base
+# 
+
+COPY ./conf/docker/webapp/server/webapp-assets-builder/start_dev.sh /start.sh
+RUN sed -i 's/\r//' /start.sh
+RUN chmod +x /start.sh
+
+WORKDIR /app
+CMD ["/start.sh"]

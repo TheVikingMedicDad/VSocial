@@ -1,0 +1,124 @@
+@mixin csd-pricing-section($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-pricing-section {
+    .csd-container {
+      .csd-title {
+        @include mat-typography-level-to-styles($typo, display-4);
+        max-width: 550px;
+        margin: 0 auto 60px;
+        text-align: center;
+      }
+
+      .csd-pricing-grid {
+        @media (min-width: map-get($csd-breakpoints, desktop)) {
+          margin-bottom: 80px;
+          padding: 0 25px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: auto;
+          grid-column-gap: $csd-grid-column-gap;
+        }
+
+        .csd-pricing-row {
+          padding: 20px 30px 0 30px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 30px;
+          @media (min-width: map-get($csd-breakpoints, desktop)) {
+            margin-bottom: 0;
+          }
+          @include mat-elevation(8, mat-color($primary, 'A100-contrast'), 0.8);
+
+          &.csd-box-highlight {
+            @include mat-elevation(24, mat-color($primary, 'A100-contrast'), 0.8);
+          }
+
+          .csd-features-list {
+            border-bottom: thin solid mat-color($primary, "300-contrast");
+            margin-bottom: 20px;
+            flex: 1 0 auto;
+
+            .csd-features-list-item {
+              margin: 20px 0 20px 0;
+              @include mat-typography-level-to-styles($typo, "body-1");
+              display: flex;
+
+              .csd-image {
+                margin-right: 15px;
+                height: 40px;
+                align-self: center;
+              }
+            }
+          }
+
+          > .rich-text {
+            @include mat-typography-level-to-styles($typo, "body-1");
+            text-align: center;
+            padding: 0 35px 0 35px;
+          }
+
+          .csd-price-footer {
+            min-height: 100px;
+            margin-top: auto;
+            text-align: center;
+
+            .csd-price-section {
+              padding: 50px 35px 0 35px;
+
+              .csd-price-subscription {
+                display: flex;
+                margin-bottom: 24px;
+
+                .csd-price-value {
+                  @include mat-typography-level-to-styles($typo, "display-4");
+                  @media (min-width: map-get($csd-breakpoints, tablet)) and (max-width: map-get($csd-breakpoints, lg-desktop)) {
+                    @include mat-typography-level-to-styles($typo, "display-2");
+                    font-weight: bold;
+                  }
+                  align-self: center;
+                }
+
+                .csd-price-duration {
+                  @include mat-typography-level-to-styles($typo, "body-2");
+                  align-self: center;
+                  max-width: 70px;
+                  margin-left: 20px;
+                }
+              }
+
+              .csd-price-buy-now {
+                text-align: center;
+                @include mat-typography-level-to-styles($typo, "body-2");
+                color: mat-color($primary, '300-contrast');
+              }
+            }
+          }
+        }
+      }
+
+      .csd-additional-button, .csd-button {
+        margin: 20px 0 40px 0;
+      }
+
+      .csd-additional-section {
+        margin-top: 80px;
+        text-align: center;
+
+        .csd-additional-title {
+          max-width: 550px;
+          margin: 0 auto 32px;
+          @include mat-typography-level-to-styles($typo, display-2);
+        }
+
+      }
+    }
+
+  }
+}

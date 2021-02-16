@@ -1,0 +1,132 @@
+@import '../variables';
+
+@mixin csd-form-with-img-component($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .csd-form-with-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    overflow: hidden;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-around;
+    }
+
+    .csd-project-logo {
+      display: none;
+      align-self: stretch;
+      flex: 1 1 auto;
+      width: 360px;
+
+      @media (min-width: map-get($csd-breakpoints, desktop)) {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .csd-project-footer {
+        margin: auto 24px 40px 24px;
+        .csd-description {
+          opacity: 0.75;
+        }
+      }
+
+      &.csd-project-login,
+      &.csd-project-register {
+        // 
+        background-color: mat-color($primary, A200);
+        color: mat-color($primary, A700);
+        // 
+        // visible only on desktop
+        @media (min-width: map-get($csd-breakpoints, desktop)) {
+          color: mat-color($primary, A200);
+          .csd-project-container {
+            margin: auto 24px auto 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .csd-image {
+              margin: 30px 0 30px;
+            }
+            .csd-description {
+              @include mat-typography-level-to-styles($typo, 'caption');
+              max-width: 70%;
+              margin: 32px 0 32px 0;
+              opacity: 0.75;
+            }
+          }
+          .csd-project-footer .csd-description {
+            text-align: center;
+            color: mat-color($primary, '50-contrast');
+          }
+        }
+      }
+    }
+
+    .csd-form {
+      flex: 2 1 auto;
+      width: 100%;
+
+      .csd-form-inner {
+        width: 500px;
+        padding: 10px;
+        @media (max-width: map-get($csd-breakpoints, desktop)) {
+          width: auto;
+        }
+        margin: 245px auto 245px;
+      }
+
+      .csd-title {
+        @include mat-typography-level-to-styles($typo, 'display-1');
+        margin: 0;
+      }
+
+      .csd-description {
+        margin: 10px 0 40px;
+        @include mat-typography-level-to-styles($typo, 'body-2');
+        a {
+          color: mat-color($primary, 500);
+          text-decoration: none;
+        }
+      }
+
+      .mat-hint {
+        @include mat-typography-level-to-styles($typo, 'caption');
+        a {
+          color: mat-color($primary, '50-contrast');
+          text-decoration: none;
+        }
+      }
+
+      .mat-form-field,
+      .mat-checkbox {
+        padding-bottom: 32px;
+      }
+
+      &.csd-login-form {
+        .mat-form-field:first-child {
+          padding-bottom: 16px;
+        }
+        .csd-lost-password {
+          cursor: pointer;
+        }
+      }
+
+      .csd-terms-checkbox {
+        a {
+          color: mat-color($primary, 500);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

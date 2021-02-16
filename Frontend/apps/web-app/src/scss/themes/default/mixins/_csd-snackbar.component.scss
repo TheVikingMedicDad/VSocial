@@ -1,0 +1,47 @@
+@mixin csd-snackbar-component($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .csd-snackbar {
+    cursor: pointer;
+    border-radius: 50px;
+    @include mat-typography-level-to-styles($typo, 'body-2');
+    font-weight: 400;
+
+    .csd-message {
+      text-align: left;
+      margin: 0 30px 0 -20px;
+    }
+
+    .mat-icon {
+      margin-left: 10px;
+    }
+
+    &.csd-snackbar-success {
+      background-color: map-get($csd-alert, success);
+      color: mat-color($accent, 'lighter-contrast');
+    }
+
+    &.csd-snackbar-info {
+      background-color: map-get($csd-alert, info);
+      color: mat-color($warn, 'default-contrast');
+    }
+
+    &.csd-snackbar-warning {
+      background-color: map-get($csd-alert, warning);
+      color: mat-color($warn, 'lighter-contrast');
+    }
+
+    &.csd-snackbar-error {
+      background-color: map-get($csd-alert, error);
+      color: mat-color($warn, 'default-contrast');
+    }
+  }
+
+  .mat-snack-bar-container {
+    box-shadow: none;
+  }
+}

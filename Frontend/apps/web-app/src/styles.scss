@@ -1,0 +1,9 @@
+$csd-projekt-key: 'vsp';
+
+@import 'scss/reset';
+@import 'scss/theming';
+@import '../../../node_modules/filepond/dist/filepond.min.css';
+@import '../../../node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
+
+// Add your fonts here
+// @import '../fonts/MyFont/myfont.css';

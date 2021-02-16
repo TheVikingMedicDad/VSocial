@@ -1,0 +1,18 @@
+<div class="csd-user-toolbar">
+  <ng-container *ngIf="!userAccountConfirmed">
+    <csd-user-confirm-account-reminder></csd-user-confirm-account-reminder>
+  </ng-container>
+
+  <mat-toolbar fxLayout="row">
+    <a routerLink="/"><img class="csd-logo-image" src="assets/images/logo_rect_light.svg" /></a>
+    <span *ngIf="pageKey">{{ 'PAGE_TITLE.' + pageKey | i18next }}</span>
+    <div fxFlex=""></div>
+    <button mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>notifications_none</mat-icon>
+    </button>
+    <csd-user-menu></csd-user-menu>
+  </mat-toolbar>
+</div>

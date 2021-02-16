@@ -1,0 +1,49 @@
+<!-- dialogs -->
+<div class="mat-display-4">Basic Dialog</div>
+<div>
+  Show confirmation dialog:
+  <button mat-flat-button color="primary" (click)="showConfirmDialog()">Show</button>
+</div>
+
+<div class="mat-display-4">Custom Confirm Dialog</div>
+
+<div>
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="Title" [(ngModel)]="title" />
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>Message</mat-label>
+    <input matInput placeholder="Message" [(ngModel)]="message" />
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>Message HTML</mat-label>
+    <input matInput placeholder="Message HTML" [(ngModel)]="messageHtml" />
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>Cancel Button Title</mat-label>
+    <input matInput placeholder="Cancel Button Title" [(ngModel)]="cancelButtonTitle" />
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>Submit Button Title</mat-label>
+    <input matInput placeholder="Submit Button Title" [(ngModel)]="submitButtonTitle" />
+  </mat-form-field>
+</div>
+
+<div>
+  <button mat-raised-button (click)="openDialog()">Open confirm dialog</button>
+</div>
+
+<div>{{ result }}</div>

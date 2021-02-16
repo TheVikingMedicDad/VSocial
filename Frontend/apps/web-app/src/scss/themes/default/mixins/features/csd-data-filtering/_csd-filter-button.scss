@@ -1,0 +1,23 @@
+@mixin csd-filter-button($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-filter-button {
+    .csd-filter-count {
+      display: inline-block;
+      background-color: mat-color($primary, default);
+      color: mat-color($primary, 'default-contrast');
+      border-radius: 10px;
+      height: 20px;
+      width: 20px;
+      text-align: center;
+      line-height: 20px;
+      margin-top: -3px;
+      margin-left: 4px;
+    }
+  }
+}

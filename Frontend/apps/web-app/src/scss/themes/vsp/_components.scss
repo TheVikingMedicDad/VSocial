@@ -1,0 +1,22 @@
+/*
+  // TODO CSD: Override components like this
+
+  @import "components/vsp-user-register";
+
+  @mixin csd-override-components($theme, $typo) {
+      @include vsp-user-register($theme, $typo);
+  }
+
+*/
+
+// 
+@import 'mixins/todo-add.component';
+@import 'mixins/todo-list.component';
+@import 'mixins/todo-item.component';
+
+@mixin csd-override-components($theme, $typo) {
+  @include dta-todo-add-component($theme, $typo);
+  @include dta-todo-list-component($theme, $typo);
+  @include dta-todo-item-component($theme, $typo);
+}
+// 

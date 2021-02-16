@@ -1,0 +1,34 @@
+@mixin csd-filter-container($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-filter-container {
+    background-color: mat-color($primary, 100);
+    border: 1px solid mat-color($primary, default);
+
+    &.csd-nesting-level-0 {
+      border: unset;
+      background-color: unset;
+      padding: 0;
+    }
+
+    &.csd-nesting-level-1 {
+      border: unset;
+      background-color: mat-color($primary, 100);
+    }
+
+    .csd-add-filter-button {
+      @include csd-mat-button('primary');
+      width: 100%;
+    }
+
+    .csd-remove-container-button {
+      @include csd-mat-button('primary');
+      width: 100%;
+    }
+  }
+}

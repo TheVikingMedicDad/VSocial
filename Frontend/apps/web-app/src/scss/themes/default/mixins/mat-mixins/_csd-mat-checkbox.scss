@@ -1,0 +1,79 @@
+@mixin csd-mat-checkbox($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  $disabled-color-warn-contrast: map-get($warn, '500-contrast');
+  $enabled-color-primary: map-get($primary, 500);
+  $enabled-color-primary-contrast: map-get($primary, '300-contrast');
+
+  .mat-checkbox:hover {
+    :not(.mat-checkbox-disabled).mat-checkbox-frame {
+      border-color: $enabled-color-primary;
+    }
+  }
+
+  // normal disabled
+  .mat-checkbox-checked.mat-checkbox-disabled {
+    pointer-events: none;
+    .mat-checkbox-inner-container {
+      opacity: 1;
+    }
+    .mat-checkbox-frame {
+      border-color: $disabled-color-warn-contrast;
+    }
+    :not(.mat-checkbox-indeterminate).mat-checkbox-background {
+      background-color: $disabled-color-warn-contrast;
+      .mat-checkbox-mixedmark {
+        background-color: mat-color($primary, A100);
+      }
+    }
+  }
+
+  // indeterminate disabled and unchecked disabled
+  .mat-checkbox-disabled.mat-checkbox-indeterminate.mat-accent,
+  :not(.mat-checkbox-checked).mat-checkbox-disabled {
+    pointer-events: none;
+    .mat-checkbox-inner-container {
+      opacity: 1;
+    }
+    .mat-checkbox-frame {
+      border-color: $disabled-color-warn-contrast;
+    }
+    .mat-checkbox-background {
+      background-color: transparent;
+      .mat-checkbox-mixedmark {
+        background-color: $disabled-color-warn-contrast;
+      }
+    }
+  }
+
+  // indeterminate normal
+  .mat-checkbox-indeterminate.mat-accent {
+    .mat-checkbox-background {
+      background-color: transparent;
+      .mat-checkbox-mixedmark {
+        background-color: $enabled-color-primary;
+      }
+    }
+    .mat-checkbox-frame {
+      border-color: $enabled-color-primary;
+    }
+  }
+
+  // enabled unchecked checkbox
+  .mat-checkbox-frame {
+    border-color: $enabled-color-primary-contrast;
+  }
+
+  .mat-checkbox .mat-checkbox-label {
+    @include mat-typography-level-to-styles($typo, 'body-2');
+    // solve issue of long checkbox label not resizing on mobile
+    @media (max-width: map-get($csd-breakpoints, tablet)) {
+      white-space: normal;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{% load wagtailcore_tags menu_tags i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="csd-footer-section csd-section">
+  <div class="csd-footer-row-1 csd-container">
+    <div class="csd-col-1">
+      {{ footer.column_1 | richtext }}
+    </div>
+    <div class="csd-col-2">
+      {{ footer.column_2 | richtext }}
+    </div>
+    <div class="csd-col-3">
+      {{ footer.column_3 | richtext }}
+    </div>
+  </div>
+
+  <div class="csd-footer-row-2 csd-container">
+    <div class="csd-col-1">
+      &copy {% now "Y" %} {{ footer.copyright_info }}
+    </div>
+    <div class="csd-col-2">
+      {% flat_menu handle='footer_'|add:LANGUAGE_CODE %}
+    </div>
+  </div>
+  <div class="csd-footer-row-3">
+    <div class="csd-powered-by csd-container">
+    Powered by <a href="https://www.cnc.io/seed">Carrot Seed</a>
+      </div>
+  </div>
+</div>

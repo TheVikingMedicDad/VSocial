@@ -1,0 +1,14 @@
+{% load i18n %}
+{% block content %}
+
+{% endblock %}
+
+--
+
+© {% now "Y" %} {{ project.name }}
+{{ project.company_address }}
+
+{% trans "Contact us" %}: {{ project.contact_email }}"
+{% trans "Website" %}: {{ project.website.url }}"
+{% trans "Privacy Policy" %}: {{ project.website.privacy_url }}
+{% trans "Terms of Service" %}: {{ project.website.terms_url }}

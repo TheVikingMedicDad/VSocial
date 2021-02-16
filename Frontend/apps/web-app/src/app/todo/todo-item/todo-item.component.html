@@ -1,0 +1,44 @@
+<div class="dta-todo-item">
+  <ng-container *ngIf="!editMode; else elseBlock">
+    <mat-checkbox
+      [checked]="todoItem.isDone"
+      (change)="changeCompleted(!todoItem.isDone)"
+    ></mat-checkbox>
+    <div
+      class="dta-todo-text"
+      [style.text-decoration]="todoItem.isDone ? 'line-through' : 'none'"
+      (dblclick)="editMode = true"
+    >
+      {{ todoItem.text }}
+    </div>
+    <div class="dta-actions">
+      <button class="dta-edit" (click)="editMode = true" mat-icon-button>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button class="dta-delete" (click)="deleteItem(todoItem, $event)" mat-icon-button>
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #elseBlock>
+    <mat-form-field class="dta-edit-todo">
+      <input
+        matInput
+        #changedTodoTitle
+        [value]="todoItem.text"
+        (keyup.enter)="changeTitle(changedTodoTitle.value)"
+        (blur)="changeTitle(changedTodoTitle.value)"
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <button
+      class="dta-save-button"
+      mat-flat-button
+      color="primary"
+      (click)="changeTitle(changedTodoTitle.value)"
+    >
+      {{ 'BUTTON.SAVE' | i18next }}
+    </button>
+  </ng-template>
+</div>

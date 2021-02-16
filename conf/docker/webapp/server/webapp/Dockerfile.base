@@ -1,0 +1,28 @@
+#########################
+# base stage
+#########################
+FROM python:3.8.6-alpine
+
+ENV PYTHONUNBUFFERED 1
+
+RUN apk update \
+  # psycopg2 dependencies
+  && apk add --virtual build-deps gcc python3-dev musl-dev git \
+  && apk add postgresql-dev \
+  # Pillow dependencies
+  && apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev \
+  # CFFI dependencies
+  && apk add libffi-dev py-cffi \
+  # django translations
+  && apk add gettext \
+  # Make for Sphinx
+  && apk add make \
+  # add pg_dump needed for django-dbbackup
+  && apk add postgresql
+
+COPY ./conf/docker/webapp/server/webapp/*_check.sh /
+RUN sed -i 's/\r//' /*_check.sh
+RUN chmod +x /*_check.sh
+
+COPY ./conf/docker/webapp/server/webapp/drop_and_create_db.py /
+RUN chmod +x /drop_and_create_db.py

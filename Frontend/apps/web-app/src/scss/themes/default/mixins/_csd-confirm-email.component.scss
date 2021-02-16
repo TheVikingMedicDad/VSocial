@@ -1,0 +1,23 @@
+@mixin csd-confirm-email($theme, $typo) {
+  $primary: map-get($theme, primary);
+
+  .csd-confirm-email {
+    width: 450px;
+    @media (max-width: map-get($csd-breakpoints, tablet)) {
+      width: 100%;
+    }
+    align-items: center;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    .csd-in-progress,
+    .csd-succeeded,
+    .csd-failed {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      align-content: space-around;
+    }
+  }
+}

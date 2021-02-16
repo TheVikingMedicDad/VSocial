@@ -1,0 +1,24 @@
+<div class="csd-user-menu">
+  <button class="csd-user-menu-button" mat-icon-button [matMenuTriggerFor]="menu">
+    <img src="/assets/images/avatar_dark.svg" />
+  </button>
+
+  <mat-menu class="csd-user-menu-dropdown" #menu="matMenu">
+    <a
+      [routerLink]="routeConstants.PATH_USER_ACCOUNT"
+      class="csd-account-settings-button"
+      mat-menu-item
+      >{{ 'USER_MENU.ACCOUNT_SETTINGS' | i18next }}</a
+    >
+    <a
+      [routerLink]="routeConstants.PATH_ADMIN"
+      class="csd-admin-button"
+      *ngIf="isAdmin"
+      mat-menu-item
+      >{{ 'USER_MENU.ADMIN' | i18next }}</a
+    >
+    <button class="csd-logout-button" mat-menu-item (click)="logout()">
+      {{ 'USER_MENU.LOGOUT' | i18next }}
+    </button>
+  </mat-menu>
+</div>

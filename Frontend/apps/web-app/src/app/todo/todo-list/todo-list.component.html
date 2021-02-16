@@ -1,0 +1,9 @@
+<div class="dta-todo-list">
+  <div *ngFor="let todo of dataSource.data$() | async">
+    <dta-todo-item
+      (savedItem)="savedItem.emit($event)"
+      (deletedItem)="deletedItem.emit($event)"
+      [todoItem]="todo"
+    ></dta-todo-item>
+  </div>
+</div>

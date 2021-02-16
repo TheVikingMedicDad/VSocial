@@ -1,0 +1,17 @@
+<div class="csd-component-library">
+  <div class="csd-navigation-wrapper">
+    <div class="csd-navigation">
+      <button
+        mat-stroked-button
+        color="primary"
+        *ngFor="let navItem of componentLibraryPathList"
+        [routerLink]="navItem[1]"
+      >
+        {{ navItem[0] }}
+      </button>
+    </div>
+  </div>
+  <div class="csd-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

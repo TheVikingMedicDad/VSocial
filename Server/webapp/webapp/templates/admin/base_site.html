@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% load render_bundle from webpack_loader %}
+{% load i18n static %}
+
+{% block title %}
+{% include './project_admin_name.html' %}
+{% endblock %}
+{% block extrastyle %}
+     {% render_bundle 'index' 'css' %}
+     <link rel="icon" href="{% static 'images/favicon.ico' %}">
+{% endblock %}
+
+
+{% block bodyclass %} csd-core-admin csd-theme-default-light{% endblock %}
+{% block branding %}
+{% include './project_admin_name.html' %}
+{% endblock %}
+{% block nav-global %}{% endblock %}

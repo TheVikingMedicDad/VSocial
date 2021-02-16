@@ -1,0 +1,60 @@
+.DS_Store
+.idea
+*.DS_STORE
+*.pyc
+*.log
+*.log.*
+*~
+.Trash*
+.env
+
+# exclude potentially created ssh keys
+*_rsa
+*_rsa.pub
+*_ssh_keys.zip
+
+# exclude folder/files from package_secrets.sh script
+export_secrets/
+export_secrets.zip
+*.secrets.txt
+
+# locally set environment
+.csd_env
+
+# is generated during build/serving
+webpack-stats.json
+
+# the created .env file for the docker containers
+conf/envs/.generated_env_*
+
+# global env with credentials, etc
+conf/envs/global_env.sh
+db/
+
+#to exclude the upgrade project
+.ccc_upgrade_project
+
+# exclude node_modules
+node_modules/
+
+# exclude static because they are collected with collectstatics from the individuall apps
+Server/**/static/
+
+# virtualenv
+env/
+
+# media folder is the upload folder of the cms
+media/
+
+# build artifacts ready for deployment
+dist/
+
+# letsencrypt local development cerst
+conf/docker/website/proxy/letsencrypt_dev/
+
+# secrets environment files
+*.secrets.sh
+*_kubeconfig.yaml
+
+# ignore helm chart dependency cache
+conf/kubernetes/webapp/charts/

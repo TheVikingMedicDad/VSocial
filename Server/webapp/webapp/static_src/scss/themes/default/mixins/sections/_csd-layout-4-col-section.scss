@@ -1,0 +1,73 @@
+@mixin csd-layout-4-col-section($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-layout-4-col-section {
+    padding: $csd-section-padding 0;
+    @media #{$mat-lt-sm} {
+      padding: $csd-section-padding-mobile 0;
+    }
+
+    .csd-title {
+      @include mat-typography-level-to-styles($typo, display-4);
+      max-width: 550px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    & .csd-column-content {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: $csd-grid-column-gap;
+
+      @media (max-width: map-get($csd-breakpoints, desktop)) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: $csd-grid-row-gap;
+      }
+      &.hidden-desktop {
+        @media (min-width: map-get($csd-breakpoints, desktop)) {
+          display: none;
+        }
+      }
+
+      &.hidden-mobile {
+        @media (max-width: map-get($csd-breakpoints, desktop)) {
+          display: none;
+        }
+      }
+
+      & .csd-cell {
+        justify-self: center;
+        @media #{$mat-lt-sm} {
+          padding: 0 20px;
+        }
+
+        & > .csd-headline-block {
+          text-align: center;
+        }
+
+        > img {
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+
+          @media #{$mat-lt-sm} {
+            width: 50%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+          }
+        }
+
+        .csd-text-block {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}

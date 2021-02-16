@@ -1,0 +1,79 @@
+@mixin csd-card-component($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+  $padding-size: 24px;
+
+  .csd-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 72px;
+    padding: 0 $padding-size 0 $padding-size;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+    color: mat-color($primary, '50-contrast');
+    background-color: mat-color($primary, '800-contrast');
+
+    &:hover,
+    &:focus {
+      color: mat-color($primary, 500);
+      background-color: mat-color($primary, 50);
+      .csd-right-container > .csd-actions-container {
+        display: block;
+        background-color: mat-color($primary, 50);
+      }
+    }
+    &.csd-active {
+      color: mat-color($primary, 500);
+      &,
+      .csd-right-container > .csd-actions-container {
+        background-color: mat-color($primary, 100);
+      }
+    }
+    &.csd-disabled {
+      pointer-events: none;
+      color: mat-color($primary, '50-contrast');
+      background-color: mat-color($primary, '800-contrast');
+      opacity: 0.2;
+    }
+
+    .csd-header-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .csd-card-title {
+        margin-left: 16px;
+        @include mat-typography-level-to-styles($typo, 'body-2');
+      }
+    }
+
+    .csd-right-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .csd-actions-container {
+        display: none;
+        button {
+          color: mat-color($primary, '50-contrast');
+        }
+        position: absolute;
+        z-index: 1;
+        right: $padding-size;
+      }
+
+      .csd-card-subtitle {
+        @include mat-typography-level-to-styles($typo, 'caption');
+        color: mat-color($primary, '50-contrast');
+        opacity: 0.4;
+      }
+    }
+  }
+}

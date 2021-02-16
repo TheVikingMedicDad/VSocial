@@ -1,0 +1,18 @@
+<div class="csd-container-separator">
+  <button
+    mat-button
+    *ngIf="_currentOperator === logicalFilterOperator.AND"
+    class="csd-operator"
+    (click)="changeOperator()"
+  >
+    {{ 'FILTER_CONFIGURATOR.FILTER_CONTAINER.OPERATOR_AND' | i18next }}
+  </button>
+  <button
+    mat-button
+    *ngIf="_currentOperator === logicalFilterOperator.OR"
+    class="csd-operator"
+    (click)="changeOperator()"
+  >
+    {{ 'FILTER_CONFIGURATOR.FILTER_CONTAINER.OPERATOR_OR' | i18next }}
+  </button>
+</div>

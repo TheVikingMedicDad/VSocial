@@ -1,0 +1,36 @@
+<mat-sidenav-container class="csd-sidenav-container" [hasBackdrop]="false">
+  <mat-sidenav
+    #drawer
+    class="csd-main-sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="false"
+  >
+    <router-outlet name="main-sidenav"></router-outlet>
+  </mat-sidenav>
+  <mat-sidenav-content class="csd-main-container">
+    <!-- Toolbar -->
+    <router-outlet
+      name="main-toolbar"
+      (activate)="onToolbarActivate($event)"
+      (deactivate)="onToolbarDeactivate($event)"
+    ></router-outlet>
+    <!-- Main Content -->
+    <mat-drawer-container
+      [hasBackdrop]="false"
+      [ngClass]="{
+        'csd-public-page': publicPage,
+        'csd-private-page': !publicPage,
+        'csd-modal-notification': isModalNotifcation
+      }"
+    >
+      <mat-drawer #mainSidenav position="end" mode="side">
+        <csd-main-sidenav></csd-main-sidenav>
+      </mat-drawer>
+      <mat-drawer-content>
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>

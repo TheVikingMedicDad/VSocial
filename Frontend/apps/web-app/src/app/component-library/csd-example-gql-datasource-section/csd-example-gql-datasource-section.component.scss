@@ -1,0 +1,9 @@
+.csd-loading-indicator {
+  > div {
+    display: flex;
+    p {
+      padding-right: 10px;
+    }
+  }
+  height: 30px;
+}

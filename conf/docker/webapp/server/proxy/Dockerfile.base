@@ -1,0 +1,12 @@
+#########################
+# base stage
+#########################
+FROM nginx:1.16-alpine
+
+RUN apk update \
+  && apk add bash
+
+# conveniance symlinks for the docker log under /var/log/docker/stdout|stderr
+RUN mkdir /var/log/docker && \
+    ln -sf /proc/1/fd/1 /var/log/docker/stdout && \
+    ln -sf /proc/1/fd/2 /var/log/docker/stderr

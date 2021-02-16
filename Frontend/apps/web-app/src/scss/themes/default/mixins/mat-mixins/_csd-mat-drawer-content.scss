@@ -1,0 +1,37 @@
+@mixin csd-mat-drawer-content($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  // TODO: I think we should change this all to flexbox (flex expand and so on, should be easier)
+  .csd-main-container.mat-drawer-container {
+    height: 100vh;
+    @media ($mat-xsmall) {
+      height: 100vh;
+    }
+  }
+
+  .mat-drawer-container {
+    height: calc(100vh - #{$mat-toolbar-height-desktop});
+    @media ($mat-xsmall) {
+      height: calc(100vh - #{$mat-toolbar-height-mobile});
+    }
+
+    &.csd-public-page {
+      height: 100vh;
+    }
+
+    &.csd-modal-notification {
+      height: calc(100vh - #{$mat-toolbar-height-desktop} - #{$mat-modal-notification-height});
+      @media ($mat-xsmall) {
+        height: calc(100vh - #{$mat-toolbar-height-mobile} - #{$mat-modal-notification-height});
+      }
+    }
+  }
+  .csd-sidenav-container.mat-drawer-container.mat-sidenav-container {
+    height: auto;
+  }
+}

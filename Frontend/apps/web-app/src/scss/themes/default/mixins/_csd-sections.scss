@@ -1,0 +1,26 @@
+@mixin csd-sections($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-container {
+    //max-width: $csd-container-width;
+    overflow-x: hidden;
+    @media (min-width: map-get($csd-breakpoints, lg-desktop)) {
+      max-width: 2000px;
+      margin: 0 auto;
+      box-shadow: 0 2px 40px 0 rgba(28, 28, 28, 0.1);
+    }
+  }
+
+  .csd-user-register-page,
+  .csd-user-login-page {
+    height: 100%;
+    .csd-container {
+      height: 100%;
+    }
+  }
+}

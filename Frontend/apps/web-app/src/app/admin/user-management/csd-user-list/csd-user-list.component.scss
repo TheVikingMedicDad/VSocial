@@ -1,0 +1,21 @@
+.csd-full-width-table {
+  width: 100%;
+}
+
+.mat-column-select {
+  overflow: initial;
+}
+
+div.profileImage {
+  margin: 0 auto;
+}
+
+div.profileImage img {
+  height: 32px;
+  width: 32px;
+}
+
+.centered-and-cropped {
+  object-fit: cover;
+  border-radius: 50%;
+}

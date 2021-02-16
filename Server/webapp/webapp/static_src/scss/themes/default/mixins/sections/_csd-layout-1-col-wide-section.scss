@@ -1,0 +1,26 @@
+@mixin csd-layout-1-col-wide-section($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-layout-1-col-wide-section {
+    padding: $csd-section-padding 0;
+    @media #{$mat-lt-sm} {
+      padding: $csd-section-padding-mobile 0;
+    }
+
+    & > img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    & > .csd-container {
+      & > .csd-center-column {
+
+      }
+    }
+  }
+}

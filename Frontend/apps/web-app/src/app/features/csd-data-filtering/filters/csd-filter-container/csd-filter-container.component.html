@@ -1,0 +1,28 @@
+<div class="csd-filter-container csd-base-filter" [ngClass]="'csd-nesting-level-' + nestingLevel">
+  <ng-template csd-filter-host></ng-template>
+
+  <div class="csd-actions" *ngIf="!hideControls">
+    <button class="csd-add-filter-button" mat-button [matMenuTriggerFor]="addFilterMenu">
+      <mat-icon>add</mat-icon>
+      {{ 'FILTER_CONFIGURATOR.FILTER_CONTAINER.ADD_FILTER_BUTTON' | i18next }}
+    </button>
+    <mat-menu #addFilterMenu="matMenu">
+      <button
+        (click)="addNewFilter(filterEntry.fieldId)"
+        mat-menu-item
+        *ngFor="let filterEntry of availableFilters"
+      >
+        {{ translateFieldId(filterEntry.fieldId) }}
+      </button>
+    </mat-menu>
+    <button
+      mat-button
+      class="csd-remove-container-button"
+      *ngIf="!isRootContainer && dynamicComponentRefs.length === 0"
+      (click)="destroy()"
+    >
+      <mat-icon>close</mat-icon>
+      {{ 'FILTER_CONFIGURATOR.FILTER_CONTAINER.CLOSE_CONTAINER_BUTTON' | i18next }}
+    </button>
+  </div>
+</div>

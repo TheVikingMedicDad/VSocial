@@ -1,0 +1,26 @@
+<table *ngIf="loaded">
+  <tr>
+    <td>Server BAS Version</td>
+    <td>{{ serverInfo.mainVersion }}</td>
+  </tr>
+  <tr>
+    <td>Server Project Version</td>
+    <td>{{ serverInfo.projectVersion }}</td>
+  </tr>
+  <tr>
+    <td>Server Buildtime</td>
+    <td>{{ serverInfo.buildTime | date: 'full' }}</td>
+  </tr>
+  <tr>
+    <td>Frontend Platform</td>
+    <td>{{ frontendInfo.platform }}</td>
+  </tr>
+  <tr>
+    <td>Frontend Project Version</td>
+    <td>{{ frontendInfo.projectVersion }}</td>
+  </tr>
+  <tr>
+    <td>Frontend Buildtime</td>
+    <td>{{ frontendInfo.buildTime | date: 'full' }}</td>
+  </tr>
+</table>

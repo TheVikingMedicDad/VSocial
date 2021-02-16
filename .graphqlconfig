@@ -1,0 +1,15 @@
+{
+  "schemaPath": "schema.graphql",
+  "projects": {
+    "webapp": {
+      "includes": [],
+      "extensions": {
+        "endpoints": {
+          "dev": {
+            "url": "https://app.example.com.local/rest/graphql/"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{% extends "./base/base_email.txt" %}
+{% load i18n %}
+
+{% block content %}
+Your Invitation has been canceled!
+
+We have to inform you about the cancelation of your invitation to {{ project.name }}.
+{% endblock %}

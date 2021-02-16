@@ -1,0 +1,46 @@
+@mixin csd-filter-configurator($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-filter-configurator {
+    .csd-menu-container {
+      .csd-title {
+        text-align: center;
+      }
+    }
+
+    .csd-content {
+      padding: 15px;
+
+      .csd-description {
+        margin-bottom: 30px;
+      }
+
+      & > .csd-actions {
+        margin: 15px 0;
+        .csd-add-filter-button {
+          width: 100%;
+          @include csd-mat-flat-button('primary');
+          margin: 5px 0;
+        }
+
+        .csd-remove-filter-button {
+          width: 100%;
+          @include csd-mat-stroked-button();
+          margin: 5px 0;
+        }
+      }
+    }
+
+    .csd-container-separator {
+      .csd-operator {
+        width: 100%;
+        @include csd-mat-button('primary');
+      }
+    }
+  }
+}

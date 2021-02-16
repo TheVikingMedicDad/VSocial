@@ -1,0 +1,46 @@
+@mixin csd-typography-richtext-classes($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .rich-text {
+    h1 {
+      @include mat-typography-level-to-styles($typo, display-4);
+      @media #{$mat-lt-sm} {
+        font-size: 40px;
+        line-height: 40px;
+      }
+    }
+
+    h2 {
+      @include mat-typography-level-to-styles($typo, display-3);
+      @media #{$mat-lt-sm} {
+        font-size: 40px;
+        line-height: 40px;
+      }
+    }
+
+    h3 {
+      @include mat-typography-level-to-styles($typo, display-2);
+    }
+
+    h4 {
+      @include mat-typography-level-to-styles($typo, display-1);
+    }
+
+    h5 {
+      @include mat-typography-level-to-styles($typo, headline);
+    }
+
+    h6 {
+      @include mat-typography-level-to-styles($typo, title);
+    }
+
+    p {
+      @include mat-typography-level-to-styles($typo, body-1);
+    }
+  }
+}

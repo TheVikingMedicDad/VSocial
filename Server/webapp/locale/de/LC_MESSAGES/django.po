@@ -1,0 +1,428 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-23 07:27+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: webapp/templates/404.html:12
+msgid "Oooops. This site doesn’t exist."
+msgstr ""
+
+#: webapp/templates/404.html:13 webapp/templates/500.html:16
+msgid "Return to homepage"
+msgstr ""
+
+#: webapp/templates/500.html:12
+msgid ""
+"\n"
+"    Looks like something went wrong! We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.\n"
+"    "
+msgstr ""
+
+#: webapp/templates/account/account_inactive.html:5
+#: webapp/templates/account/account_inactive.html:8
+msgid "Account Inactive"
+msgstr ""
+
+#: webapp/templates/account/account_inactive.html:10
+msgid "This account is inactive."
+msgstr ""
+
+#: webapp/templates/account/email.html:7
+msgid "Account"
+msgstr ""
+
+#: webapp/templates/account/email.html:10
+msgid "E-mail Addresses"
+msgstr ""
+
+#: webapp/templates/account/email.html:13
+msgid "The following e-mail addresses are associated with your account:"
+msgstr ""
+
+#: webapp/templates/account/email.html:27
+msgid "Verified"
+msgstr ""
+
+#: webapp/templates/account/email.html:29
+msgid "Unverified"
+msgstr ""
+
+#: webapp/templates/account/email.html:31
+msgid "Primary"
+msgstr ""
+
+#: webapp/templates/account/email.html:37
+msgid "Make Primary"
+msgstr ""
+
+#: webapp/templates/account/email.html:38
+msgid "Re-send Verification"
+msgstr ""
+
+#: webapp/templates/account/email.html:39
+msgid "Remove"
+msgstr ""
+
+#: webapp/templates/account/email.html:46
+msgid "Warning:"
+msgstr ""
+
+#: webapp/templates/account/email.html:46
+msgid "You currently do not have any e-mail address set up. You should really add an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+
+#: webapp/templates/account/email.html:51
+msgid "Add E-mail Address"
+msgstr ""
+
+#: webapp/templates/account/email.html:56
+msgid "Add E-mail"
+msgstr ""
+
+#: webapp/templates/account/email.html:66
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr ""
+
+#: webapp/templates/account/email_confirm.html:6
+#: webapp/templates/account/email_confirm.html:10
+msgid "Confirm E-mail Address"
+msgstr "Bestätigen Sie Ihre E-Mail Adresse"
+
+#: webapp/templates/account/email_confirm.html:16
+#, python-format
+msgid "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail address for user %(user_display)s."
+msgstr ""
+
+#: webapp/templates/account/email_confirm.html:20
+msgid "Confirm"
+msgstr ""
+
+#: webapp/templates/account/email_confirm.html:27
+#, python-format
+msgid "This e-mail confirmation link expired or is invalid. Please <a href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+
+#: webapp/templates/account/login.html:7 webapp/templates/account/login.html:11
+#: webapp/templates/account/login.html:44
+msgid "Sign In"
+msgstr ""
+
+#: webapp/templates/account/login.html:16
+#, python-format
+msgid ""
+"Please sign in with one\n"
+"of your existing third party accounts. Or, <a href=\"%(signup_url)s\">sign up</a>\n"
+"for a %(site_name)s account and sign in below:"
+msgstr ""
+
+#: webapp/templates/account/login.html:26
+msgid "or"
+msgstr ""
+
+#: webapp/templates/account/login.html:33
+#, python-format
+msgid ""
+"If you have not created an account yet, then please\n"
+"<a href=\"%(signup_url)s\">sign up</a> first."
+msgstr ""
+
+#: webapp/templates/account/login.html:43
+msgid "Forgot Password?"
+msgstr ""
+
+#: webapp/templates/account/logout.html:5
+#: webapp/templates/account/logout.html:8
+#: webapp/templates/account/logout.html:17
+msgid "Sign Out"
+msgstr ""
+
+#: webapp/templates/account/logout.html:10
+msgid "Are you sure you want to sign out?"
+msgstr ""
+
+#: webapp/templates/account/password_change.html:6
+#: webapp/templates/account/password_change.html:9
+#: webapp/templates/account/password_change.html:14
+#: webapp/templates/account/password_reset_from_key.html:5
+#: webapp/templates/account/password_reset_from_key.html:8
+#: webapp/templates/account/password_reset_from_key_done.html:4
+#: webapp/templates/account/password_reset_from_key_done.html:7
+msgid "Change Password"
+msgstr ""
+
+#: webapp/templates/account/password_reset.html:7
+#: webapp/templates/account/password_reset.html:11
+#: webapp/templates/account/password_reset_done.html:6
+#: webapp/templates/account/password_reset_done.html:9
+msgid "Password Reset"
+msgstr ""
+
+#: webapp/templates/account/password_reset.html:16
+msgid "Forgotten your password? Enter your e-mail address below, and we'll send you an e-mail allowing you to reset it."
+msgstr ""
+
+#: webapp/templates/account/password_reset.html:21
+msgid "Reset My Password"
+msgstr ""
+
+#: webapp/templates/account/password_reset.html:24
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+
+#: webapp/templates/account/password_reset_done.html:15
+msgid "We have sent you an e-mail. Please contact us if you do not receive it within a few minutes."
+msgstr ""
+
+#: webapp/templates/account/password_reset_from_key.html:8
+msgid "Bad Token"
+msgstr ""
+
+#: webapp/templates/account/password_reset_from_key.html:12
+#, python-format
+msgid "The password reset link was invalid, possibly because it has already been used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</a>."
+msgstr ""
+
+#: webapp/templates/account/password_reset_from_key.html:18
+msgid "change password"
+msgstr ""
+
+#: webapp/templates/account/password_reset_from_key.html:21
+#: webapp/templates/account/password_reset_from_key_done.html:8
+msgid "Your password is now changed."
+msgstr ""
+
+#: webapp/templates/account/password_set.html:6
+#: webapp/templates/account/password_set.html:9
+#: webapp/templates/account/password_set.html:14
+msgid "Set Password"
+msgstr ""
+
+#: webapp/templates/account/signup.html:6
+msgid "Signup"
+msgstr ""
+
+#: webapp/templates/account/signup.html:9
+#: webapp/templates/account/signup.html:19
+msgid "Sign Up"
+msgstr ""
+
+#: webapp/templates/account/signup.html:11
+#, python-format
+msgid "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+
+#: webapp/templates/account/signup_closed.html:5
+#: webapp/templates/account/signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr ""
+
+#: webapp/templates/account/signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr ""
+
+#: webapp/templates/account/verification_sent.html:5
+#: webapp/templates/account/verification_sent.html:8
+#: webapp/templates/account/verified_email_required.html:5
+#: webapp/templates/account/verified_email_required.html:8
+msgid "Verify Your E-mail Address"
+msgstr "Verifizieren Sie Ihre E-Mail Adresse"
+
+#: webapp/templates/account/verification_sent.html:10
+msgid "We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes."
+msgstr "Wir haben Ihnen eine E-Mail zur Account Verifizierung gesendet. Folgen Sie dem darin enthaltenen Link um den Login Prozess abzuschliessen. Bitte kontaktieren Sie uns, sollten Sie in den nächsten Minuten keine E-Mail erhalten haben."
+
+#: webapp/templates/account/verified_email_required.html:12
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your e-mail address. "
+msgstr ""
+
+#: webapp/templates/account/verified_email_required.html:16
+msgid ""
+"We have sent an e-mail to you for\n"
+"verification. Please click on the link inside this e-mail. Please\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+
+#: webapp/templates/account/verified_email_required.html:20
+#, python-format
+msgid "<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-mail address</a>."
+msgstr ""
+
+#: webapp/templates/users/email/base/base_email.html:332
+#: webapp/templates/users/email/base/base_email.txt:11
+msgid "Contact us"
+msgstr "Kontakt"
+
+#: webapp/templates/users/email/base/base_email.html:333
+msgid "Terms of Use"
+msgstr "Nutzungsbedingungen"
+
+#: webapp/templates/users/email/base/base_email.html:334
+#: webapp/templates/users/email/base/base_email.txt:13
+msgid "Privacy Policy"
+msgstr "Datenschutzerklärung"
+
+#: webapp/templates/users/email/base/base_email.txt:12
+msgid "Website"
+msgstr "Webseite"
+
+#: webapp/templates/users/email/base/base_email.txt:14
+msgid "Terms of Service"
+msgstr "Nutzungsbedingungen"
+
+#: webapp/templates/users/email/invitation_to_register_message.html:29
+msgid "or you can open this <a href=\"%(project.webapp.url)s/%(user_check_page)s\">link</a> in the browser or copy it there"
+msgstr "oder kopieren Sie diesen <a href=\"%(project_webapp_url)s/%(confirm_path_name)s/%(key)s\">link</a> in den Browser öffnen ihn dort"
+
+#: webapp/templates/users/email/need_email_confirmation_message.html:5
+msgid "Confirm Email Address"
+msgstr "Bestätigen Sie Ihre E-Mail Adresse"
+
+#: webapp/templates/users/email/need_email_confirmation_message.html:8
+#, python-format
+msgid ""
+"\n"
+"    We got a request to change your %(project_name)s email address. Please click the button below to confirm this\n"
+"    address and complete the update. If you don’t want to update your email address, just ignore this email.\n"
+"    "
+msgstr ""
+"\n"
+"    Wir erhielten Ihren Wunsch Ihre %(project_name)s E-Mail Adresse zu ändern. Um diese E-mail Adresse zu bestätigen \n"
+"    und zu aktualisieren klicken Sie bitte auf den unten stehenden Button.\n"
+"    Sollte Sie Ihre E-Mail Adresse nicht ändern wollen können Sie diese Nachricht einfach ignorieren.\n"
+"    "
+
+#: webapp/templates/users/email/need_email_confirmation_message.html:14
+#: webapp/templates/users/email/password_reset_request_message.html:14
+#: webapp/templates/users/email/password_reset_request_message.txt:10
+msgid "If this wasn’t you, you don’t have to worry and can ignore this email, your account is safe."
+msgstr "Sollten das nicht Sie gewesen sein können Sie dieses E-Mail einfach ignorieren. Ihr Benutzerkonto ist sicher."
+
+#: webapp/templates/users/email/need_email_confirmation_message.html:22
+msgid "confirm new email address"
+msgstr "Neue E-Mail Adresse bestätigen"
+
+#: webapp/templates/users/email/need_email_confirmation_message.html:25
+#: webapp/templates/users/email/need_signup_email_confirmation_message.html:33
+#, python-format
+msgid "or you can open this <a href=\"%(project_webapp_url)s/%(confirm_path_name)s/%(key)s\">link</a> in the browser or copy it there"
+msgstr "oder kopieren Sie diesen <a href=\"%(project_webapp_url)s/%(confirm_path_name)s/%(key)s\">link</a> in den Browser öffnen ihn dort"
+
+#: webapp/templates/users/email/need_email_confirmation_message.txt:5
+#, python-format
+msgid ""
+"Confirm Email Address\n"
+"\n"
+"We got a request to change your %(project_name)s email address. Please click the button below to confirm\n"
+"this address and complete the update. If you don’t want to update your email address, just ignore this email.\n"
+"\n"
+"\n"
+"If this wasn’t you, you don’t have to worry and can ignore this email, your account is safe.\n"
+"\n"
+"To confirm please open this url in a browser:"
+msgstr ""
+"Bestätigung der E-Mail Adresse\n"
+"\n"
+"Wir erhielten den Wunsch Ihre %(project_name)s E-Mail Adresse zu ändern. Um diese E-Mail Adresse zu bestätigen\n"
+"und zu aktualisieren klicken Sie bitte auf den unten stehenden Link.\n"
+"\n"
+"Sollten Sie Ihre E-Mail Adresse nicht ändern wollen können Sie diese Nachricht einfach ignorieren.\n"
+"\n"
+"Um fortzufahren öffnen Sie folgende URL im Browser:"
+
+#: webapp/templates/users/email/need_email_confirmation_subject.txt:2
+msgid "Please confirm your email"
+msgstr "Bestätigen Sie Ihre E-Mail Adresse"
+
+#: webapp/templates/users/email/need_signup_email_confirmation_message.html:6
+msgid "Activate your Account"
+msgstr "Aktivieren Sie Ihren Account"
+
+#: webapp/templates/users/email/need_signup_email_confirmation_message.html:11
+#: webapp/templates/users/email/need_signup_email_confirmation_message.txt:5
+#, python-format
+msgid "Welcome to %(project_name)s."
+msgstr "Willkommen bei %(project_name)s."
+
+#: webapp/templates/users/email/need_signup_email_confirmation_message.html:17
+#, python-format
+msgid "Please confirm your new account at %(project_name)s to get the best experience. Simply click on the button below to complete your registration."
+msgstr "Bitte bestätigen Sie Ihr neues Benutzerkonto bei %(project_name)s um sämtliche Features nutzen zu können. Klicken Sie einfach auf den unten stehenden Button um die Registrierung abzuschließen."
+
+#: webapp/templates/users/email/need_signup_email_confirmation_message.html:23
+#: webapp/templates/users/email/need_signup_email_confirmation_message.txt:10
+msgid "If this wasn’t you, you don’t have to worry and can ignore this email."
+msgstr "Sollten das nicht Sie gewesen sein können Sie dieses E-Mail einfach ignorieren. Ihr Benutzerkonto ist sicher."
+
+#: webapp/templates/users/email/need_signup_email_confirmation_message.html:30
+msgid "confirm registration"
+msgstr "Bestätigen Sie Ihre Registrierung"
+
+#: webapp/templates/users/email/need_signup_email_confirmation_message.txt:7
+#, python-format
+msgid ""
+"Please confirm your new account at %(project_name)s to get the best experience. Simply click on the button below\n"
+"to complete your registration."
+msgstr "Bitte bestätigen Sie Ihr neues Benutzerkonto bei %(project_name)s um sämtliche Features nutzen zu können. Klicken Sie einfach auf den unten stehenden Button um die Registrierung abzuschließen."
+
+#: webapp/templates/users/email/need_signup_email_confirmation_message.txt:12
+msgid "To complete your registration please open this url in a browser:"
+msgstr "Um die Registrierung abzuschließen öffnen Sie bitte diesen Link im Browser:"
+
+#: webapp/templates/users/email/need_signup_email_confirmation_subject.txt:2
+#, python-format
+msgid "Complete your registration at %(project_name)s"
+msgstr "Willkommen bei %(project_name)s."
+
+#: webapp/templates/users/email/password_reset_request_message.html:5
+#: webapp/templates/users/email/password_reset_request_message.txt:5
+msgid "Forgot your password?"
+msgstr "Passwort vergessen?"
+
+#: webapp/templates/users/email/password_reset_request_message.html:8
+#, python-format
+msgid "We have got a request to change the password for %(user_email)s. If you don’t want to reset your password, you can ignore this email."
+msgstr "Wir erhielten den Wunsch zum Ändern des Passwortes von %(user_email)s. Sollten Sie Ihr Passwort nicht zurücksetzen wollen können Sie dieses Email einfach ignorieren."
+
+#: webapp/templates/users/email/password_reset_request_message.html:21
+msgid "reset your password"
+msgstr "Passwort zurücksetzen"
+
+#: webapp/templates/users/email/password_reset_request_message.html:24
+#, python-format
+msgid "or you can open this <a href=\"%(project_webapp_url)s/%(reset_password_path_name)s/%(key)s\">link</a> in the browser or copy it there"
+msgstr "oder öffnen Sie diesen <a href=\"%(project_webapp_url)s/%(reset_password_path_name)s/%(key)s\">link</a> im Browser"
+
+#: webapp/templates/users/email/password_reset_request_message.txt:7
+#, python-format
+msgid ""
+"We have got a request to change the password for %(user_email)s. If you don’t want to reset your password,\n"
+"you can ignore this email."
+msgstr "Wir erhielten den Wunsch zum Ändern des Passwortes von %(user_email)s. Sollten Sie Ihr Passwort nicht zurücksetzen wollen können Sie dieses Email einfach ignorieren."
+
+#: webapp/templates/users/email/password_reset_request_message.txt:12
+msgid "To set a new password please open this url in a browser:"
+msgstr "Öffnen Sie folgenden Link in Ihrem Browser um ein neues Passwort zu erstellen:"
+
+#: webapp/templates/users/email/password_reset_request_subject.txt:2
+msgid "Lost your password?"
+msgstr "Passwort vergessen?"
+
+#~ msgid "We got a request to change the password for your user account. If you don’t want to reset your password, you can ignore this email."
+#~ msgstr "Wir erhielten den Wunsch zum Ändern Ihres Passwortes. Sollten Sie Ihr Passwort nicht zurücksetzen wollen können Sie dieses Email einfach ignorieren."

@@ -1,0 +1,22 @@
+#########################
+# base stage
+#########################
+
+# we use no alpine here because it breaks things
+# see eg. https://github.com/imagemin/pngquant-bin/issues/65
+FROM node:12.18
+
+WORKDIR /app
+
+COPY ./Server/webapp/package.json /app
+COPY ./Server/webapp/package-lock.json /app
+
+RUN npm ci --no-audit
+
+WORKDIR /app/node_modules/optipng-bin
+RUN  node lib/install.js
+
+WORKDIR /app/node_modules/gifsicle
+RUN  node lib/install.js
+
+WORKDIR /app

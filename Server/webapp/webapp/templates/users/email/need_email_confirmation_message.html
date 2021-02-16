@@ -1,0 +1,33 @@
+{% extends "./base/base_email.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1>{% blocktrans %}Confirm Email Address{% endblocktrans %}</h1>
+
+  <p>
+    {% blocktrans with project_name=project.name %}
+    We got a request to change your {{ project_name }} email address. Please click the button below to confirm this
+    address and complete the update. If you don’t want to update your email address, just ignore this email.
+    {% endblocktrans %}
+  </p>
+  <p>
+    {% blocktrans trimmed %}
+    If this wasn’t you, you
+    don’t have to worry and can ignore this email, your account is safe.
+    {% endblocktrans %}
+  </p>
+
+  <div class="button-container">
+    <a href="{{ project.webapp.url }}/{{ confirm_path_name }}/{{ key }}" class="button">
+      {% trans "confirm new email address" %}</a>
+  </div>
+  <p class="button-alternative">
+    {% blocktrans with project_webapp_url=project.webapp.url trimmed %}
+    or you can open this <a href="{{ project_webapp_url}}/{{ confirm_path_name }}/{{ key }}">link</a> in the
+    browser or copy it there
+    {% endblocktrans %}<br>
+    <a class="break-word"
+       href="{{ project.webapp.url }}/{{ confirm_path_name }}/{{ key }}">
+      {{ project.webapp.url }}/{{ confirm_path_name }}/{{ key }}</a>
+  </p>
+{% endblock %}

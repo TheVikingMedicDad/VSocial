@@ -1,0 +1,52 @@
+@mixin csd-user-toolbar-component($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $toolbar-background-color: mat-color($primary, 500);
+  $toolbar-color: mat-color($primary, '700-contrast');
+
+  .csd-user-toolbar {
+    .mat-toolbar {
+      background-color: $toolbar-background-color;
+      color: $toolbar-color;
+      height: $mat-toolbar-height-desktop;
+
+      @media (max-width: map-get($csd-breakpoints, tablet)) {
+        height: $mat-toolbar-height-mobile;
+      }
+
+      .mat-icon-button {
+        color: $toolbar-color;
+        &:hover,
+        &:focus {
+          background-color: $toolbar-background-color;
+        }
+      }
+
+      .csd-logo-image {
+        height: 25px;
+        margin-right: 5px;
+        margin-top: 5px;
+      }
+
+      span {
+        font-weight: 500;
+      }
+
+      .cnc-vertical-line {
+        width: 1px;
+        background-color: white;
+        height: 58%; /* Override in-line if you want specific height. */
+        display: inline-block;
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+    }
+
+    .csd-user-menu {
+      margin: 0 0 0 8px;
+    }
+  }
+}

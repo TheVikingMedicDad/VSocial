@@ -1,0 +1,22 @@
+@mixin vsp-util-classes($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .vsp-remove-padding-top {
+    padding-top: 0;
+  }
+
+  .vsp-remove-padding-bottom {
+    padding-bottom: 0;
+  }
+
+  .vsp-red-bg
+  {
+    background-color:red;
+  }
+
+}

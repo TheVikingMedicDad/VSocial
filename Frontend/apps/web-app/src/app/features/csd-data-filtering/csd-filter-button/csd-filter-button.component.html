@@ -1,0 +1,5 @@
+<button class="csd-filter-button" mat-button (click)="showFilterConfigurator()">
+  <mat-icon>filter_list</mat-icon>
+  {{ buttonTranslationKey | i18next }}
+  <span class="csd-filter-count" *ngIf="filterCount > 0">{{ filterCount }}</span>
+</button>

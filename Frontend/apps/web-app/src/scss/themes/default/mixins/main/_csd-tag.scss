@@ -1,0 +1,20 @@
+@mixin csd-tag($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-tag {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 1px 5px 1px 5px;
+    background-color: mat-color($primary, 100);
+    color: mat-color($primary, '50-contrast');
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    line-height: 16px;
+  }
+}

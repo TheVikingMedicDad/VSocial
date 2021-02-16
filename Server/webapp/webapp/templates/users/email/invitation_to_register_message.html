@@ -1,0 +1,37 @@
+{% extends "./base/base_email.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1>
+    Invitation to {{ project.name }}.
+  </h1>
+
+  <p>
+    User {{ inviter_user_name }} invited you to be part of {{ project.name }}.
+  </p>
+
+  {% if message|length > 0 %}
+  <div class="afs-invitation-message">
+    <p>
+      {{ inviter_user_name }} added the following message to this invitation:
+    </p>
+    <p class="afs-invitation-message-content">
+      {{ message }}
+    </p>
+  </div>
+  {% endif %}
+
+  <div class="button-container">
+    <a href="{{ project.webapp.url }}/{{ user_check_page }}" class="button">
+      Join {{ project_name }}</a>
+  </div>
+  <p class="button-alternative">
+    {% blocktrans with project_webapp_url=project.webapp.url trimmed %}
+    or you can open this <a href="{{ project.webapp.url }}/{{ user_check_page }}">link</a> in the
+    browser or copy it there
+    {% endblocktrans %}<br>
+    <a class="break-word"
+       href="{{ project.webapp.url }}/{{ user_check_page }}">
+      {{ project.webapp.url }}/{{ confirm_path_name }}</a>
+  </p>
+{% endblock %}

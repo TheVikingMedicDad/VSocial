@@ -1,0 +1,2 @@
+{% load i18n %}
+{% blocktrans with project_name=project.name %}Complete your registration at {{ project_name }}{% endblocktrans %}

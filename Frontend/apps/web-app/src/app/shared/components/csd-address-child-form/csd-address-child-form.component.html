@@ -1,0 +1,168 @@
+<div [formGroup]="modelForm">
+  <!-- AddressLine1 field -->
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>{{ 'MODEL.INVITATION.CONSTANTS.ADDRESS_LINE_1' | i18next }}</mat-label>
+    <input
+      matInput
+      [placeholder]="'MODEL.LOCATION.FORM.ADDRESS_LINE_1.PLACEHOLDER' | i18next"
+      formControlName="addressLine1"
+    />
+    <mat-hint>{{ 'MODEL.LOCATION.FORM.ADDRESS_LINE_1.HINT' | i18next }}</mat-hint>
+    <mat-error
+      *ngIf="
+        (modelForm.get('addressLine1').dirty || modelForm.get('addressLine1').touched) &&
+        modelForm.get('addressLine1').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.ADDRESS_LINE_1.ERROR.REQUIRED' | i18next }}
+    </mat-error>
+    <mat-error
+      *ngIf="
+        (modelForm.get('addressLine1').dirty || modelForm.get('addressLine1').touched) &&
+        modelForm.get('addressLine1').errors?.invalid &&
+        !modelForm.get('addressLine1').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.ADDRESS_LINE_1.ERROR.INVALID' }}
+    </mat-error>
+  </mat-form-field>
+
+  <!-- AddressLine2 field -->
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>{{ 'MODEL.INVITATION.CONSTANTS.ADDRESS_LINE_2' | i18next }}</mat-label>
+    <input
+      matInput
+      [placeholder]="'MODEL.LOCATION.FORM.ADDRESS_LINE_2.PLACEHOLDER' | i18next"
+      formControlName="addressLine2"
+    />
+    <mat-hint>{{ 'MODEL.LOCATION.FORM.ADDRESS_LINE_2.HINT' | i18next }}</mat-hint>
+    <mat-error
+      *ngIf="
+        (modelForm.get('addressLine2').dirty || modelForm.get('addressLine2').touched) &&
+        modelForm.get('addressLine2').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.ADDRESS_LINE_2.ERROR.REQUIRED' | i18next }}
+    </mat-error>
+    <mat-error
+      *ngIf="
+        (modelForm.get('addressLine2').dirty || modelForm.get('addressLine2').touched) &&
+        modelForm.get('addressLine2').errors?.invalid &&
+        !modelForm.get('addressLine2').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.ADDRESS_LINE_2.ERROR.INVALID' }}
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Region field -->
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>{{ 'MODEL.INVITATION.CONSTANTS.REGION' | i18next }}</mat-label>
+    <input
+      matInput
+      [placeholder]="'MODEL.LOCATION.FORM.REGION.PLACEHOLDER' | i18next"
+      formControlName="region"
+    />
+    <mat-hint>{{ 'MODEL.LOCATION.FORM.REGION.HINT' | i18next }}</mat-hint>
+    <mat-error
+      *ngIf="
+        (modelForm.get('region').dirty || modelForm.get('region').touched) &&
+        modelForm.get('region').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.REGION.ERROR.REQUIRED' | i18next }}
+    </mat-error>
+    <mat-error
+      *ngIf="
+        (modelForm.get('region').dirty || modelForm.get('region').touched) &&
+        modelForm.get('region').errors?.invalid &&
+        !modelForm.get('region').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.REGION.ERROR.INVALID' }}
+    </mat-error>
+  </mat-form-field>
+
+  <!-- city field -->
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>{{ 'MODEL.INVITATION.CONSTANTS.CITY' | i18next }}</mat-label>
+    <input
+      matInput
+      [placeholder]="'MODEL.LOCATION.FORM.CITY.PLACEHOLDER' | i18next"
+      formControlName="city"
+    />
+    <mat-hint>{{ 'MODEL.LOCATION.FORM.CITY.HINT' | i18next }}</mat-hint>
+    <mat-error
+      *ngIf="
+        (modelForm.get('city').dirty || modelForm.get('city').touched) &&
+        modelForm.get('city').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.CITY.ERROR.REQUIRED' | i18next }}
+    </mat-error>
+    <mat-error
+      *ngIf="
+        (modelForm.get('city').dirty || modelForm.get('city').touched) &&
+        modelForm.get('city').errors?.invalid &&
+        !modelForm.get('city').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.CITY.ERROR.INVALID' }}
+    </mat-error>
+  </mat-form-field>
+
+  <!-- zipCode field -->
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>{{ 'MODEL.INVITATION.CONSTANTS.ZIP_CODE' | i18next }}</mat-label>
+    <input
+      matInput
+      [placeholder]="'MODEL.LOCATION.FORM.ZIP_CODE.PLACEHOLDER' | i18next"
+      formControlName="zipCode"
+    />
+    <mat-hint>{{ 'MODEL.LOCATION.FORM.ZIP_CODE.HINT' | i18next }}</mat-hint>
+    <mat-error
+      *ngIf="
+        (modelForm.get('zipCode').dirty || modelForm.get('zipCode').touched) &&
+        modelForm.get('zipCode').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.ZIP_CODE.ERROR.REQUIRED' | i18next }}
+    </mat-error>
+    <mat-error
+      *ngIf="
+        (modelForm.get('zipCode').dirty || modelForm.get('zipCode').touched) &&
+        modelForm.get('zipCode').errors?.invalid &&
+        !modelForm.get('zipCode').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.ZIP_CODE.ERROR.INVALID' }}
+    </mat-error>
+  </mat-form-field>
+
+  <!-- country field -->
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>{{ 'COUNTRY_SELECTOR.LABEL' | i18next }}</mat-label>
+    <mat-select [placeholder]="'COUNTRY_SELECTOR.PLACEHOLDER' | i18next" formControlName="country">
+      <mat-option *ngFor="let country of countries" [value]="country">
+        {{ country | translateCountryCode }}
+      </mat-option>
+    </mat-select>
+    <mat-error
+      *ngIf="
+        (modelForm.get('country').dirty || modelForm.get('country').touched) &&
+        modelForm.get('country').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.COUNTRY.ERROR.REQUIRED' | i18next }}
+    </mat-error>
+    <mat-error
+      *ngIf="
+        (modelForm.get('country').dirty || modelForm.get('country').touched) &&
+        modelForm.get('country').errors?.invalid &&
+        !modelForm.get('country').errors?.required
+      "
+    >
+      {{ 'MODEL.LOCATION.FORM.COUNTRY.ERROR.INVALID' }}
+    </mat-error>
+  </mat-form-field>
+</div>

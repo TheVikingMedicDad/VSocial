@@ -1,0 +1,66 @@
+@mixin csd-user-confirm-account($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .csd-user-confirm-account {
+    .csd-confirm-header,
+    .csd-succeed-step,
+    .csd-token-invalid-step {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: stretch;
+      padding: 50px 100px 0 100px;
+      @media (max-width: map-get($csd-breakpoints, tablet)) {
+        padding: 20px 40px 0 20px;
+      }
+    }
+    .csd-content {
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: stretch;
+        padding: 0 100px 0 100px;
+        @media (max-width: map-get($csd-breakpoints, tablet)) {
+          padding: 0 20px 20px 20px;
+        }
+
+        .csd-title,
+        .csd-section-title {
+          @include mat-typography-level-to-styles($typo, 'display-1');
+        }
+
+        .csd-section-box {
+          margin: 20px 0 20px 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: stretch;
+        }
+
+        .csd-description {
+          margin: 10px 0 20px;
+          @include mat-typography-level-to-styles($typo, 'body-2');
+        }
+
+        .mat-hint {
+          @include mat-typography-level-to-styles($typo, 'caption');
+
+          .csd-back-to-login-button {
+            color: mat-color($primary, '50-contrast');
+            text-decoration: none;
+          }
+        }
+
+        .mat-form-field,
+        .mat-checkbox {
+          padding-bottom: 16px;
+        }
+      }
+    }
+  }
+}

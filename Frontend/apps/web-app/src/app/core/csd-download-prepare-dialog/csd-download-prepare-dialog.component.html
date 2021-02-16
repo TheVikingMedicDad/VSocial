@@ -1,0 +1,26 @@
+<h2 *ngIf="!downloadFile" mat-dialog-title>{{ 'DOWNLOAD_PREPARE_DIALOG.TITLE.WAIT' | i18next }}</h2>
+<h2 *ngIf="!!downloadFile" mat-dialog-title>
+  {{ 'DOWNLOAD_PREPARE_DIALOG.TITLE.READY' | i18next }}
+</h2>
+
+<mat-dialog-content *ngIf="!downloadFile">
+  {{ 'DOWNLOAD_PREPARE_DIALOG.CONTENT.WAIT' | i18next }}
+</mat-dialog-content>
+
+<mat-dialog-content
+  *ngIf="!!downloadFile"
+  [innerHTML]="
+    'DOWNLOAD_PREPARE_DIALOG.CONTENT.READY_HTML'
+      | i18next: { name: downloadFile.name, url: downloadFile.url }
+  "
+>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button *ngIf="!downloadFile" mat-button (click)="abort()">
+    {{ 'DOWNLOAD_PREPARE_DIALOG.BUTTON.ABORT' | i18next }}
+  </button>
+  <button *ngIf="!!downloadFile" mat-button mat-dialog-close>
+    {{ 'DOWNLOAD_PREPARE_DIALOG.BUTTON.CLOSE' | i18next }}
+  </button>
+</mat-dialog-actions>

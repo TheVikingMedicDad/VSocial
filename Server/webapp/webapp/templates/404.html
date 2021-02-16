@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+
+{% block title %}Page not found{% endblock %}
+
+{% block content %}
+<div class="csd-not-found">
+  <div class="csd-img-wrapper">
+    <img class="csd-image" src="{% static 'images/404.svg' %}" alt="Page not found" />
+  </div>
+  <p class="csd-text">{% trans "Oooops. This site doesn’t exist." %}</p>
+  <a href="/" class="csd-link">{% trans "Return to homepage" %}</a>
+</div>
+{% endblock content %}

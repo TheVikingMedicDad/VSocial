@@ -1,0 +1,56 @@
+@mixin dta-todo-add-component($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .dta-todo-add {
+    padding: 0 25px 19px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: 1px mat-color($mat-grey, 300) solid;
+    background-color: mat-color($background, 'card');
+
+    .dta-add-form-field {
+      width: 100%;
+      margin-bottom: -22px;
+      margin-top: 7px;
+
+      .mat-form-field-prefix {
+        top: 3px;
+      }
+
+      .dta-add-icon {
+        color: mat-color($mat-grey, 600);
+      }
+      .mat-form-field-label-wrapper {
+        top: -19px;
+      }
+
+      .mat-form-field-label {
+        @include mat-typography-level-to-styles($typo, 'body-2');
+        color: mat-color($mat-grey, 600);
+        margin-left: 15px;
+      }
+
+      .mat-form-field-underline {
+        visibility: hidden;
+      }
+
+      &.mat-focused {
+        .mat-form-field-label {
+          color: mat-color($primary, 500);
+        }
+
+        .mat-form-field-underline {
+          visibility: visible;
+        }
+      }
+    }
+
+    .dta-text-input {
+      margin: 0 16px;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+@mixin csd-select($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+  $option-height: 42px;
+  $mat-select-arrow-space: 18px; //according to mat-select line 12 https://github.com/angular/components/blob/master/src/material/select/select.scss
+  $chip-padding: 9px;
+  $transition-duration: 300ms;
+  .csd-select {
+    .csd-disabled {
+      cursor: initial;
+    }
+    .csd-chip-list {
+      position: absolute;
+      top: 3px;
+      z-index: 1;
+      width: calc(100% - #{$mat-select-arrow-space} - 0.75em); //0.75em is the padding of form field
+      .mat-chip-list-wrapper {
+        place-content: center space-between;
+        cursor: pointer;
+      }
+      &.csd-disabled {
+        .mat-chip-list-wrapper {
+          cursor: initial;
+        }
+      }
+      .csd-chip {
+        transition: $transition-duration;
+        cursor: pointer;
+        border-radius: 4px;
+        padding: $chip-padding;
+        &.csd-disabled {
+          cursor: initial;
+        }
+        .csd-remove-icon {
+          transition: $transition-duration;
+          position: absolute;
+          left: calc(50% - #{$chip-padding});
+          margin: 0;
+          opacity: 0;
+        }
+      }
+      .csd-chip::after {
+        display: none;
+      }
+      .csd-value-chips {
+        .csd-chip:hover:not(.csd-disabled):not(.csd-no-remove-chip) {
+          color: mat-color($primary, '50-contrast', 0.3);
+          .csd-remove-icon {
+            color: mat-color($primary, '50-contrast', 0.6);
+            opacity: 1;
+          }
+          .csd-remove-icon:hover {
+            color: mat-color($primary, '50-contrast');
+          }
+        }
+      }
+    }
+    .csd-single-select-value {
+      position: absolute;
+      top: 10px;
+      z-index: 1;
+      &.csd-disabled {
+        color: mat-color($primary, '50-contrast', 0.38);
+        cursor: initial;
+      }
+    }
+    .mat-select {
+      cursor: pointer;
+    }
+  }
+  .csd-active-item {
+    background-color: mat-color($primary, '50-contrast', 0.04);
+  }
+  .csd-no-entries-found {
+    height: $option-height;
+    font-family: Roboto, 'Helvetica Neue', sans-serif; //same as mat-option
+  }
+  .csd-top {
+    background-color: mat-color($primary, '50-contrast', 0.5);
+    min-height: $option-height;
+    font-family: Roboto, 'Helvetica Neue', sans-serif; //same as mat-option
+  }
+  .csd-bottom {
+    background-color: mat-color($primary, '50-contrast', 0.5);
+    min-height: $option-height;
+    font-family: Roboto, 'Helvetica Neue', sans-serif; //same as mat-option
+  }
+
+  // if form field appearance is standard, the chips looked off
+  mat-form-field.mat-form-field-appearance-standard {
+    .csd-select {
+      .csd-chip-list {
+        top: 0;
+        .csd-chip {
+          min-height: 25px;
+        }
+      }
+    }
+  }
+}

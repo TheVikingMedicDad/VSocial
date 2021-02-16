@@ -1,0 +1,55 @@
+/**
+
+Use these mixins to style the different material buttons by scss without setting the directive in html.
+In the html template it is enough when you add mat-button to the button element.
+
+Use it like:
+
+   @include csd-mat-flat-button('primary');
+   @include csd-mat-flat-button();
+   @include csd-mat-button();
+   @include csd-mat-raised-button('warn');
+
+
+ */
+
+@mixin _csd-mat-base-button($palette: null) {
+  @if ($palette != null) {
+    @extend #{'.mat-' + $palette};
+  }
+  .mat-ripple-element {
+    opacity: $_mat-button-ripple-opacity;
+    background-color: currentColor;
+  }
+}
+
+@mixin csd-mat-button($palette: null) {
+  &.mat-button {
+    @include _csd-mat-base-button($palette);
+  }
+}
+
+@mixin csd-mat-flat-button($palette: null) {
+  &.mat-button {
+    @include _csd-mat-base-button($palette);
+    @extend #{'.mat-flat-button'};
+  }
+}
+
+@mixin csd-mat-raised-button($palette: null) {
+  &.mat-button {
+    @include _csd-mat-base-button($palette);
+    @extend #{'.mat-raised-button'};
+    @include mat-elevation-transition();
+  }
+}
+
+@mixin csd-mat-stroked-button($palette: null, $border-color: rgba(0, 0, 0, 0.12)) {
+  &.mat-button {
+    @include _csd-mat-base-button($palette);
+    @extend #{'.mat-stroked-button'};
+
+    border-color: rgba(0, 0, 0, 0.12);
+    border: 1px solid currentColor;
+  }
+}

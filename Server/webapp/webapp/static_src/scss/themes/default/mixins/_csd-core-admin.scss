@@ -1,0 +1,253 @@
+@mixin csd-core-admin($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  &.csd-core-admin {
+    #header {
+      background-color: mat-color($primary, 500);
+      color: mat-color($primary, "500-contrast");
+
+      a,
+      a:link,
+      a:visited {
+        color: mat-color($primary, "500-contrast");
+      }
+    }
+
+    .button.default,
+    input[type="submit"].default,
+    .submit-row input.default {
+      background: mat-color($primary, 500);
+      color: mat-color($primary, "500-contrast");
+    }
+
+    div.breadcrumbs {
+      background: mat-color($primary, 50);
+      color: mat-color($primary, 500);
+    }
+
+    .button,
+    input[type="submit"],
+    input[type="button"],
+    .submit-row input,
+    a.button {
+      background: mat-color($primary, 50);
+    }
+
+    .module h2,
+    .module caption,
+    .inline-group h2 {
+      background: mat-color($primary, 50);
+      color: mat-color($primary, 500);
+    }
+
+    .selector-chosen h2 {
+      background: mat-color($primary, 50) !important;
+      color: mat-color($primary, 500) !important;
+    }
+
+    .calendar td.selected a {
+      background: mat-color($primary, 50) !important;
+    }
+
+    .calendar td a:focus,
+    .timelist a:focus,
+    .calendar td a:hover,
+    .timelist a:hover {
+      background: mat-color($primary, 200) !important;
+    }
+
+    #nav-sidebar .current-model {
+      background: mat-color($primary, 50, 0.3) !important;
+    }
+
+    a,
+    h1,
+    #content-related .module h2,
+    div.breadcrumbs a,
+    a.section:visited,
+    #nav-sidebar .current-app .section:link,
+    #nav-sidebar .current-app .section:visited,
+    a.section:link,
+    a.section:visited a:link,
+    a:visited,
+    a:link,
+    a:visited {
+      color: mat-color($primary, 500);
+    }
+
+    #content-related {
+      background-color: mat-color($primary, 50) !important;
+    }
+
+    div.breadcrumbs a:focus,
+    div.breadcrumbs a:hover {
+      text-decoration: underline;
+      color: mat-color($primary, 500);
+    }
+
+    .toggle-nav-sidebar {
+      border: none;
+      background-color: mat-color($primary, 50) !important;
+      color: mat-color($primary, 500);
+    }
+
+    #nav-sidebar {
+      border: none;
+      margin-top: 20px;
+    }
+
+    #changelist-filter li.selected a {
+      color: #444;
+    }
+
+    #changelist table tbody tr.selected {
+      background-color: mat-color($primary, 50, 0.3) !important;
+    }
+
+    fieldset.collapsed .collapse-toggle {
+      color: #444;
+    }
+
+    a:focus,
+    a:hover {
+      color: mat-color($primary, 200);
+    }
+
+    table thead th.sorted .sortoptions a.sortremove:focus:after,
+    table thead th.sorted .sortoptions a.sortremove:hover:after {
+      color: #444;
+    }
+
+    a.active.selector-chooseall:focus,
+    a.active.selector-clearall:focus,
+    a.active.selector-chooseall:hover,
+    a.active.selector-clearall:hover {
+      color: #999;
+    }
+
+    .calendar td a:active,
+    .timelist a:active {
+      background: #444;
+    }
+
+    .change-list ul.toplinks .date-back a:focus,
+    .change-list ul.toplinks .date-back a:hover {
+      color: #222;
+    }
+
+    .paginator a.showall:focus,
+    .paginator a.showall:hover {
+      color: #222;
+    }
+
+    .paginator a:focus,
+    .paginator a:hover {
+      background: #222;
+    }
+
+    #changelist-filter a:focus,
+    #changelist-filter a:hover,
+    #changelist-filter li.selected a:focus,
+    #changelist-filter li.selected a:hover {
+      color: #222;
+    }
+
+    .calendar caption,
+    .calendarbox h2 {
+      background: #999;
+    }
+
+    .button.default:hover,
+    input[type="submit"].default:hover {
+      color: mat-color($primary, 500);
+      background: mat-color($primary, 50);
+    }
+
+    #changelist-filter {
+      top: -250px;
+      right: 15px;
+    }
+
+    #changelist-filter h2 {
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+
+    .select2-container--admin-autocomplete
+      .select2-results__option--highlighted[aria-selected] {
+      background-color: mat-color($primary, 500);
+    }
+
+    .paginator a:link,
+    .paginator a:visited {
+      background: mat-color($primary, 500);
+    }
+
+    .calendar td a:active,
+    .timelist a:active {
+      background: mat-color($primary, 500);
+      color: mat-color($primary, "500-contrast");
+    }
+
+    .select2-container--admin-autocomplete
+      .select2-results__option--highlighted[aria-selected] {
+      background-color: mat-color($primary, 500);
+    }
+
+    .object-tools a:link,
+    .object-tools a:visited {
+      color: mat-color($primary, 500);
+      background-color: mat-color($primary, 50);
+    }
+
+    .object-tools a:focus,
+    .object-tools a:hover {
+      background-color: mat-color($primary, 500);
+      color: mat-color($primary, 200) !important;
+    }
+
+    input[type="file"]::-webkit-file-upload-button:hover {
+      border: 0;
+      background: mat-color($primary, 500);
+    }
+
+    .button:active,
+    input[type="submit"]:active,
+    input[type="button"]:active,
+    .button:focus,
+    input[type="submit"]:focus,
+    input[type="button"]:focus,
+    .button:hover,
+    input[type="submit"]:hover,
+    input[type="button"]:hover {
+      background-color: mat-color($primary, 500);
+      color: mat-color($primary, 50);
+    }
+
+    .button,
+    input[type="submit"],
+    input[type="button"],
+    .submit-row input,
+    a.button {
+      color: mat-color($primary, 500);
+    }
+
+    .submit-row {
+      .deletelink-box {
+        a.deletelink {
+          color: mat-color($warn, "500-contrast");
+          background: mat-color($warn, 500);
+
+          &:visited,
+          &:link {
+            color: mat-color($warn, "500-contrast");
+            background: mat-color($warn, 500);
+          }
+        }
+      }
+    }
+  }
+}

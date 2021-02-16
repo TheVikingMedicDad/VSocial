@@ -1,0 +1,25 @@
+<div class="csd-text-filter csd-base-filter">
+  <csd-filter-widget [title]="title" (close)="destroy()">
+    <mat-radio-group
+      class="csd-filter-variants"
+      (change)="setSelectedFilterVariantId($event.value)"
+      [value]="selectedFilterVariantId"
+    >
+      <div class="csd-filter-variant" *ngFor="let filterVariant of filterVariants">
+        <mat-radio-button class="csd-radio-button" [value]="filterVariant.id">
+          {{ translateFilterVariant(filterVariant.id) }}
+        </mat-radio-button>
+        <mat-form-field *ngIf="(ui$ | async)?.selectedFilterVariantId === filterVariant.id">
+          <input
+            [id]="selectedFilterInputId"
+            matInput
+            placeholder="{{ placeholderFilterTermTranslationKey | i18next }}"
+            (input)="setFilterTerm($event.target.value)"
+            [value]="filterTerm"
+            autofocus
+          />
+        </mat-form-field>
+      </div>
+    </mat-radio-group>
+  </csd-filter-widget>
+</div>

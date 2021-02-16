@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+  # 
+
+  webapp-server-proxy:
+    build:
+      dockerfile: ./conf/docker/webapp/server/proxy/Dockerfile.prod
+
+  webapp-frontend-webapp:
+    build:
+      dockerfile: ./conf/docker/webapp/frontend/webapp/Dockerfile.prod
+      target: prod
+      # 
+    # 
+
+  webapp-server-webapp:
+    build:
+      dockerfile: ./conf/docker/webapp/server/webapp/Dockerfile.prod
+    depends_on:
+      - webapp-server-webapp-assets-builder
+
+  webapp-server-webapp-assets-builder:
+    restart: "no"
+    build:
+      dockerfile: ./conf/docker/webapp/server/webapp-assets-builder/Dockerfile.prod
+
+  # 
+
+  infra-server-ingress-nginx:
+    build:
+      target: prod
+    volumes:
+      - ../../conf/dev-certs:/etc/ssl/:cached
+
+  webapp-server-minio:
+    environment:
+      - MINIO_BROWSER=off
+
+volumes:
+  webapp-media:
+  webapp-static:

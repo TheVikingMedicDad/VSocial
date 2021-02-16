@@ -1,0 +1,24 @@
+@import 'mixins/global/vsp-util-classes';
+
+@import 'mixins/sections/vsp-contact-page';
+@import 'mixins/sections/vsp-privacy-page';
+@import 'mixins/sections/vsp-tos-page';
+
+
+@mixin csd-override-components($theme, $typo) {
+      @include vsp-util-classes($theme, $typo);
+      @include vsp-contact-page($theme, $typo);
+      @include vsp-privacy-page($theme, $typo);
+      @include vsp-tos-page($theme, $typo);
+
+}
+/*
+  // TODO CSD: Override components like this
+
+  @import "components/vsp-user-register";
+
+  @mixin csd-override-components($theme, $typo) {
+      @include vsp-user-register($theme, $typo);
+  }
+
+*/

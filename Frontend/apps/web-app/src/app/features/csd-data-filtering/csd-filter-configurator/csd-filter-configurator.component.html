@@ -1,0 +1,53 @@
+<div class="csd-filter-configurator">
+  <div class="csd-menu-container" fxLayout="row" fxLayoutAlign="start center" class="csd-top-bar">
+    <div class="csd-start-actions">
+      <button mat-icon-button (click)="cancel()" aria-label="close">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="csd-title" fxFlex="grow">{{ 'FILTER_CONFIGURATOR.TITLE' | i18next }}</div>
+  </div>
+
+  <div class="csd-content" fxLayout="column" fxLayoutAlign="start stretch">
+    <div
+      fxFlex="nogrow"
+      class="csd-description"
+      *ngIf="rootFilterContainer.dynamicComponentRefs.length === 0"
+    >
+      {{ 'FILTER_CONFIGURATOR.DESCRIPTION' | i18next }}
+    </div>
+
+    <csd-filter-container
+      fxFlex="nogrow"
+      #rootFilterContainer
+      [availableFilters]="filterSet?.availableFilters"
+      [filterQuery]="filterSet?.filterQuery"
+      (queryChanged)="onQueryChange($event)"
+      [isRootContainer]="true"
+      [hideControls]="true"
+      [filterFieldTranslationPattern]="filterSet?.filterFieldTranslationPattern"
+    ></csd-filter-container>
+    <div fxFlex="nogrow" class="csd-actions">
+      <button class="csd-add-filter-button" mat-button [matMenuTriggerFor]="addFilterMenu">
+        {{ 'FILTER_CONFIGURATOR.ADD_FILTER_BUTTON' | i18next }}
+      </button>
+      <mat-menu #addFilterMenu="matMenu">
+        <button
+          (click)="rootFilterContainer.addNewFilter(filterEntry.fieldId)"
+          mat-menu-item
+          *ngFor="let filterEntry of filterSet?.availableFilters"
+        >
+          {{ rootFilterContainer.translateFieldId(filterEntry.fieldId) }}
+        </button>
+      </mat-menu>
+      <button
+        class="csd-remove-filter-button"
+        mat-button
+        *ngIf="rootFilterContainer.dynamicComponentRefs.length > 0"
+        (click)="rootFilterContainer.clean()"
+      >
+        {{ 'FILTER_CONFIGURATOR.REMOVE_ALL_FILTER_BUTTON' | i18next }}
+      </button>
+    </div>
+  </div>
+</div>

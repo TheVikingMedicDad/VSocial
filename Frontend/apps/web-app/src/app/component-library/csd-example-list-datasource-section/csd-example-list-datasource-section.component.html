@@ -1,0 +1,54 @@
+<csd-model-list-wrapper [dataSource]="dataSource" pageSize="${DISPLAY_SIZE}">
+  <button mat-button (click)="toggleShowList()">
+    {{ showList ? 'Show Table View' : 'Show List View' }}
+  </button>
+  <ng-container [ngTemplateOutlet]="table" *ngIf="!showList; else list"></ng-container>
+
+  <form [formGroup]="addForm" (submit)="saveItem()">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+    <div class="csd-btn-container">
+      <button mat-flat-button color="primary" type="submit" [disabled]="!addForm.valid">Add</button>
+    </div>
+  </form>
+</csd-model-list-wrapper>
+
+<ng-template #list>
+  <ul *ngFor="let item of dataSource.data$() | async">
+    <li>
+      {{ item.id }}: {{ item.name }} ({{ item.email }})
+      <button (click)="deleteItem(item.id)">Delete</button>
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template #table>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let item">{{ item.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let item">{{ item.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let item">{{ item.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let item">
+        <button (click)="deleteItem(item.id)">Delete</button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+  </table>
+</ng-template>

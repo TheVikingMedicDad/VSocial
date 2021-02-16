@@ -1,0 +1,44 @@
+@mixin csd-layout-flex-section($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-layout-flex-section {
+    padding: $csd-section-padding 0 0 0;
+
+    @media #{$mat-lt-sm} {
+      padding: $csd-section-padding-mobile 0;
+    }
+
+    & > .csd-container {
+      display: flex;
+      flex-wrap: wrap;
+
+      & > .csd-element {
+        flex: 1 0 50%;
+        max-width: calc(50% - 40px);
+        margin: 20px 20px 40px 20px;
+
+        @media #{$mat-lt-sm} {
+          max-width: 100%;
+          padding-top: 40px;
+        }
+
+        & > .block-image {
+          & > img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        & > .block-button {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+ARG CSD_DOCKER_REGISTRY
+ARG CSD_PROJECT_NAME
+ARG CSD_DOCKER_LOCAL_TAG
+
+
+# 
+
+#########################
+# prod stage (based on ssr)
+#########################
+FROM ${CSD_DOCKER_REGISTRY}/${CSD_PROJECT_NAME}-webapp-frontend-webapp:${CSD_DOCKER_LOCAL_TAG}-base as base
+
+# add app
+COPY ./Frontend /app/
+
+# build the angular app in prod mode
+RUN npm run build web-app -- --optimization --outputPath=./dist/out
+
+# start with a nginx image
+FROM nginx:1.16 AS prod
+
+# copy the compieled angular app
+COPY --from=base /app/dist/out/ /usr/share/nginx/html
+
+# copy the nginx file
+COPY ./conf/docker/webapp/frontend/webapp/nginx.conf /etc/nginx/conf.d/nginx.tmpl
+
+# replace the env variables and start the server
+# NOTE: envsubst will replace every variable starting with '$', so we are just replacing the
+# variable that are in the current environment (https://github.com/docker-library/docs/issues/496)
+# 
+CMD /bin/bash -c "envsubst \"`printf '${%s} ' $(bash -c \"compgen -A variable\")`\" < \
+    /etc/nginx/conf.d/nginx.tmpl > \
+    /etc/nginx/conf.d/default.conf && \
+    exec nginx -g 'daemon off;'"
+# 
+
+# 

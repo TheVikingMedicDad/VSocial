@@ -1,0 +1,130 @@
+<div class="csd-user-confirm-account csd-account-settings">
+  <div class="csd-form csd-form-step" *ngIf="!succeeded && !error">
+    <div class="csd-confirm-header">
+      <h1 class="csd-title">{{ 'USER_CONFIRM_ACCOUNT_PAGE.TITLE' | i18next }}</h1>
+      <p class="csd-description" [innerHtml]="'USER_CONFIRM_ACCOUNT_PAGE.INFO' | i18next"></p>
+    </div>
+
+    <div class="csd-content">
+      <form [formGroup]="accountSettingsForm" novalidate (ngSubmit)="onSubmit()">
+        <div class="csd-section-box csd-personal-info">
+          <h1 id="personal-info" class="csd-section-title">
+            {{ 'ACCOUNT_SETTINGS.PERSONAL_INFORMATION.TITLE' | i18next }}
+          </h1>
+          <mat-form-field [appearance]="formFieldAppearance">
+            <mat-label>{{
+              'ACCOUNT_SETTINGS.PERSONAL_INFORMATION.FORM.SALUTATION.LABEL' | i18next
+            }}</mat-label>
+            <mat-select
+              [placeholder]="
+                'ACCOUNT_SETTINGS.PERSONAL_INFORMATION.FORM.SALUTATION.PLACEHOLDER' | i18next
+              "
+              formControlName="salutation"
+            >
+              <mat-option *ngFor="let salutation of salutations" [value]="salutation">
+                {{
+                  'ACCOUNT_SETTINGS.PERSONAL_INFORMATION.FORM.SALUTATION.OPTIONS.' + salutation
+                    | i18next
+                }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field [appearance]="formFieldAppearance">
+            <mat-label>{{
+              'ACCOUNT_SETTINGS.PERSONAL_INFORMATION.FORM.FIRST_NAME.LABEL' | i18next
+            }}</mat-label>
+            <input
+              matInput
+              [placeholder]="
+                'ACCOUNT_SETTINGS.PERSONAL_INFORMATION.FORM.FIRST_NAME.PLACEHOLDER' | i18next
+              "
+              formControlName="firstName"
+              autocomplete="given-name"
+            />
+            <mat-error
+              *ngIf="
+                (firstNameForm.dirty || firstNameForm.touched) && firstNameForm.errors?.required
+              "
+            >
+              {{ 'ACCOUNT_SETTINGS.PERSONAL_INFORMATION.FORM.FIRST_NAME.ERROR.REQUIRED' | i18next }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field [appearance]="formFieldAppearance">
+            <mat-label>{{
+              'ACCOUNT_SETTINGS.PERSONAL_INFORMATION.FORM.LAST_NAME.LABEL' | i18next
+            }}</mat-label>
+            <input
+              matInput
+              [placeholder]="
+                'ACCOUNT_SETTINGS.PERSONAL_INFORMATION.FORM.LAST_NAME.PLACEHOLDER' | i18next
+              "
+              formControlName="lastName"
+              autocomplete="family-name"
+            />
+            <mat-error
+              *ngIf="(lastNameForm.dirty || lastNameForm.touched) && lastNameForm.errors?.required"
+            >
+              {{ 'ACCOUNT_SETTINGS.PERSONAL_INFORMATION.FORM.LAST_NAME.ERROR.REQUIRED' | i18next }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field [appearance]="formFieldAppearance">
+            <mat-label>{{ 'COUNTRY_SELECTOR.LABEL' | i18next }}</mat-label>
+            <mat-select
+              [placeholder]="'COUNTRY_SELECTOR.PLACEHOLDER' | i18next"
+              formControlName="country"
+            >
+              <mat-option *ngFor="let country of countries" [value]="country">
+                {{ 'COUNTRY_SELECTOR.OPTIONS.' + country | i18next }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="csd-section-box csd-interests">
+          <h1 id="interests" class="csd-section-title">
+            {{ 'ACCOUNT_SETTINGS.INTERESTS.TITLE' | i18next }}
+          </h1>
+          <ng-container formArrayName="interests">
+            <ng-container *ngFor="let interest of interests; let i = index">
+              <mat-checkbox class="csd-interest-checkbox" [formControlName]="i">
+                <span [innerHtml]="'MODEL.USER.INTERESTS.OPTIONS.' + interest | i18next"></span>
+              </mat-checkbox>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <button
+          class="csd-confirm-account-button"
+          type="submit"
+          mat-flat-button
+          color="primary"
+          [disabled]="inProgress"
+        >
+          <mat-spinner *ngIf="inProgress" class="csd-button-spinner"></mat-spinner>
+          {{ 'USER_CONFIRM_ACCOUNT_PAGE.CONFIRM_ACCOUNT_BUTTON' | i18next }}
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="csd-token-invalid-step" *ngIf="error">
+    <h1 class="csd-title">{{ 'USER_CONFIRM_ACCOUNT_PAGE.TOKEN_INVALID_TITLE' | i18next }}</h1>
+    <p
+      class="csd-description"
+      [innerHtml]="'USER_CONFIRM_ACCOUNT_PAGE.TOKEN_INVALID_DESCRIPTION' | i18next"
+    ></p>
+  </div>
+  <div class="csd-succeed-step" *ngIf="succeeded">
+    <h1 class="csd-title">{{ 'USER_CONFIRM_ACCOUNT_PAGE.SUCCESS_TITLE' | i18next }}</h1>
+    <p class="csd-description" [innerHtml]="'USER_CONFIRM_ACCOUNT_PAGE.SUCCESS_INFO' | i18next"></p>
+    <a
+      [routerLink]="entryPageUrl"
+      class="csd-back-to-login-button"
+      color="primary"
+      mat-flat-button
+      >{{ 'USER_CONFIRM_ACCOUNT_PAGE.START_USING_THE_APP_BUTTON' | i18next }}</a
+    >
+  </div>
+</div>

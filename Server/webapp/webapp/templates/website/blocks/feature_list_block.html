@@ -1,0 +1,11 @@
+{% load wagtailimages_tags %}
+
+<div class="csd-features-list">
+  {% for feature in self.features %}
+    <div class="csd-features-list-item">
+      {% image feature.image fill-40x40 as img %}
+      <img class="csd-image" src="{{ img.url }}" alt="{{ img.alt }}">
+      <div>{{ feature.title }}</div>
+    </div>
+  {% endfor %}
+</div>

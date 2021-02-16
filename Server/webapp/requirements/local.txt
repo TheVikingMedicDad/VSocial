@@ -1,0 +1,44 @@
+-r ./base.txt
+
+Werkzeug==1.0.1  # https://github.com/pallets/werkzeug
+ipdb==0.13.4  # https://github.com/gotcha/ipdb
+psycopg2==2.8.6 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
+
+# Docs
+Sphinx==3.2.1  # https://github.com/sphinx-doc/sphinx
+sphinx-copybutton==0.3.0
+livereload==2.6.3
+
+# live reloading Docs and BID
+watchdog==0.10.3
+# needed for watchmedo in bid
+PyYAML==5.3.1
+argh==0.26.2
+
+
+
+# Testing
+# ------------------------------------------------------------------------------
+pytest==6.1.1  # https://github.com/pytest-dev/pytest
+pytest-sugar==0.9.4  # https://github.com/Frozenball/pytest-sugar
+
+# Code quality
+# ------------------------------------------------------------------------------
+flake8==3.8.4  # https://github.com/PyCQA/flake8
+coverage==5.3  # https://github.com/nedbat/coveragepy
+
+# Django
+# ------------------------------------------------------------------------------
+factory-boy==3.1.0  # https://github.com/FactoryBoy/factory_boy
+
+django-debug-toolbar==3.1.1  # https://github.com/jazzband/django-debug-toolbar
+django-coverage-plugin==1.8.0  # https://github.com/nedbat/django_coverage_plugin
+pytest-django==3.10.0  # https://github.com/pytest-dev/pytest-django
+
+
+# Remote Debugging
+pydevd==2.0.0
+
+# Django Extensions
+django-extensions==3.0.9 # https://github.com/django-extensions/django-extensions
+

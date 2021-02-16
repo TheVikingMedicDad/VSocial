@@ -1,0 +1,24 @@
+<div class="dta-todo-add">
+  <mat-form-field class="dta-add-form-field">
+    <mat-label>Add Todo</mat-label>
+    <input
+      class="dta-text-input"
+      matInput
+      #todoInput
+      (keyup.enter)="addedTodo.emit(todoInput.value); todoInput.value = ''"
+      (keyup.escape)="todoInput.value = ''; todoInput.blur()"
+      autocomplete="off"
+    />
+    <mat-icon class="dta-add-icon" matPrefix>add</mat-icon>
+    <button
+      mat-button
+      *ngIf="todoInput.value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="todoInput.value = ''"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>

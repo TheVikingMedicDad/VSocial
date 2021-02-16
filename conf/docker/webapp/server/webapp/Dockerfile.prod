@@ -1,0 +1,38 @@
+ARG CSD_DOCKER_REGISTRY
+ARG CSD_PROJECT_NAME
+ARG CSD_DOCKER_LOCAL_TAG
+
+
+#########################
+# prod stage
+#########################
+# 
+FROM ${CSD_DOCKER_REGISTRY}/${CSD_PROJECT_NAME}-webapp-server-webapp-assets-builder:${CSD_DOCKER_LOCAL_TAG} as build-assets-stage
+
+FROM ${CSD_DOCKER_REGISTRY}/${CSD_PROJECT_NAME}-webapp-server-webapp:${CSD_DOCKER_LOCAL_TAG}-base
+# 
+
+COPY ./conf/docker/webapp/server/webapp/start_prod.sh /start.sh
+RUN sed -i 's/\r//' /start.sh
+RUN chmod +x /start.sh
+
+RUN addgroup -S django \
+    && adduser -s /bin/sh -S -G django django
+
+# Requirements are installed here to ensure they will be cached.
+COPY ./Server/webapp/requirements /requirements
+
+# because of a pip bug with --no-cache-dir we need this workaround
+# (https://github.com/pypa/pip/issues/6158#issuecomment-456619072)
+RUN pip install --cache-dir=/pipcache -r /requirements/production.txt \
+    && rm -rf /pipcache \
+    && rm -rf /requirements
+
+COPY --chown=django:django ./Server/webapp /app
+
+# copy the prebuilt assets
+COPY --from=build-assets-stage --chown=django:django /app/webapp/static /app/webapp/static
+COPY --from=build-assets-stage --chown=django:django /app/webpack-stats.json /app/webpack-stats.json
+
+WORKDIR /app
+CMD ["/start.sh"]

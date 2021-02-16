@@ -1,0 +1,10 @@
+<div class="csd-admin-dashboard">
+  <mat-grid-list cols="4" rowHeight="1:1">
+    <mat-grid-tile class="csd-grid-tile" *ngFor="let app of apps">
+      <a [routerLink]="appLink(app)" mat-button class="csd-app">
+        <div class="csd-icon-container"><img class="csd-icon" [src]="iconPath(app)" /></div>
+        <div class="csd-title">{{ appTitleKey(app) | i18next }}</div>
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

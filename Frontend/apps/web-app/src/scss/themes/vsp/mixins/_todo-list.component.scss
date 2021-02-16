@@ -1,0 +1,11 @@
+@mixin dta-todo-list-component($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .dta-todo-list {
+    margin-top: 40px;
+  }
+}

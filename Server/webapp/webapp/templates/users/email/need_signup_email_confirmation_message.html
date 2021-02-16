@@ -1,0 +1,41 @@
+{% extends "./base/base_email.html" %}
+{% load i18n %}
+
+{% block content %}
+  <p class="activate-account-pre-header">
+    {% blocktrans trimmed %}
+      Activate your Account
+    {% endblocktrans %}
+  </p>
+  <h1>
+    {% blocktrans with project_name=project.name trimmed %}
+    Welcome to {{ project_name }}.
+    {% endblocktrans %}
+  </h1>
+
+  <p>
+    {% blocktrans with project_name=project.name trimmed %}
+    Please confirm your new account at {{ project_name }} to get the best experience. Simply click on the button below
+    to complete your registration.
+    {% endblocktrans %}
+  </p>
+  <p>
+    {% blocktrans trimmed %}
+    If this wasn’t you, you don’t have to worry and can ignore this email.
+    {% endblocktrans %}
+  </p>
+
+  <div class="button-container">
+    <a href="{{ project.webapp.url }}/{{ confirm_path_name }}/{{ key }}" class="button">
+      {% trans "confirm registration" %}</a>
+  </div>
+  <p class="button-alternative">
+    {% blocktrans with project_webapp_url=project.webapp.url trimmed %}
+    or you can open this <a href="{{ project_webapp_url}}/{{ confirm_path_name }}/{{ key }}">link</a> in the
+    browser or copy it there
+    {% endblocktrans %}<br>
+    <a class="break-word"
+       href="{{ project.webapp.url }}/{{ confirm_path_name }}/{{ key }}">
+      {{ project.webapp.url }}/{{ confirm_path_name }}/{{ key }}</a>
+  </p>
+{% endblock %}

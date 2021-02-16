@@ -1,0 +1,25 @@
+.csd-form-controls form {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  .mat-form-field {
+    margin-bottom: 40px;
+  }
+}
+
+.csd-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2em;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}

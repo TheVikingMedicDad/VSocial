@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "types": ["node"],
+    "emitDecoratorMetadata": false
+  },
+  "files": ["src/main.ts", "src/polyfills.ts"],
+  "include": ["src/**/*.d.ts"],
+  "exclude": ["src/test-setup.ts", "**/*.spec.ts"],
+  "typedocOptions": {
+    "ignoreCompilerErrors": true,
+    "excludeExternals": true,
+    "exclude": ["**/*.spec.ts", "**/*-spec.ts*", "**/node_modules/**", "**/-e2e/**"],
+    "out": "../build/html/typedoc_apidoc"
+  }
+}

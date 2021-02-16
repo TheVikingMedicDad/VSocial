@@ -1,0 +1,19 @@
+<div class="csd-filter-widget">
+  <mat-expansion-panel class="csd-expansion-panel" expanded="True">
+    <mat-expansion-panel-header
+      class="csd-expansion-panel-header"
+      [collapsedHeight]="'28px'"
+      [expandedHeight]="'28px'"
+    >
+      <mat-panel-title class="csd-panel-title">
+        <div class="csd-filter-header" fxLayout="row" fxLayoutAlign="start center">
+          <button class="csd-close-button" fxFlex="nogrow" mat-icon-button (click)="close.emit()">
+            <mat-icon>close</mat-icon>
+          </button>
+          <div class="csd-title" fxFlex="grow">{{ title }}</div>
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ng-content class="csd-filter-body"></ng-content>
+  </mat-expansion-panel>
+</div>

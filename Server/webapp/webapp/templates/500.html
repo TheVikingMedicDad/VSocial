@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}Server Error{% endblock %}
+
+{% block content %}
+<div class="csd-server-error">
+  <div class="csd-img-wrapper">
+    <img class="csd-image" src="{% static 'images/500.svg' %}" alt="Page not found" />
+  </div>
+  <p class="csd-text">
+    {% blocktrans %}
+    Looks like something went wrong! We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.
+    {% endblocktrans %}
+  </p>
+  <a href="/" class="csd-link">{% trans "Return to homepage" %}</a>
+</div>
+{% endblock content %}
+
+

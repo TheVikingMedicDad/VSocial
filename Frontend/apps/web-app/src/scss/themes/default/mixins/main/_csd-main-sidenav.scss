@@ -1,0 +1,31 @@
+@mixin csd-main-sidenav($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-main-sidenav {
+    padding-top: 0;
+    width: 400px;
+
+    @media ($mat-small) {
+      margin: 0 20px;
+      width: auto;
+    }
+
+    .csd-crud-model {
+      .csd-crud-header {
+        background-color: map-get($background, card);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: stretch;
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+<div class="csd-component-page">
+  <hr />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <form fxLayout="row wrap" fxLayoutAlign="space-between center" [formGroup]="testForm" novalidate>
+    <div>
+      <h4>CSD-Select (Search & Multi-Select)</h4>
+      <mat-checkbox (change)="toggleCsdSelect()"> disable</mat-checkbox>
+      <br />
+      <mat-form-field class="csd-select-form-field" [appearance]="formFieldAppearance">
+        <mat-label>Choose</mat-label>
+        <csd-select
+          formControlName="testSelectData"
+          [inputData]="inputData"
+          multiple
+          search
+          [chipKey]="'name'"
+          (noEntriesEnterKeyPressed)="alert('no entries')"
+          chipRemovable
+        >
+          <csd-bottom>
+            <div>Bottom</div>
+          </csd-bottom>
+          <csd-top class="csd-top">
+            <div>Top</div>
+          </csd-top>
+          <csd-item *csdItemContent="let data" [value]="data">
+            <div fxLayoutAlign="space-between center">
+              <span>{{ data.id }}</span>
+              <button (click)="alert(data.name, $event)">{{ data.name }}</button>
+            </div>
+          </csd-item>
+        </csd-select>
+        <mat-error *ngIf="testSelectDataForm.errors">Please choose a Test</mat-error>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <p>csd-value: {{ testSelectDataForm.value | json }}</p>
+    </div>
+
+    <div>
+      <h4>CSD-Select (Search & Single-Select)</h4>
+      <mat-checkbox (change)="toggleCsdSelect2()"> disable</mat-checkbox>
+      <br />
+      <mat-form-field class="csd-select-form-field" [appearance]="formFieldAppearance">
+        <mat-label>Choose</mat-label>
+        <csd-select formControlName="testSelectData2" [inputData]="inputData" search>
+          <csd-bottom>
+            <div>Bottom</div>
+          </csd-bottom>
+          <csd-top>
+            <div>Top</div>
+          </csd-top>
+          <csd-item *csdItemContent="let data" [value]="data">
+            <div fxLayoutAlign="space-between start">
+              <span>{{ data.id }}</span>
+              <span>{{ data.name }}</span>
+            </div>
+          </csd-item>
+        </csd-select>
+        <mat-error *ngIf="testSelectDataForm.errors">Please choose a Test</mat-error>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <p>csd-value: {{ testSelectDataForm2.value | json }}</p>
+    </div>
+
+    <div>
+      <h4>Mat-Select</h4>
+      <mat-checkbox (change)="toggleMatSelect()"> disable </mat-checkbox>
+      <br />
+      <mat-form-field [appearance]="formFieldAppearance">
+        <mat-label>Choose</mat-label>
+        <mat-select [(value)]="selected5" formControlName="testSelectData5" multiple>
+          <mat-option>---</mat-option>
+          <mat-option *ngFor="let data of inputData" [value]="data">
+            {{ data.name ? data.name : data }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="testSelectDataForm5.errors">Please choose a Test</mat-error>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <p>mat-value: {{ selected5 | json }}</p>
+    </div>
+  </form>
+</div>

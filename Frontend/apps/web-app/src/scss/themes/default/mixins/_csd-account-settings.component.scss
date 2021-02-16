@@ -1,0 +1,82 @@
+@mixin csd-account-settings($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .csd-account-settings {
+    .csd-save-close-toolbar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+
+      @media (max-width: map-get($csd-breakpoints, tablet)) {
+        flex-direction: column;
+      }
+
+      .csd-title {
+        margin: 0;
+      }
+    }
+
+    .csd-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: stretch;
+      @media (max-width: map-get($csd-breakpoints, tablet)) {
+        flex-direction: column;
+      }
+      .csd-navigation {
+        flex: 1 1 auto;
+        @include mat-typography-level-to-styles($typo, 'body-2');
+        .csd-toc {
+          list-style: none;
+          padding: 0 100px 0 100px;
+          @media (max-width: map-get($csd-breakpoints, tablet)) {
+            padding: 0 20px 0 20px;
+          }
+        }
+        .csd-navigation-link {
+          color: mat-color($primary, 500);
+          text-decoration: none;
+        }
+      }
+      form {
+        flex: 2 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: stretch;
+        padding: 0 100px 0 100px;
+        @media (max-width: map-get($csd-breakpoints, tablet)) {
+          padding: 0 20px 0 20px;
+        }
+
+        .csd-section-title {
+          @include mat-typography-level-to-styles($typo, 'display-1');
+        }
+
+        .csd-section-box {
+          margin: 20px 0 20px 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: stretch;
+        }
+        .csd-section-paragraph {
+          margin: 10px 0 20px;
+          @include mat-typography-level-to-styles($typo, 'body-2');
+        }
+
+        .mat-form-field,
+        .mat-checkbox {
+          padding-bottom: 16px;
+        }
+      }
+    }
+  }
+}

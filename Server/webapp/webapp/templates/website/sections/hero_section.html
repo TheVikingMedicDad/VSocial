@@ -1,0 +1,27 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{%  image value.background_image original as bg_photo %}
+
+<div class="csd-hero-section csd-section csd-bg-color-{{ value.background_color }} {{ value.css_classes }}"
+  style="background-image: url('{{ bg_photo.url }}');"
+>
+
+  <div class="csd-container">
+
+    <div class="csd-primary-content">
+    {% for block in value.primary_content %}
+          {% include_block block %}
+    {% endfor %}
+    </div>
+    <div class="csd-secondary-content">
+    {% for block in value.secondary_content %}
+      {% if block.block_type == 'image' %}
+            {% image block.value  width-500 %}
+        {% else %}
+            {% include_block block %}
+        {% endif %}
+    {% endfor %}
+
+    </div>
+  </div>
+</div>

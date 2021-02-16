@@ -1,0 +1,46 @@
+@mixin csd-mat-form-field($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .mat-form-field {
+    &.mat-form-field-appearance-outline {
+      .mat-form-field-subscript-wrapper {
+        padding-left: 0;
+      }
+
+      /* Border */
+      .mat-form-field-outline {
+      }
+      input.mat-input-element {
+      }
+
+      .mat-hint,
+      .mat-error {
+        @include mat-typography-level-to-styles($typo, 'caption');
+      }
+    }
+
+    &.mat-form-field-disabled {
+      .mat-hint {
+        color: mat-color($primary, '50-contrast', 0.4);
+      }
+    }
+  }
+
+  .mat-form-field-label {
+    text-transform: capitalize;
+  }
+
+  /**
+    The following is changing the border width of outlined input fields, textareas and select fields
+   */
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap,
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start {
+    border-width: 1px;
+  }
+}

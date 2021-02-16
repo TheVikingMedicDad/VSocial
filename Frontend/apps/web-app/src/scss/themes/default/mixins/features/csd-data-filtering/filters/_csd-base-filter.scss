@@ -1,0 +1,49 @@
+@mixin csd-base-filter($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-base-filter {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: map-get($background, 'background');
+
+    .csd-filter-header {
+      width: 100%;
+    }
+
+    .csd-expansion-panel-header {
+      padding: 0 2px;
+
+      .csd-close-button {
+        margin-left: -10px;
+      }
+
+      .csd-title {
+        max-width: 270px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .mat-expansion-panel-body {
+      padding: 0 21px 10px 28px;
+    }
+
+    .mat-form-field {
+      width: 100%;
+    }
+    .csd-expansion-panel {
+      box-shadow: unset;
+      background-color: unset;
+
+      &:not(.mat-expanded):hover .mat-expansion-panel-header:not([aria-disabled='true']):hover {
+        background-color: unset;
+      }
+    }
+  }
+}

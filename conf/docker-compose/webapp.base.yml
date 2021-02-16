@@ -1,0 +1,241 @@
+version: '3.7'
+
+services:
+
+
+  # only needed for build caching
+  webapp-server-proxy-base:
+    container_name: $CSD_PROJECT_NAME-webapp-server-proxy-base-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-proxy:$CSD_DOCKER_LOCAL_TAG-base
+    restart: "no"
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/webapp/server/proxy/Dockerfile.base
+      args:
+        CSD_DOCKER_REGISTRY: $CSD_DOCKER_REGISTRY
+        CSD_PROJECT_NAME: $CSD_PROJECT_NAME
+        CSD_DOCKER_LOCAL_TAG: $CSD_DOCKER_LOCAL_TAG
+      cache_from:
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-proxy:$CSD_DOCKER_LOCAL_TAG-base
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+    command: "true"
+
+  # only needed for build caching
+  webapp-server-webapp-base:
+    container_name: $CSD_PROJECT_NAME-webapp-server-webapp-base-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-webapp:$CSD_DOCKER_LOCAL_TAG-base
+    restart: "no"
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/webapp/server/webapp/Dockerfile.base
+      cache_from:
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-webapp:$CSD_DOCKER_LOCAL_TAG-base
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+    command: "true"
+
+
+  # only needed for build caching
+  webapp-frontend-webapp-base:
+    container_name: $CSD_PROJECT_NAME-webapp-frontend-webapp-base-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-frontend-webapp:$CSD_DOCKER_LOCAL_TAG-base
+    restart: "no"
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/webapp/frontend/webapp/Dockerfile.base
+      cache_from:
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-frontend-webapp:$CSD_DOCKER_LOCAL_TAG-base
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+    command: "true"
+
+
+  # only needed for build caching
+  webapp-server-webapp-assets-builder-base:
+    container_name: $CSD_PROJECT_NAME-webapp-server-webapp-assets-builder-base-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-webapp-assets-builder:$CSD_DOCKER_LOCAL_TAG-base
+    restart: "no"
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/webapp/server/webapp-assets-builder/Dockerfile.base
+      cache_from:
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-webapp-assets-builder:$CSD_DOCKER_LOCAL_TAG-base
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+    command: "true"
+
+  webapp-server-proxy:
+    container_name: $CSD_PROJECT_NAME-webapp-server-proxy-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-proxy:$CSD_DOCKER_LOCAL_TAG
+    restart: always
+    build:
+      context: ../../
+      args:
+        CSD_DOCKER_REGISTRY: $CSD_DOCKER_REGISTRY
+        CSD_PROJECT_NAME: $CSD_PROJECT_NAME
+        CSD_DOCKER_LOCAL_TAG: $CSD_DOCKER_LOCAL_TAG
+      cache_from:
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-proxy:$CSD_DOCKER_LOCAL_TAG-base
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-proxy:$CSD_DOCKER_LOCAL_TAG
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+    depends_on:
+      - webapp-server-proxy-base
+      - webapp-server-webapp
+      - webapp-frontend-webapp
+
+  webapp-frontend-webapp:
+    container_name: $CSD_PROJECT_NAME-webapp-frontend-webapp-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-frontend-webapp:$CSD_DOCKER_LOCAL_TAG
+    restart: always
+    build:
+      context: ../../
+      args:
+        CSD_DOCKER_REGISTRY: $CSD_DOCKER_REGISTRY
+        CSD_PROJECT_NAME: $CSD_PROJECT_NAME
+        CSD_DOCKER_LOCAL_TAG: $CSD_DOCKER_LOCAL_TAG
+      cache_from:
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-frontend-webapp:$CSD_DOCKER_LOCAL_TAG-base
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-frontend-webapp:$CSD_DOCKER_LOCAL_TAG
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+    volumes:
+      - webapp-frontend-node-modules:/app/node_modules
+    depends_on:
+      - webapp-frontend-webapp-base
+
+  webapp-server-webapp:
+    container_name: $CSD_PROJECT_NAME-webapp-server-webapp-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-webapp:$CSD_DOCKER_LOCAL_TAG
+    restart: always
+    build:
+      context: ../../
+      args:
+        CSD_DOCKER_REGISTRY: $CSD_DOCKER_REGISTRY
+        CSD_PROJECT_NAME: $CSD_PROJECT_NAME
+        CSD_DOCKER_LOCAL_TAG: $CSD_DOCKER_LOCAL_TAG
+      cache_from:
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-webapp:$CSD_DOCKER_LOCAL_TAG-base
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-webapp:$CSD_DOCKER_LOCAL_TAG
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+    depends_on:
+      - webapp-server-webapp-base
+    volumes:
+      - webapp-server-webapp-data-backups:/backups
+
+  webapp-server-webapp-assets-builder:
+    container_name: $CSD_PROJECT_NAME-webapp-server-webapp-assets-builder-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-webapp-assets-builder:$CSD_DOCKER_LOCAL_TAG
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/webapp/server/webapp-assets-builder/Dockerfile.base
+      args:
+        CSD_DOCKER_REGISTRY: $CSD_DOCKER_REGISTRY
+        CSD_PROJECT_NAME: $CSD_PROJECT_NAME
+        CSD_DOCKER_LOCAL_TAG: $CSD_DOCKER_LOCAL_TAG
+      cache_from:
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-webapp-assets-builder:$CSD_DOCKER_LOCAL_TAG-base
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-webapp-assets-builder:$CSD_DOCKER_LOCAL_TAG
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-webapp:$CSD_DOCKER_LOCAL_TAG
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+    volumes:
+      - webapp-server-assets-node-modules:/app/node_modules
+    depends_on:
+      - webapp-server-webapp-assets-builder-base
+
+  # 
+
+  webapp-server-redis:
+    container_name: $CSD_PROJECT_NAME-webapp-server-redis-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-redis:$CSD_DOCKER_LOCAL_TAG
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/webapp/server/redis/Dockerfile
+      cache_from:
+       - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-redis:$CSD_DOCKER_LOCAL_TAG
+
+  webapp-server-postgres:
+    container_name: $CSD_PROJECT_NAME-webapp-server-postgres-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-postgres:$CSD_DOCKER_LOCAL_TAG
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/webapp/server/postgres/Dockerfile
+      cache_from:
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-postgres:$CSD_DOCKER_LOCAL_TAG
+    environment:
+      - POSTGRES_DB=${CSD_WEBAPP_MAIN_POSTGRES_DB_NAME}
+      - POSTGRES_USER=${CSD_WEBAPP_MAIN_POSTGRES_DB_USER}
+      - POSTGRES_PASSWORD=${CSD_WEBAPP_MAIN_POSTGRES_DB_PASSWORD}
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+    ports:
+      - $CSD_WEBAPP_SERVER_POSTGRES_DEV_PORT:5432
+    volumes:
+      - webapp-postgres-data:/var/lib/postgresql/data
+      - webapp-postgres-data-backups:/backups
+    command: -c fsync=off -c synchronous_commit=off -c full_page_writes=off
+
+
+  # MINIO simulates AWS Infrastructure
+  webapp-server-minio:
+    image: minio/minio:RELEASE.2020-12-16T05-05-17Z
+    container_name: $CSD_PROJECT_NAME-webapp-server-minio-container
+    restart: always
+    environment:
+      - MINIO_ACCESS_KEY=${CSD_AWS_S3_KEY}
+      - MINIO_SECRET_KEY=${CSD_AWS_S3_SECRET}
+    command: server /data
+    volumes:
+      - minio-s3-data:/data
+
+
+  # init script which set some settings for minio
+  webapp-server-minio-init-job:
+    container_name: $CSD_PROJECT_NAME-webapp-server-minio-init-job
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-minio-init-job:$CSD_DOCKER_LOCAL_TAG
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/webapp/server/minio-init/Dockerfile
+      cache_from:
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-webapp-server-minio-init-job:$CSD_DOCKER_LOCAL_TAG
+    depends_on:
+      - webapp-server-minio
+    restart: on-failure
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+
+  # === INFRASTRUCTURE SERVICES JUST FOR LOCAL DEVELOPMENT
+
+  # Ingress Nginx for compose (in k8s we use a vanilla nginx ingress instead)
+  infra-server-ingress-nginx:
+    container_name: $CSD_PROJECT_NAME-infra-server-ingress-nginx-container
+    image: $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-infra-server-ingress-nginx:$CSD_DOCKER_LOCAL_TAG
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./conf/docker/infra/ingress-nginx/Dockerfile
+      cache_from:
+        - $CSD_DOCKER_REGISTRY/$CSD_PROJECT_NAME-infra-server-ingress-nginx:$CSD_DOCKER_LOCAL_TAG
+    env_file:
+      - ../envs/.generated_env_${CSD_CURRENT_ENV}
+    ports:
+      - $CSD_WEBAPP_PUBLIC_HTTP_PORT:$CSD_INFRA_SERVER_INGRESS_NGINX_HTTP_PORT
+      - $CSD_WEBAPP_PUBLIC_HTTPS_PORT:$CSD_INFRA_SERVER_INGRESS_NGINX_HTTPS_PORT
+
+
+
+
+
+volumes:
+  webapp-frontend-node-modules: {}
+  webapp-server-assets-node-modules: {}
+  webapp-postgres-data: {}
+  webapp-postgres-data-backups: {}
+  minio-s3-data: {}
+  webapp-server-webapp-data-backups: {}

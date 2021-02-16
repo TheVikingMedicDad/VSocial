@@ -1,0 +1,15 @@
+{% extends "./base/base_email.txt" %}
+{% load i18n %}
+
+{% block content %}
+{% blocktrans with project_name=project.name %}Welcome to {{ project_name }}.{% endblocktrans %}
+
+{% blocktrans with project_name=project.name %}Please confirm your new account at {{ project_name }} to get the best experience. Simply click on the button below
+to complete your registration.{% endblocktrans %}
+
+{% blocktrans %}If this wasn’t you, you don’t have to worry and can ignore this email.{% endblocktrans %}
+
+{% blocktrans %}To complete your registration please open this url in a browser:{% endblocktrans %}
+
+{{ project.webapp.url }}/{{ confirm_path_name }}/{{ key }}
+{% endblock %}

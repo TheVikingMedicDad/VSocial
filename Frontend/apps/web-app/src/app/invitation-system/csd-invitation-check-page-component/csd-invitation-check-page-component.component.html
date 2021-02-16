@@ -1,0 +1,11 @@
+<div *ngIf="!!invalidReason || invalidToken">
+  <h1>{{ 'MODEL.INVITATION.CHECK.INVALID.HEADER' | i18next }}</h1>
+
+  <p *ngIf="!!invalidReason">
+    {{ 'MODEL.INVITATION.CHECK.INVALID.' + invalidReason.toUpperCase() | i18next }}
+  </p>
+
+  <p *ngIf="invalidToken">
+    {{ 'MODEL.INVITATION.CHECK.INVALID.TOKEN' | i18next }}
+  </p>
+</div>

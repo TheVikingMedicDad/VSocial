@@ -1,0 +1,22 @@
+<div (click)="onClick()" [ngClass]="['csd-card', activeClass, disabledClass]">
+  <div class="csd-header-container">
+    <mat-icon fontSet="material-icons-outlined" aria-label="insert_drive_file"
+      >insert_drive_file</mat-icon
+    >
+    <div class="csd-card-title">{{ titleName }}</div>
+  </div>
+  <div class="csd-right-container">
+    <div class="csd-card-subtitle">{{ subtitleName }}</div>
+    <div class="csd-actions-container">
+      <button (click)="delete()" class="csd-delete-button" mat-icon-button>
+        <mat-icon fontSet="material-icons-outlined" aria-label="delete">delete</mat-icon>
+      </button>
+      <button (click)="edit()" class="csd-edit-button" mat-icon-button>
+        <mat-icon fontSet="material-icons-outlined" aria-label="edit">edit</mat-icon>
+      </button>
+      <button (click)="more()" class="csd-more-button" mat-icon-button>
+        <mat-icon fontSet="material-icons-outlined" aria-label="menu">more_horiz</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

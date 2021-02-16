@@ -1,0 +1,17 @@
+<form [formGroup]="secondTestForm" fxLayout="column" fxLayoutAlign="start center">
+  <h2>Step 4</h2>
+  <mat-form-field [appearance]="formFieldAppearance">
+    <mat-label>Fourth test name</mat-label>
+    <input
+      (blur)="checkIfValid()"
+      matInput
+      type="text"
+      formControlName="secondTestControl"
+      name="text1"
+    />
+    <mat-error>Required</mat-error>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button cdkStepperPrevious>Previous</button>
+  </div>
+</form>

@@ -1,0 +1,15 @@
+.git
+ENV
+env
+
+Frontend/node_modules
+Frontend/node_modules/*
+Frontend/dist
+Frontend/dist/*
+
+Server/webapp/media/*
+Server/webapp/staticfiles/*
+Server/webapp/env
+Server/webapp/node_modules
+Server/**/.pytest_cache
+

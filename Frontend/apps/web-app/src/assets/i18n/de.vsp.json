@@ -1,0 +1,58 @@
+{
+  "MODEL": {
+    "TODO": {
+      "CLS": "Todo",
+      "FILTER": {
+        "IS_DONE_TRUE": "erledigt",
+        "IS_DONE_FALSE": "offen"
+      },
+      "FORM": {
+        "SECTION_TODO_INFORMATION": "Todo details",
+        "ADD_NEW_ITEM": "Neues Todo anlegen",
+        "DELETE_ITEM": "Todo löschen",
+        "LIST_TITLE": "Todo Liste",
+        "SEARCH_PLACEHOLDER": "Suche",
+        "ERROR": {
+          "REQUIRED": "This field is required",
+          "INVALID_FORM_DATA": "Falsche Eingabe"
+        },
+        "TEXT": {
+          "LABEL": "Beschreibung",
+          "ERROR": {
+            "REQUIRED": "Beschreibung ist erforderlich!"
+          }
+        },
+        "ID": {
+          "LABEL": "ID"
+        },
+        "IS_DONE": {
+          "LABEL": "Als erledigt markiert"
+        },
+        "ACTIONS": {
+          "LABEL": "Aktionen"
+        }
+      }
+    }
+  },
+  "PAGE_TITLE": {
+    "TODO_LIST": "Todo Liste"
+  },
+  "TODO_LIST": {
+    "ADD_NEW_BUTTON": "Neues Todo anlegen",
+    "FILTER_BUTTON": "Filter"
+  },
+  "LOGIN_CAROUSEL": {
+    "ITEM_1": {
+      "TITLE": "Keep track of your stuff.",
+      "DESCRIPTION": "Write new todos and never forget a task again. What else would you want from a todo app really?"
+    },
+    "ITEM_2": {
+      "TITLE": "Actually do the stuff.",
+      "DESCRIPTION": "Write your tasks down, do the tasks and then check them off. Most satisfying feeling ever."
+    },
+    "ITEM_3": {
+      "TITLE": "Have more time for real stuff.",
+      "DESCRIPTION": "Don’t spend your time with hundreds of options. Spend it on important things instead."
+    }
+  }
+}

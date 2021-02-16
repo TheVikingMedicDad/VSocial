@@ -1,0 +1,70 @@
+@keyframes fade-in {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin csd-carousel($theme, $typo) {
+  $primary: map-get($theme, primary);
+
+  .csd-carousel {
+    .csd-carousel-item {
+      display: none;
+
+      &.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: fade-in 1s;
+      }
+      .csd-headline {
+        @include mat-typography-level-to-styles($typo, headline);
+        // 
+        color: mat-color($primary, A700);
+        order: 1;
+        max-width: 190px;
+        // 
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .csd-image {
+        // 
+        order: 2;
+        // 
+        margin-bottom: 24px;
+        width: 360px;
+        height: 270px;
+      }
+      .csd-description {
+        @include mat-typography-level-to-styles($typo, 'subheading-2');
+        // 
+        color: mat-color($primary, A400);
+        // 
+        order: 3;
+        text-align: center;
+      }
+    }
+    .csd-carousel-navigation {
+      display: flex;
+      justify-content: center;
+
+      .csd-carousel-indicator {
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        margin-right: 8px;
+        border: 1px solid mat-color($primary, 400);
+        cursor: pointer;
+        opacity: 0.3;
+        &.active {
+          transition: 1s;
+          opacity: 1;
+          background-color: mat-color($primary, 400);
+        }
+      }
+    }
+  }
+}

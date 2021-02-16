@@ -1,0 +1,15 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="csd-price-footer">
+  <div class="csd-price-section">
+    <div class="csd-price-subscription">
+      <div class="csd-price-value">{{ self.amount }}</div>
+      <div class="csd-price-duration">{{ self.duration }}</div>
+    </div>
+    <div class="csd-price-buy-now">{{ self.buy_now }}</div>
+  </div>
+
+  {% for block in self.button %}
+        {% include_block block %}
+  {% endfor %}
+</div>

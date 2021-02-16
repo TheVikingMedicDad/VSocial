@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{ csdConfirmDialogConfig.title }}</h1>
+<div
+  mat-dialog-content
+  *ngIf="csdConfirmDialogConfig.messageHtml; then messageHtmlBlock; else messageBlock"
+></div>
+<ng-template #messageBlock>{{ csdConfirmDialogConfig.message }}</ng-template>
+<ng-template #messageHtmlBlock>
+  <div [innerHTML]="csdConfirmDialogConfig.messageHtml"></div>
+</ng-template>
+<div mat-dialog-actions fxLayout="row">
+  <button color="accent" mat-button [mat-dialog-close]="false" class="csd-close-button">
+    {{ csdConfirmDialogConfig.cancelButtonTitle }}
+  </button>
+  <button color="primary" mat-flat-button [mat-dialog-close]="true" class="csd-confirm-button">
+    {{ csdConfirmDialogConfig.submitButtonTitle }}
+  </button>
+</div>

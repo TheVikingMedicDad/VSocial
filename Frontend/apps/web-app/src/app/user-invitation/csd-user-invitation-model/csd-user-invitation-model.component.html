@@ -1,0 +1,76 @@
+<div class="csd-crud-model csd-user-invitation-model">
+  <csd-crud-header
+    (save)="saveOrAdd()"
+    (cancel)="cancel()"
+    (edit)="edit()"
+    (destroy)="destroy()"
+    [mode]="mode"
+    [title]="title"
+  >
+  </csd-crud-header>
+
+  <div>
+    <form
+      fxLayout="column"
+      fxLayoutAlign="space-around stretch"
+      [formGroup]="modelForm"
+      novalidate
+      (submit)="saveOrAdd()"
+      [class.mode-view]="mode == crudMode.VIEW"
+    >
+      <h1 class="csd-section-title">
+        {{ 'MODEL.USER_INVITATION.FORM.HEADINGS.TITLE' | i18next }}
+      </h1>
+
+      <!-- INVITEE EMAIL -->
+      <mat-form-field [appearance]="formFieldAppearance">
+        <mat-label>{{ 'MODEL.INVITATION.CONSTANTS.INVITEE_EMAIL' | i18next }}</mat-label>
+        <input
+          matInput
+          [placeholder]="'MODEL.USER_INVITATION.FORM.INVITEE_EMAIL.PLACEHOLDER' | i18next"
+          formControlName="inviteeEmail"
+        />
+        <mat-hint>{{ 'MODEL.USER_INVITATION.FORM.INVITEE_EMAIL.HINT' | i18next }}</mat-hint>
+        <mat-error
+          *ngIf="
+            (modelForm.get('inviteeEmail').dirty || modelForm.get('inviteeEmail').touched) &&
+            modelForm.get('inviteeEmail').errors?.required
+          "
+        >
+          {{ 'MODEL.USER_INVITATION.FORM.INVITEE_EMAIL.ERROR.REQUIRED' | i18next }}
+        </mat-error>
+        <mat-error
+          *ngIf="
+            (modelForm.get('inviteeEmail').dirty || modelForm.get('inviteeEmail').touched) &&
+            modelForm.get('inviteeEmail').errors?.invalid &&
+            !modelForm.get('inviteeEmail').errors?.required
+          "
+        >
+          {{ 'MODEL.USER_INVITATION.FORM.INVITEE_EMAIL.ERROR.INVALID' | i18next }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field [appearance]="formFieldAppearance">
+        <mat-label>{{ 'MODEL.USER_INVITATION.FORM.MESSAGE.LABEL' | i18next }}</mat-label>
+        <textarea
+          matInput
+          [placeholder]="'MODEL.USER_INVITATION.FORM.MESSAGE.PLACEHOLDER' | i18next"
+          formControlName="message"
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="6"
+        ></textarea>
+      </mat-form-field>
+
+      <div class="csd-model-submit-button" *ngIf="mode !== crudMode.VIEW">
+        <button mat-button (submit)="saveOrAdd()">
+          {{
+            'MODEL.USER_INVITATION.FORM.SUBMIT_BUTTON.' + (mode === crudMode.ADD ? 'ADD' : 'SAVE')
+              | i18next
+          }}
+        </button>
+      </div>
+
+      <button type="submit" style="display: none">hidden submit</button>
+    </form>
+  </div>
+</div>

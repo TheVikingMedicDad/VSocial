@@ -1,0 +1,21 @@
+# Add files here to ignore them from prettier formatting
+
+/dist
+/coverage
+
+_variables.scss
+.gitignore
+.gitkeep
+favicon.ico
+Dockerfile*
+.prettierignore
+.browserslistrc
+.keep
+*.svg
+*.png
+*.jpeg
+*.jpg
+
+**/xplat/*/.xplatframework
+
+# 

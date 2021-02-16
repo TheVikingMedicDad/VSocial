@@ -1,0 +1,341 @@
+{% load static i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>Email Template</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+  <style type="text/css" data-premailer="ignore">
+
+    body {
+      -webkit-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-spacing: 0;
+    }
+
+    table td {
+      border-collapse: collapse;
+    }
+
+    .yshortcuts a {
+      border-bottom: none !important;
+    }
+
+    @media screen and (max-width: 600px), screen and (max-device-width: 600px) {
+      table[class="container"] {
+        width: 95% !important;
+      }
+    }
+
+    @media screen and (max-width: 480px), screen and (max-device-width: 480px) {
+      td[class="container-padding"] {
+        /*padding-left: 12px !important;
+        padding-right: 12px !important;*/
+      }
+    }
+
+  body {
+    background-color: {{ project.colors.primary.50 }};
+    padding: 10px 0;
+    margin: 10px 0;
+  }
+
+  table.container {
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.04); /*border-bottom: 1px solid #e0e0e0;*/
+    font-family: Helvetica, Verdana, sans-serif;
+    color: #434343;
+    margin-top: 40px;
+    max-width: 499px;
+    margin-bottom: 50px;
+    border-radius: 4px;
+
+  }
+
+  table.container tr.logo {
+    height: 65px;
+  }
+
+  table.container tr.logo > .logo {
+    text-align: center;
+  }
+
+  table.container tr.logo > .logo img {
+    max-width: 260px;
+    max-height: 50px;
+  }
+
+  table.container tr.logo > .logo a {
+  }
+
+  table.container tr.logo > .link {
+    padding-right: 40px;
+    text-align: right;
+  }
+
+  table.container tr.content td {
+    padding: 40px;
+  }
+
+  table.container td {
+    border-top: 1px solid #eeeeee;
+    width: 650px;
+  }
+
+  h1 {
+    font-family: 'Inter', 'Roboto', serif;
+    font-weight: 500;
+    font-size: 48px;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5;
+    margin: 0 0 25px 0;
+    text-align: center;
+  }
+
+  h1 {
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  h4, h5, h6 {
+    font-size: 14px;
+  }
+
+  p {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+    margin: 0 0 25px 0;
+    letter-spacing: 0.44px;
+    color: #121212;
+    text-align: center;
+  }
+
+  a, u + #body a {
+  color: {{ project.colors.primary.500 }} !important;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  }
+
+
+  td.container-padding {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  td.container-padding img {
+
+  }
+
+  a.button {
+    background-color: {{ project.colors.primary.500 }};
+    border-radius: 4px;
+    color: {{ project.colors.primary.contrast.500 }} !important;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 17px;
+    letter-spacing: 1.35px;
+    text-align: center;
+
+    text-decoration: none;
+    padding: 14px 28px;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    margin-top: 40px;
+
+  }
+
+  ul li, ol li {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  table.footer {
+    width: 100%;
+
+  }
+
+  table .footer td {
+    vertical-align: middle;
+    text-align: center;
+    color: #434343;
+    font-size: 12px;
+    border-top: none;
+    padding-bottom: 40px;
+  }
+
+  table .footer td .copyright {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-align: center;
+    color: rgba(18,18,18,0.4);
+    margin-bottom: 8px;
+  }
+
+  table .footer td .logo {
+    margin-bottom: 16px;
+    width: 160px;
+  }
+
+  table .footer td.social {
+    width: 60%;
+    line-height: 20px;
+    border-left: none;
+  }
+
+  table .footer td a {
+    text-align: center;
+    text-decoration: none;
+    color: rgba(18,18,18,0.4) !important;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    padding-right: 16px;
+  }
+
+  table .footer td a:last-of-type {
+    padding-right: 0;
+  }
+
+  table .footer td.social a.twitter {
+    color: #00aced;
+  }
+
+  table .footer td.social a.facebook {
+    color: #6d83bc;
+  }
+
+  table .footer td.social a.instagram {
+    color: #000000;
+  }
+
+  table .footer td.social img {
+    vertical-align: middle;
+  }
+
+  table .footer td.subscription {
+    width: 40%;
+  }
+
+  table .footer td.subscription a {
+    color: #434343;
+  }
+
+  .silent {
+    color: #cccccc;
+  }
+
+  .button-alternative {
+    color: rgba(18,18,18,0.4);
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .button-alternative a{
+    font-size: 14px;
+  }
+
+  .activate-account-pre-header{
+    margin-bottom: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 16px;
+
+  }
+
+  .break-word {
+    /* source https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .button-container {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+</style>
+</head>
+<body>
+<table border="0" width="100%" height="" cellpadding="0" cellspacing="0" bgcolor="{{ project.colors.primary.50 }}">
+  <tr>
+    <td align="center" valign="top" bgcolor="{{ project.colors.primary.50 }}">
+      <table cellpadding="0" cellspacing="0" border="0" class="container"
+             bgcolor="#ffffff">
+        <tr class="header logo">
+          <td class="logo">
+            <div class="logo">
+              <a href="{{ project.website.url }}">
+                <img
+                  src="{% static "images/logo_rect_dark.png" %}"
+                  title="{{ project.name }}"
+                  alt="{{ project.name }}">
+              </a>
+            </div>
+          </td>
+        </tr>
+        <tr class="content">
+          <td colspan="2">
+            {% block content %}
+            {% endblock %}
+          </td>
+        </tr>
+        <tr class="footer">
+          <td class="social">
+            <div class="copyright">© {% now "Y" %} {{ project.name }}<br/>{{ project.company_address }}</div>
+            <div>
+              <a href="mailto:{{ project.contact_email }}">{% trans "Contact us" %}</a>
+              <a href="{{ project.website.terms_url }}">{% trans "Terms of Use" %}</a>
+              <a href="{{ project.website.privacy_url }}">{% trans "Privacy Policy" %}</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

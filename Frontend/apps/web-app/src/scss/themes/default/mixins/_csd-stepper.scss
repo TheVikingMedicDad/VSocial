@@ -1,0 +1,57 @@
+@mixin csd-stepper($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  $navigation-font-size: 16px;
+  $navigation-error-color: red;
+
+  .csd-stepper {
+    .csd-navigation {
+      align-items: flex-start;
+      margin-left: 10px;
+    }
+
+    .csd-steps {
+      font-size: $navigation-font-size;
+      height: $navigation-font-size;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: 0.3s;
+      border-left: 1px solid;
+      padding: 2px 0px 2px 10px;
+      margin-left: 1px;
+    }
+
+    .csd-steps:hover {
+      opacity: 0.75;
+    }
+    .csd-activated {
+      border-left: 3px solid;
+      opacity: 0.8;
+      margin-left: 0px;
+      padding-left: 9px;
+    }
+    .csd-activated:hover {
+      opacity: 1;
+    }
+
+    .csd-steps mat-icon {
+      font-size: $navigation-font-size;
+    }
+
+    .csd-error {
+      color: $navigation-error-color;
+    }
+
+    .csd-horizontal {
+      margin-bottom: 10px;
+    }
+
+    .csd-horizontal div {
+      padding-right: 10px;
+    }
+  }
+}

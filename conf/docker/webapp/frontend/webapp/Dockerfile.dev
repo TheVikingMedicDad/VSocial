@@ -1,0 +1,25 @@
+ARG CSD_DOCKER_REGISTRY
+ARG CSD_PROJECT_NAME
+ARG CSD_DOCKER_LOCAL_TAG
+
+#########################
+# dev stage
+#########################
+
+FROM ${CSD_DOCKER_REGISTRY}/${CSD_PROJECT_NAME}-webapp-frontend-webapp:${CSD_DOCKER_LOCAL_TAG}-base AS dev
+
+# start app
+#   host/port: the nginx router will redirect the request to this address
+#   public-host: necassary for live reload, because socketjs will send the requests to this address
+#   disable-host-check: in order to avoid "Invalid Host header" error
+#   poll: poll for source code changes every ms - this is useful when docker does not changes recognize automatically
+#         but is slowing down local cpu vastly
+CMD npm start web-app -- \
+               --host 0.0.0.0 \
+               --port $CSD_WEBAPP_FRONTEND_WEBAPP_HTTP_PORT \
+               --public-host $CSD_WEBAPP_PUBLIC_HOST \
+               --disable-host-check \
+               --watch --liveReload
+               #--poll 200
+               #--prod --sourceMap=true
+               #--optimization=false

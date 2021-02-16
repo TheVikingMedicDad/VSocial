@@ -1,0 +1,15 @@
+ARG CSD_DOCKER_REGISTRY
+ARG CSD_PROJECT_NAME
+ARG CSD_DOCKER_LOCAL_TAG
+
+
+#########################
+# prod stage
+#########################
+# 
+FROM ${CSD_DOCKER_REGISTRY}/${CSD_PROJECT_NAME}-webapp-server-webapp-assets-builder:${CSD_DOCKER_LOCAL_TAG}-base
+# 
+
+COPY ./Server/webapp /app
+WORKDIR /app
+RUN npx webpack --config webpack.prod.js

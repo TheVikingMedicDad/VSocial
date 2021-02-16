@@ -1,0 +1,135 @@
+@mixin csd-color-classes($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  // -- primary
+  .csd-bg-color-primary {
+    background-color: mat-color($primary);
+  }
+
+  .csd-bg-color-primary-50 {
+    background-color: mat-color($primary, 50);
+  }
+
+  .csd-bg-color-primary-100 {
+    background-color: mat-color($primary, 100);
+  }
+
+  .csd-bg-color-primary-200 {
+    background-color: mat-color($primary, 200);
+  }
+
+  .csd-bg-color-primary-300 {
+    background-color: mat-color($primary, 300);
+  }
+
+  .csd-bg-color-primary-400 {
+    background-color: mat-color($primary, 400);
+  }
+
+  .csd-bg-color-primary-500 {
+    background-color: mat-color($primary, 500);
+  }
+
+  .csd-bg-color-primary-600 {
+    background-color: mat-color($primary, 600);
+  }
+
+  .csd-bg-color-primary-700 {
+    background-color: mat-color($primary, 700);
+  }
+
+  .csd-bg-color-primary-800 {
+    background-color: mat-color($primary, 800);
+  }
+
+  .csd-bg-color-primary-900 {
+    background-color: mat-color($primary, 900);
+  }
+
+  .csd-bg-color-primary-A100 {
+    background-color: mat-color($primary, A100);
+  }
+
+  .csd-bg-color-primary-A200 {
+    background-color: mat-color($primary, A200);
+  }
+
+  .csd-bg-color-primary-A400 {
+    background-color: mat-color($primary, A400);
+  }
+
+  .csd-bg-color-primary-A700 {
+    background-color: mat-color($primary, A700);
+  }
+
+
+  // -- accent
+  .csd-bg-color-accent {
+    background-color: mat-color($accent);
+  }
+
+  .csd-bg-color-accent-50 {
+    background-color: mat-color($accent, 50);
+  }
+
+  .csd-bg-color-accent-100 {
+    background-color: mat-color($accent, 100);
+  }
+
+  .csd-bg-color-accent-200 {
+    background-color: mat-color($accent, 200);
+  }
+
+  .csd-bg-color-accent-300 {
+    background-color: mat-color($accent, 300);
+  }
+
+  .csd-bg-color-accent-400 {
+    background-color: mat-color($accent, 400);
+  }
+
+  .csd-bg-color-accent-500 {
+    background-color: mat-color($accent, 500);
+  }
+
+  .csd-bg-color-accent-600 {
+    background-color: mat-color($accent, 600);
+  }
+
+  .csd-bg-color-accent-700 {
+    background-color: mat-color($accent, 700);
+  }
+
+  .csd-bg-color-accent-800 {
+    background-color: mat-color($accent, 800);
+  }
+
+  .csd-bg-color-accent-900 {
+    background-color: mat-color($accent, 900);
+  }
+
+  .csd-bg-color-accent-A100 {
+    background-color: mat-color($accent, A100);
+  }
+
+  .csd-bg-color-accent-A200 {
+    background-color: mat-color($accent, A200);
+  }
+
+  .csd-bg-color-accent-A400 {
+    background-color: mat-color($accent, A400);
+  }
+
+  .csd-bg-color-accent-A700 {
+    background-color: mat-color($accent, A700);
+  }
+
+  .csd-color-primary {
+    color: mat-color($primary);
+  }
+}

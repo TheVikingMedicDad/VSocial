@@ -1,0 +1,52 @@
+@mixin csd-typography-classes($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-typo-display-4 {
+    @include mat-typography-level-to-styles($typo, display-4);
+    @media screen and (max-width: 599px) {
+      font-size: 40px;
+      line-height: 40px;
+    }
+  }
+
+  .csd-typo-display-3 {
+    @include mat-typography-level-to-styles($typo, display-3);
+  }
+
+  .csd-typo-display-2 {
+    @include mat-typography-level-to-styles($typo, display-2);
+  }
+
+  .csd-typo-display-1 {
+    @include mat-typography-level-to-styles($typo, display-1);
+  }
+
+  .csd-typo-headline {
+    @include mat-typography-level-to-styles($typo, headline);
+  }
+
+  .csd-typo-title {
+    @include mat-typography-level-to-styles($typo, title);
+  }
+
+  .csd-typo-subheading-2 {
+    @include mat-typography-level-to-styles($typo, subheading-2);
+  }
+
+  .csd-typo-subheading-1 {
+    @include mat-typography-level-to-styles($typo, subheading-1);
+  }
+
+  .csd-typo-body-1 {
+    @include mat-typography-level-to-styles($typo, body-1);
+  }
+
+  .csd-typo-body-2 {
+    @include mat-typography-level-to-styles($typo, body-2);
+  }
+}

@@ -1,0 +1,70 @@
+@mixin csd-hero-section($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .csd-hero-section {
+    background-size: cover;
+    color: mat-color($foreground, text);
+    padding-top: 120px;
+    @media #{$mat-lt-sm} {
+      padding-top: 25px;
+    }
+
+    &.csd-bg-color-primary {
+      color: mat-color($primary, "500-contrast");
+    }
+
+    &.csd-bg-color-accent {
+      color: mat-color($accent, "500-contrast");
+    }
+
+    & > .csd-container {
+      overflow-x: visible;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: $csd-grid-column-gap;
+      grid-template-areas: "text image";
+      min-height: 560px;
+
+      @media #{$mat-lt-md} {
+        grid-template-columns: repeat(1, 1fr);
+
+      }
+      @media #{$mat-lt-sm} {
+        grid-template-columns: repeat(1, 1fr);
+        text-align: center;
+        min-height: unset;
+      }
+
+      @media #{$mat-lt-md} {
+        grid-template-areas: "text text";
+      }
+
+      .csd-primary-content {
+        .csd-headline-block {
+          margin-top: 40px;
+        }
+        button {
+          margin-top: 40px;
+        }
+        img {
+          margin-bottom: 40px;
+        }
+      }
+
+      & > .csd-primary-box {
+        grid-area: text;
+      }
+
+      & > .csd-secondary-box {
+        grid-area: image;
+      }
+
+    }
+  }
+}

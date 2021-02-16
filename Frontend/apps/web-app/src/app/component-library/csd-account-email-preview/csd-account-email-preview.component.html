@@ -1,0 +1,21 @@
+<div class="csd-account-email-preview">
+  <div class="csd-top-content">
+    <button mat-stroked-button color="primary" (click)="createNewUser(GERMAN)">
+      Create new german User
+    </button>
+    <button mat-stroked-button color="primary" (click)="createNewUser(ENGLISH)">
+      Create new english User
+    </button>
+
+    <button mat-stroked-button color="primary" (click)="requestEmailChange()">
+      Change E-Mail Address
+    </button>
+
+    <button mat-stroked-button color="primary" (click)="requestPasswordReset()">
+      Request Password Reset Email
+    </button>
+  </div>
+  <div class="csd-last-email-preview">
+    <csd-last-email-preview-frame *ngIf="hasClicked"></csd-last-email-preview-frame>
+  </div>
+</div>

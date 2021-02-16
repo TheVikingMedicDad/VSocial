@@ -1,0 +1,11 @@
+<div class="csd-public-toolbar">
+  <mat-toolbar fxLayout="row">
+    <a routerLink="/">
+      <img fxShow fxHide.xs="true" class="csd-logo-image" [src]="logoImage" />
+      <img fxHide fxShow.xs="true" class="csd-logo-image" src="/assets/images/logo_rect_dark.svg" />
+    </a>
+
+    <div fxFlex=""></div>
+    <csd-language-chooser></csd-language-chooser>
+  </mat-toolbar>
+</div>

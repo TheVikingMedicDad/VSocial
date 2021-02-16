@@ -1,0 +1,9 @@
+<div class="dta-todo-list-page csd-page">
+  <h1 class="csd-title">{{ 'PAGE_TITLE.TODO_LIST' | i18next }}</h1>
+  <dta-todo-list
+    [dataSource]="dataSource"
+    (savedItem)="saveTodo($event)"
+    (deletedItem)="deleteTodo($event)"
+  ></dta-todo-list>
+  <dta-todo-add (addedTodo)="addTodo($event)"></dta-todo-add>
+</div>

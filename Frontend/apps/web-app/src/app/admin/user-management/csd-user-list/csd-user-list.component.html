@@ -1,0 +1,178 @@
+<div class="csd-user-list">
+  <div class="csd-top-action-bar">
+    <button class="csd-add-button" mat-button (click)="addNewUser()">
+      <mat-icon>add</mat-icon>
+      {{ 'USER_LIST.ADD_NEW_BUTTON' | i18next }}
+    </button>
+  </div>
+  <csd-model-list-wrapper
+    [dataSource]="dataSource"
+    [filters]="filters"
+    [filterFieldTranslationPattern]="filterFieldTranslationPattern"
+  >
+    <ng-container *ngTemplateOutlet="tableContainer"></ng-container>
+  </csd-model-list-wrapper>
+</div>
+
+<ng-template #tableContainer>
+  <div class="csd-table-container">
+    <table
+      mat-table
+      class="csd-full-width-table"
+      [dataSource]="dataSource"
+      matSort
+      csdMatSortDatasourceConnector
+      aria-label="Elements"
+    >
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+            (change)="$event ? masterToggle() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+          >
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)"
+          >
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+      </ng-container>
+
+      <!-- User Image -->
+      <ng-container matColumnDef="userImage">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row">
+          <div class="profileImage">
+            <img
+              class="centered-and-cropped"
+              [src]="!!row.profileImage ? row.profileImage : avatarUrl"
+            />
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- FirstName Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'MODEL.USER.FORM.FIRST_NAME.LABEL' | i18next }}
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.firstName }}</td>
+      </ng-container>
+
+      <!-- LastName Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'MODEL.USER.FORM.LAST_NAME.LABEL' | i18next }}
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.lastName }}</td>
+      </ng-container>
+
+      <!-- email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'MODEL.USER.FORM.EMAIL.LABEL' | i18next }}
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+      </ng-container>
+
+      <!-- language Column -->
+      <ng-container matColumnDef="language">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'MODEL.USER.FORM.LANGUAGE.LABEL' | i18next }}
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.language }}</td>
+      </ng-container>
+
+      <!-- {% if carrot_creator.feature_base_bi_system %} -->
+      <!-- lastEvent Column -->
+      <ng-container matColumnDef="lastEvent">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'MODEL.USER.FORM.LAST_EVENT.LABEL' | i18next }}
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.lastEvent }}</td>
+      </ng-container>
+      <!-- {% endif %} -->
+
+      <!-- tags Column -->
+      <ng-container matColumnDef="tags">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'MODEL.USER.FORM.TAGS.LABEL' | i18next }}
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <ng-container *ngIf="getTags(row) as tags">
+            <mat-chip-list *ngIf="tags.length > 0">
+              <mat-chip *ngFor="let tag of tags.slice(0, 2)">{{ tag.name }}</mat-chip>
+              <span *ngIf="tags.length > 2">...</span>
+            </mat-chip-list>
+          </ng-container>
+        </td>
+      </ng-container>
+
+      <!-- lastSeen Column -->
+      <ng-container matColumnDef="lastLogin">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'MODEL.USER.FORM.LAST_LOGIN.LABEL' | i18next }}
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <ng-container *ngIf="row.lastLogin">
+            {{ row.lastLogin | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm' }}
+          </ng-container>
+          <ng-container *ngIf="!row.lastLogin"> - </ng-container>
+        </td>
+      </ng-container>
+
+      <!-- registeredAt Column -->
+      <ng-container matColumnDef="dateJoined">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'MODEL.USER.FORM.DATE_JOINED.LABEL' | i18next }}
+        </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.dateJoined | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm' }}
+        </td>
+      </ng-container>
+
+      <!-- Actions -->
+      <ng-container matColumnDef="actions">
+        <th class="csd-actions-header" mat-header-cell *matHeaderCellDef>
+          <button class="csd-more-button" mat-icon-button [matMenuTriggerFor]="csdMoreMenu">
+            <mat-icon aria-label="menu">more_horiz</mat-icon>
+          </button>
+          <mat-menu #csdMoreMenu="matMenu">
+            <button mat-menu-item (click)="exportUserList()">
+              {{ 'USER_LIST.EXPORT_CSV' | i18next }}
+            </button>
+          </mat-menu>
+        </th>
+        <td class="csd-actions" mat-cell *matCellDef="let row">
+          <button class="csd-view-button" mat-icon-button (click)="viewUser(row.id)">
+            <mat-icon aria-label="view">visibility</mat-icon>
+          </button>
+          <button class="csd-edit-button" mat-icon-button (click)="editUser(row.id)">
+            <mat-icon aria-label="edit">edit</mat-icon>
+          </button>
+          <button class="csd-delete-button" mat-icon-button (click)="deleteUser(row.id)">
+            <mat-icon aria-label="delete">delete</mat-icon>
+          </button>
+          <button class="csd-more-button" mat-icon-button (click)="resetPassword(row.id)">
+            <mat-icon aria-label="menu">more_horiz</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</ng-template>

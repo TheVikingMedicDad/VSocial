@@ -1,0 +1,31 @@
+@mixin csd-mat-radio($theme, $typo) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .mat-radio-button {
+    .mat-radio-checked .mat-radio-ripple .mat-ripple-element {
+      background-color: mat-color($primary, 500);
+    }
+    &:not(.mat-radio-checked) .mat-radio-ripple .mat-ripple-element {
+      background-color: mat-color($primary, '50-contrast');
+    }
+    .mat-radio-outer-circle {
+      border-color: mat-color($primary, '300-contrast');
+    }
+    &.mat-radio-disabled {
+      pointer-events: none;
+      .mat-radio-container {
+        .mat-radio-inner-circle {
+          background-color: mat-color($warn, '500-contrast');
+        }
+        .mat-radio-outer-circle {
+          border-color: mat-color($warn, '500-contrast');
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<div class="csd-confirm-email">
+  <img class="csd-email-image" src="/assets/images/misc_email_lg.svg" />
+  <div class="csd-in-progress" *ngIf="inProgress">
+    <h1 class="csd-title">{{ 'CONFIRM_EMAIL_PAGE.IN_PROGRESS_TITLE' | i18next }}</h1>
+    <p class="csd-description" [innerHtml]="'CONFIRM_EMAIL_PAGE.IN_PROGRESS_INFO' | i18next"></p>
+  </div>
+  <div class="csd-succeeded" *ngIf="!inProgress && confirmed">
+    <h1 class="csd-title">
+      {{ 'CONFIRM_EMAIL_PAGE.EMAIL_CONFIRMED_SUCCESSFULLY_TITLE' | i18next }}
+    </h1>
+    <p
+      class="csd-description"
+      [innerHtml]="'CONFIRM_EMAIL_PAGE.EMAIL_CONFIRMED_SUCCESSFULLY_INFO' | i18next"
+    ></p>
+    <a [routerLink]="accountUrl" class="csd-go-to-account-button" color="primary" mat-flat-button>{{
+      'CONFIRM_EMAIL_PAGE.GO_TO_ACCOUNT_BUTTON' | i18next
+    }}</a>
+  </div>
+  <div class="csd-failed" *ngIf="!inProgress && invalidToken">
+    <h1 class="csd-title">{{ 'CONFIRM_EMAIL_PAGE.ERROR.TOKEN_INVALID_TITLE' | i18next }}</h1>
+    <p
+      class="csd-description"
+      [innerHtml]="'CONFIRM_EMAIL_PAGE.ERROR.TOKEN_INVALID_INFO' | i18next"
+    ></p>
+  </div>
+  <div class="csd-failed" *ngIf="!inProgress && duplicateEmail">
+    <h1 class="csd-title">{{ 'CONFIRM_EMAIL_PAGE.ERROR.EMAIL_AREADY_EXISTS_TITLE' | i18next }}</h1>
+    <p
+      class="csd-description"
+      [innerHtml]="'CONFIRM_EMAIL_PAGE.ERROR.EMAIL_AREADY_EXISTS_INFO' | i18next"
+    ></p>
+  </div>
+  <div class="csd-failed" *ngIf="!inProgress && otherError">
+    <h1 class="csd-title">{{ 'CONFIRM_EMAIL_PAGE.ERROR.OTHER_ERROR_TITLE' | i18next }}</h1>
+    <p
+      class="csd-description"
+      [innerHtml]="'CONFIRM_EMAIL_PAGE.ERROR.OTHER_ERROR_INFO' | i18next"
+    ></p>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="csd-select" [ngClass]="{ 'csd-disabled': disabled }">
+  <mat-chip-list
+    class="csd-chip-list"
+    [disabled]="disabled"
+    [ngClass]="{ 'csd-disabled': disabled }"
+    *ngIf="valuesToShow?.length > 0 && multiple"
+    (click)="matSelect.toggle()"
+    #csdChipList
+  >
+    <span class="csd-value-chips">
+      <mat-chip
+        class="csd-chip"
+        [ngClass]="{ 'csd-disabled': disabled, 'csd-no-remove-chip': !chipRemovable }"
+        *ngFor="let data of valuesToShow"
+        [removable]="chipRemovable"
+        (removed)="deselect(data)"
+        (click)="matSelect.toggle()"
+      >
+        {{ data[chipKey] }}
+        <mat-icon class="csd-remove-icon" matChipRemove *ngIf="chipRemovable && !disabled"
+          >cancel</mat-icon
+        >
+      </mat-chip>
+      <span *ngIf="valuesToShow && selectedData.length !== valuesToShow.length">...</span>
+    </span>
+    <mat-chip
+      class="csd-number-chip csd-chip"
+      (click)="matSelect.toggle()"
+      *ngIf="valuesToShow && selectedData.length !== valuesToShow.length"
+      #csdNumberChip
+      >{{ value.length - valuesToShow.length }}</mat-chip
+    >
+  </mat-chip-list>
+  <ng-template [ngIf]="!multiple">
+    <div
+      class="csd-single-select-value"
+      [ngClass]="{ 'csd-disabled': disabled }"
+      *ngFor="let data of value"
+      (click)="matSelect.toggle()"
+    >
+      {{ data[chipKey] }}
+    </div>
+  </ng-template>
+  <mat-select
+    class="mat-select"
+    [(value)]="value"
+    [multiple]="multiple"
+    [disabled]="disabled"
+    [ngClass]="{ 'csd-disabled': disabled }"
+    #matSelect
+  >
+    <mat-option *ngIf="search" class="csd-search">
+      <ngx-mat-select-search
+        #matSearch
+        ngModel
+        (ngModelChange)="filterDropdown($event)"
+        [placeholderLabel]="searchLabel"
+        [noEntriesFoundLabel]="noEntriesFoundLabel"
+        (keydown)="_handleKeydown($event)"
+      >
+      </ngx-mat-select-search>
+    </mat-option>
+    <ng-template [ngIf]="!!csdTop">
+      <div class="csd-top" fxLayoutAlign="center center" #csdTop>
+        <ng-content select="csd-top"></ng-content>
+      </div>
+    </ng-template>
+    <!--https://alligator.io/angular/reusable-components-ngtemplateoutlet/-->
+    <ng-container *ngIf="multiple; else singleDropdown">
+      <ng-container *ngFor="let item of filteredSelectedData">
+        <ng-container
+          *ngTemplateOutlet="csdItemContentTemplate; context: { $implicit: item }"
+        ></ng-container>
+      </ng-container>
+      <hr *ngIf="filteredSelectedData?.length > 0 && filteredUnselectedData?.length > 0" />
+      <ng-container *ngFor="let item of filteredUnselectedData">
+        <ng-container
+          *ngTemplateOutlet="csdItemContentTemplate; context: { $implicit: item }"
+        ></ng-container>
+      </ng-container>
+    </ng-container>
+    <ng-template #singleDropdown>
+      <ng-container *ngFor="let item of filteredData">
+        <ng-container
+          *ngTemplateOutlet="csdItemContentTemplate; context: { $implicit: item }"
+        ></ng-container>
+      </ng-container>
+    </ng-template>
+    <div
+      fxLayoutAlign="center center"
+      class="csd-no-entries-found"
+      [fxHide]="filteredData && filteredData.length !== 0"
+    >
+      {{ noEntriesFoundLabel }}
+    </div>
+    <ng-template [ngIf]="!!csdBottom">
+      <div class="csd-bottom" fxLayoutAlign="center center" #csdBottom>
+        <ng-content select="csd-bottom"></ng-content>
+      </div>
+    </ng-template>
+  </mat-select>
+</div>

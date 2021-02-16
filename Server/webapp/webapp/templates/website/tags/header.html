@@ -1,0 +1,41 @@
+{% load static wagtailcore_tags menu_tags i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="csd-header-section">
+  <div class="csd-container">
+    <div class="csd-top-logo">
+      <a href="/"><img src="{% static "images/logo_rect_dark.svg" %}" alt="Logo"></a>
+    </div>
+    <div class="csd-flex-spacer"></div>
+    <div class="csd-header-main-menu">
+      {% flat_menu handle='header_main_'|add:LANGUAGE_CODE %}
+    </div>
+    <div class="csd-flex-spacer"></div>
+    <div class="csd-header-secondary-menu">
+      {% flat_menu handle='header_secondary_'|add:LANGUAGE_CODE %}
+    </div>
+    <!-- Menu mobile -->
+    <div id="csdMobileMenuToggle">
+      <!--
+                  A fake / hidden checkbox is used as click reciever,
+                  so you can use the :checked selector on it.
+                  -->
+      <input id="csdMobileMenuCheckbox" type="checkbox"/>
+
+      <!--
+                  Some spans to act as a hamburger.
+
+                  They are acting like a real hamburger,
+                  not that McDonalds stuff.
+                  -->
+      <span></span>
+      <span></span>
+      <span></span>
+      <div class="csd-mobile-menu-container">
+        <div class="csd-top-menu">
+          {% flat_menu handle='header_main_'|add:LANGUAGE_CODE %}
+          {% flat_menu handle='header_secondary_'|add:LANGUAGE_CODE %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
